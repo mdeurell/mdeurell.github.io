@@ -36,6 +36,12 @@ main a:hover {
   color: #f59e0b;
 }
 
+/* Keep button-like anchor CTAs readable on amber backgrounds. */
+main a.cta-link,
+main a.cta-link:hover {
+  color: #020617;
+}
+
 /* Preserve nav color behavior and existing active-link styling. */
 nav a,
 nav a:hover {
