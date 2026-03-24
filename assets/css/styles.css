@@ -60,7 +60,11 @@ footer {
 
 /* Active link styling */
 nav a.active {
-  color: #fbbf24;
-  font-weight: 600;
+  color: #fbbf24 !important;
+  font-weight: 600 !important;
+}
+
+nav a.active i {
+  color: #fbbf24 !important;
 }
 
