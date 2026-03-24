@@ -12,5 +12,18 @@ description: Om siden og projektets retning.
   {% include nav.html %}
   {% include content.html %}
   {% include footer.html %}
+
+  <!-- Content Overlay -->
+  <div id="contentOverlay" class="overlay">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <span></span>
+        <button class="overlay-close" aria-label="Luk overlay">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <iframe id="overlayFrame" class="overlay-iframe" title="Overlay content"></iframe>
+    </div>
+  </div>
 </body>
 </html>

@@ -14,3 +14,43 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ 'now' | date: '%s' }}">
+
+<script>
+  // Overlay functionality
+  function openOverlay(htmlFile = 'test.html') {
+    const overlay = document.getElementById('contentOverlay');
+    const iframe = document.getElementById('overlayFrame');
+    iframe.src = htmlFile;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    const overlay = document.getElementById('contentOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('contentOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeOverlay();
+        }
+      });
+
+      const closeBtn = document.querySelector('.overlay-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeOverlay);
+      }
+    }
+
+    // Close overlay on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('contentOverlay').classList.contains('active')) {
+        closeOverlay();
+      }
+    });
+  });
+</script>
