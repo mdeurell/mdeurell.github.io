@@ -9,11 +9,11 @@
 
     <!-- Desktop Menu -->
     <ul class="hidden items-center gap-5 text-sm text-slate-300 md:flex">
-      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white flex items-center gap-2"><i class="fa-solid fa-home text-xs"></i>Home</a></li>
-      <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white flex items-center gap-2"><i class="fa-solid fa-layer-group text-xs"></i>Assignment 1</a></li>
-      <li><a href="{{ '/assignment-2/' | relative_url }}" class="transition hover:text-white flex items-center gap-2"><i class="fa-solid fa-chart-bar text-xs"></i>Assignment 2</a></li>
-      <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white flex items-center gap-2"><i class="fa-solid fa-star text-xs"></i>Final assignment</a></li>
-      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white flex items-center gap-2"><i class="fa-solid fa-envelope text-xs"></i>Kontakt</a></li>
+      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white flex items-center gap-2 {% if page.url == '/' %}active{% endif %}"><i class="fa-solid fa-home text-xs"></i>About</a></li>
+      <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white flex items-center gap-2 {% if page.url == '/assignment-1/' %}active{% endif %}"><i class="fa-solid fa-layer-group text-xs"></i>Assignment 1</a></li>
+      <li><a href="{{ '/assignment-2/' | relative_url }}" class="transition hover:text-white flex items-center gap-2 {% if page.url == '/assignment-2/' %}active{% endif %}"><i class="fa-solid fa-chart-bar text-xs"></i>Assignment 2</a></li>
+      <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white flex items-center gap-2 {% if page.url == '/final-assignment/' %}active{% endif %}"><i class="fa-solid fa-star text-xs"></i>Final assignment</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white flex items-center gap-2 {% if page.url == '/contact/' %}active{% endif %}"><i class="fa-solid fa-envelope text-xs"></i>Kontakt</a></li>
     </ul>
 
     <!-- Hamburger Button -->
@@ -25,23 +25,23 @@
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu" class="mobile-menu-overlay hidden">
     <ul class="flex flex-col gap-4 py-6 px-6 text-sm text-slate-300">
-      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/' %}active{% endif %}">
+      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/' %}text-amber-400 font-bold{% endif %}">
         <i class="fa-solid fa-home text-sm"></i>
-        <span>Home</span>
+        <span>About</span>
       </a></li>
-      <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/assignment-1/' %}active{% endif %}">
+      <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/assignment-1/' %}text-amber-400 font-bold{% endif %}">
         <i class="fa-solid fa-layer-group text-sm"></i>
         <span>Assignment 1</span>
       </a></li>
-      <li><a href="{{ '/assignment-2/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/assignment-2/' %}active{% endif %}">
+      <li><a href="{{ '/assignment-2/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/assignment-2/' %}text-amber-400 font-bold{% endif %}">
         <i class="fa-solid fa-chart-bar text-sm"></i>
         <span>Assignment 2</span>
       </a></li>
-      <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/final-assignment/' %}active{% endif %}">
+      <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/final-assignment/' %}text-amber-400 font-bold{% endif %}">
         <i class="fa-solid fa-star text-sm"></i>
         <span>Final assignment</span>
       </a></li>
-      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/contact/' %}active{% endif %}">
+      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white flex items-center gap-3 {% if page.url == '/contact/' %}text-amber-400 font-bold{% endif %}">
         <i class="fa-solid fa-envelope text-sm"></i>
         <span>Kontakt</span>
       </a></li>
