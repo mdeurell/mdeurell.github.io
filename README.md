@@ -9,6 +9,9 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 - `_includes/footer.html`
 - `assets/css/styles.css`
 - `contact.html`
+- `assignment-1.html`
+- `assignment-2.html`
+- `final-assignment.html`
 - `scripts/data/` til CSV-filer
 - `_config.yml`
 
@@ -30,7 +33,10 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 │  └─ data/
 │     └─ .gitkeep
 ├─ index.html
-└─ contact.html
+├─ contact.html
+├─ assignment-1.html
+├─ assignment-2.html
+└─ final-assignment.html
 ```
 
 ## Bemærkning om Tailwind
