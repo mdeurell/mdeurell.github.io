@@ -29,8 +29,8 @@ a {
 }
 
 footer {
-  min-height: 80px;
-  height: 80px;
+  min-height: 100px;
+  height: 100px;
   padding: 1rem;
   display: flex;
   align-items: center;
