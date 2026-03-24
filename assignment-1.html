@@ -23,7 +23,7 @@ permalink: /assignment-1/
       </p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/py/assignment_a1_group25.ipynb" class="rounded-md bg-slate-800 px-5 py-3 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 flex items-center gap-2">
+        <a href="{{ '/assets/py/assignment_a1_group25.ipynb' | relative_url }}" class="rounded-md bg-slate-800 px-5 py-3 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 flex items-center gap-2">
           <i class="fa-solid fa-download text-xs"></i>
           Download notebook
         </a>
@@ -42,8 +42,8 @@ permalink: /assignment-1/
           <h3 class="text-lg font-semibold text-slate-100">Distribution analysis</h3>
           <p class="mt-2 text-sm text-slate-300">Histogram showing data distribution in the dataset.</p>
           <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+            <button onclick="openOverlay('{{ '/ass_1_1.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
+            <button onclick="openOverlay('{{ '/ass_1_2.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -57,8 +57,8 @@ permalink: /assignment-1/
           <h3 class="text-lg font-semibold text-slate-100">Correlation matrix</h3>
           <p class="mt-2 text-sm text-slate-300">Visual correlations between variables in the dataset.</p>
           <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+            <button onclick="openOverlay('{{ '/ass_1_3.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
+            <button onclick="openOverlay('{{ '/ass_1_4.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -72,8 +72,8 @@ permalink: /assignment-1/
           <h3 class="text-lg font-semibold text-slate-100">Time series plot</h3>
           <p class="mt-2 text-sm text-slate-300">Evolution of variables over time.</p>
           <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+            <button onclick="openOverlay('{{ '/ass_1_5.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
+            <button onclick="openOverlay('{{ '/ass_1_5_interactive.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
