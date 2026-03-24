@@ -57,3 +57,10 @@ footer {
 .mobile-menu-overlay.hidden {
   display: none;
 }
+
+/* Active link styling */
+nav a.active {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
