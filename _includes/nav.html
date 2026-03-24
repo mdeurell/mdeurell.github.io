@@ -7,6 +7,7 @@
       <span>mdeurell.github.io</span>
     </a>
 
+    <!-- Desktop Menu -->
     <ul class="hidden items-center gap-5 text-sm text-slate-300 md:flex">
       <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white">About</a></li>
       <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white">Assignment 1</a></li>
@@ -14,5 +15,39 @@
       <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white">Final assignment</a></li>
       <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white">Kontakt</a></li>
     </ul>
+
+    <!-- Hamburger Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white transition" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="mobile-menu-overlay hidden">
+    <ul class="flex flex-col gap-6 py-6 px-6 text-sm text-slate-300">
+      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white block">About</a></li>
+      <li><a href="{{ '/assignment-1/' | relative_url }}" class="transition hover:text-white block">Assignment 1</a></li>
+      <li><a href="{{ '/assignment-2/' | relative_url }}" class="transition hover:text-white block">Assignment 2</a></li>
+      <li><a href="{{ '/final-assignment/' | relative_url }}" class="transition hover:text-white block">Final assignment</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white block">Kontakt</a></li>
+    </ul>
   </div>
 </nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Luk menu når der klikkes på et link
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
+
