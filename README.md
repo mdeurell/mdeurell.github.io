@@ -4,7 +4,6 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 
 - `_includes/head.html`
 - `_includes/nav.html`
-- `_includes/header.html`
 - `_includes/content.html`
 - `_includes/footer.html`
 - `assets/css/styles.css`
@@ -24,7 +23,6 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 │  ├─ content.html
 │  ├─ footer.html
 │  ├─ head.html
-│  ├─ header.html
 │  └─ nav.html
 ├─ assets/
 │  └─ css/

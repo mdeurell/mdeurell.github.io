@@ -28,12 +28,6 @@ a {
   color: inherit;
 }
 
-header {
-  position: sticky !important;
-  top: 60px;
-  z-index: 39;
-}
-
 footer {
   display: flex !important;
   flex-direction: column;
