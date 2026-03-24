@@ -22,19 +22,6 @@
 <!-- CSS with cache buster -->
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
 
-<!-- Meta refresh for development/hard refresh -->
-<script>
-  // Prevent caching by always loading with cache buster
-  if (!window.location.search.includes('nocache')) {
-    if (performance.navigation.type === 1) {
-      // Page was reloaded, apply cache busting
-      document.addEventListener('DOMContentLoaded', function() {
-        // Force refresh of all resources
-        window.location.reload(true);
-      });
-    }
-  }
-</script>
 
 <script>
   // Overlay functionality
