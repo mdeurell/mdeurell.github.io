@@ -35,9 +35,6 @@ header {
 }
 
 footer {
-  height: 100px !important;
-  padding: 1rem !important;
   display: flex !important;
-  align-items: center !important;
-  box-sizing: border-box !important;
+  flex-direction: column;
 }
