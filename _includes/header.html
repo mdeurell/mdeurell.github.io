@@ -1,9 +1,25 @@
 <header class="border-b border-slate-700/70 bg-transparent">
   <div class="mx-auto max-w-6xl px-6 py-6">
     <div class="flex flex-wrap items-center gap-2 text-sm text-slate-400">
-      <a href="{{ '/' | relative_url }}" class="hover:text-slate-100">About</a>
+      <a href="{{ '/' | relative_url }}" class="hover:text-slate-100 flex items-center gap-1">
+        <i class="fa-solid fa-home text-xs"></i>
+        About
+      </a>
       <span>/</span>
-      <span class="text-slate-100">{{ page.title | default: 'Untitled' }}</span>
+      <div class="flex items-center gap-1 text-slate-100">
+        {% if page.title == "Assignment 1" %}
+          <i class="fa-solid fa-layer-group text-xs"></i>
+        {% elsif page.title == "Assignment 2" %}
+          <i class="fa-solid fa-chart-bar text-xs"></i>
+        {% elsif page.title == "Final assignment" %}
+          <i class="fa-solid fa-star text-xs"></i>
+        {% elsif page.title == "Kontakt" %}
+          <i class="fa-solid fa-envelope text-xs"></i>
+        {% else %}
+          <i class="fa-solid fa-page text-xs"></i>
+        {% endif %}
+        <span>{{ page.title | default: 'Untitled' }}</span>
+      </div>
     </div>
   </div>
 </header>
