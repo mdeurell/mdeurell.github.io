@@ -1,23 +1,21 @@
-<nav class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+<nav class="sticky top-0 z-50 border-b border-slate-700/70 bg-slate-950/85 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 text-sm font-semibold tracking-wide text-slate-900">
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-100">
-        <i class="fa-solid fa-cubes-stacked text-slate-700"></i>
+    <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 text-sm font-semibold tracking-wide text-slate-100">
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-600 bg-slate-800">
+        <i class="fa-solid fa-cubes-stacked text-slate-200"></i>
       </span>
       <span>mdeurell.github.io</span>
     </a>
 
-    <ul class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
-      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-slate-950">Home</a></li>
-      <li><a href="#" class="transition hover:text-slate-950">Projects</a></li>
-      <li><a href="#" class="transition hover:text-slate-950">Data</a></li>
-      <li><a href="#" class="transition hover:text-slate-950">About</a></li>
-      <li><a href="#" class="transition hover:text-slate-950">Contact</a></li>
+    <ul class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+      <li><a href="{{ '/' | relative_url }}" class="transition hover:text-white">About</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}" class="transition hover:text-white">Kontakt</a></li>
+      <li><span class="cursor-default text-slate-500">Data (kommer snart)</span></li>
     </ul>
 
-    <a href="#" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:-translate-y-0.5">
-      <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      External Link
+    <a href="{{ '/contact/' | relative_url }}" class="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5">
+      <i class="fa-solid fa-envelope text-xs"></i>
+      Kontakt
     </a>
   </div>
 </nav>

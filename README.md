@@ -8,6 +8,8 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 - `_includes/content.html`
 - `_includes/footer.html`
 - `assets/css/styles.css`
+- `contact.html`
+- `scripts/data/` til CSV-filer
 - `_config.yml`
 
 ## Struktur
@@ -24,7 +26,11 @@ Dette er et minimalt GitHub Pages/Jekyll-setup med:
 ├─ assets/
 │  └─ css/
 │     └─ styles.css
-└─ index.html
+├─ scripts/
+│  └─ data/
+│     └─ .gitkeep
+├─ index.html
+└─ contact.html
 ```
 
 ## Bemærkning om Tailwind
