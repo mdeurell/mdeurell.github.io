@@ -28,6 +28,21 @@ a {
   color: inherit;
 }
 
+/* Keep content links on the same orange as the front-page test button. */
+main a {
+  color: #d97706;
+}
+
+main a:hover {
+  color: #f59e0b;
+}
+
+/* Preserve nav color behavior and existing active-link styling. */
+nav a,
+nav a:hover {
+  color: inherit;
+}
+
 footer {
   display: flex !important;
   flex-direction: column;
@@ -88,8 +103,8 @@ nav a.active i {
 .overlay-content {
   background: #1e293b;
   border-radius: 0.375rem;
-  width: calc(100vw - 20px);
-  height: calc(100vh - 20px);
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
   max-width: 100%;
   max-height: 100%;
   display: flex;
