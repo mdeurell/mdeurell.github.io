@@ -56,26 +56,14 @@
           Dette projekt demonstrerer databehandling, statistisk analyse og moderne visualiseringsteknikker
           med Python, Pandas, Plotly og Folium. Vælg en assignment ovenfor for at se detaljerne.
         </p>
-          <button onclick="openOverlay('test.html')">Åbn plot</button>
+        <button
+          onclick="openOverlay('test.html')"
+          class="mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-600 hover:bg-amber-700 px-6 py-3 font-semibold text-white transition duration-200"
+        >
+          <i class="fas fa-window-maximize"></i>
+          Test Overlay
+        </button>
       </div>
     </div>
   </section>
-
-  <!-- Test Overlay Button -->
-  <div class="mt-10 text-center">
-    <button
-      onclick="openOverlay('test.html')"
-      class="inline-flex items-center gap-2 rounded-lg bg-amber-600 hover:bg-amber-700 px-6 py-3 font-semibold text-white transition duration-200"
-    >
-      <i class="fas fa-window-maximize"></i>
-      Test Overlay
-    </button>
-      <button onclick="openOverlay()">Åbn</button>
-
-<!-- Åbner specifik HTML-fil -->
-<button onclick="openOverlay('path/to/file.html')">Åbn plot</button>
-
-<!-- Med link -->
-<a href="javascript:void(0)" onclick="openOverlay('plots/chart.html')">Se visualisering</a>
-  </div>
 </main>
