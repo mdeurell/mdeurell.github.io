@@ -1,0 +1,16 @@
+title: "mdeurell.github.io"
+description: "Minimalistisk Jekyll + Tailwind starter"
+url: "https://mdeurell.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - .idea/
+  - .vscode/
+  - vendor/
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
