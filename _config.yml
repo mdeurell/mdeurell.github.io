@@ -3,8 +3,16 @@ description: "Minimalistisk Jekyll + Tailwind starter"
 url: "https://mdeurell.github.io"
 baseurl: ""
 
+# Build settings
 markdown: kramdown
 permalink: pretty
+future: false
+# Force rebuild every time
+incremental: false
+
+# Cache busting
+sass:
+  style: compressed
 
 exclude:
   - README.md
