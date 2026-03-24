@@ -1,19 +1,21 @@
 <footer class="border-t border-slate-700/70 bg-transparent">
-  <div class="mx-auto max-w-6xl flex flex-col gap-4 px-6 py-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-    <div class="flex items-start gap-4">
-        <div class="p-1 bg-white rounded-md">
-            <img src="{{ '/assets/img/Corp_Red_RGB.svg' | relative_url }}" alt="DTU logo" class="h-18 w-auto shrink-0">
+  <div class="mx-auto w-full max-w-6xl px-6 py-8">
+    <div class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between text-sm text-slate-400">
+      <div class="flex items-start gap-4">
+        <div class="p-1 bg-white rounded-md shrink-0">
+          <img src="{{ '/assets/img/Corp_Red_RGB.svg' | relative_url }}" alt="DTU logo" class="h-12 w-auto">
         </div>
-        <div class="items-center">
-            <p class="font-medium text-slate-200">Group 25</p>
-            <p>s206073 - Morten Deurell</p>
-            <p>s215000 - Andreas Rattenborg Holm-Hansen</p>
-            <p>s195377 - Niels Christian Grønlykke</p>
+        <div>
+          <p class="font-medium text-slate-200">Team 25</p>
+          <p>s206073 - Morten Deurell</p>
+          <p>s215000 - Andreas Rattenborg Holm-Hansen</p>
+          <p>s195377 - Niels Christian Grønlykke</p>
         </div>
-    </div>
+      </div>
 
-    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4">
         <span>© {{ 'now' | date: '%Y' }}</span>
+      </div>
     </div>
   </div>
 </footer>

@@ -1,7 +1,7 @@
 ---
 layout: null
 title: Assignment 1
-description: Placeholder for Assignment 1.
+description: Første opgave med dataanalyse og visualiseringer.
 permalink: /assignment-1/
 ---
 <!doctype html>
@@ -14,10 +14,132 @@ permalink: /assignment-1/
   {% include header.html %}
 
   <main class="mx-auto max-w-6xl px-6 py-12">
-    <section class="rounded-3xl border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
+    <!-- Projekt Intro -->
+    <section class="mb-12 rounded-3xl border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Assignment 1</p>
-      <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">Indhold kommer snart</h2>
-      <p class="mt-4 max-w-2xl text-slate-300">Denne side er klar til materialet for Assignment 1.</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">Dataindsamling og grundlæggende visualisering</h1>
+      <p class="mt-4 max-w-3xl text-slate-300">
+        Første assignment fokuserer på indsamling af data, grundlæggende statistisk analyse og simple visualiseringer.
+        Her lærer du at arbejde med CSV-filer, netop at bearbejde rådata og lave første visualiseringer med statiske plots.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#" class="rounded-xl bg-slate-100 px-5 py-3 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 flex items-center gap-2">
+          <i class="fa-solid fa-download text-xs"></i>
+          Download notebook
+        </a>
+        <a href="#" class="rounded-xl border border-slate-600 bg-slate-800 px-5 py-3 text-sm font-medium text-slate-100 transition hover:-translate-y-0.5 flex items-center gap-2">
+          <i class="fa-solid fa-database text-xs"></i>
+          Download data
+        </a>
+      </div>
+    </section>
+
+    <!-- Statiske plots -->
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Statiske visualiseringer</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Plot 1 -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-image text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Distribution analyse</h3>
+          <p class="mt-2 text-sm text-slate-300">Histogram over fordelingen af data i datasættet.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Plot 2 -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-image text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Korrelation matrix</h3>
+          <p class="mt-2 text-sm text-slate-300">Visuelle korrelationer mellem variabler i datasættet.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Plot 3 -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-image text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Tid-serier plot</h3>
+          <p class="mt-2 text-sm text-slate-300">Udviklingen af variabler over tid.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plotly interaktive plots -->
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Interaktive plots (Plotly)</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Interactive 1 -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-chart-line text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Interaktiv scatter plot</h3>
+          <p class="mt-2 text-sm text-slate-300">Zoombar og tilmeldbar scatter plot med hover-information.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive 2 -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-chart-bar text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Interaktiv bar chart</h3>
+          <p class="mt-2 text-sm text-slate-300">Kategorisk sammenligning med click-interaktion.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Folium kort -->
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Geografisk visualisering (Folium)</h2>
+      <div class="grid gap-6">
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+            <i class="fa-solid fa-map text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Kort over datapunkter</h3>
+          <p class="mt-2 text-sm text-slate-300">Interaktivt Leaflet-kort med geografisk fordeling af data.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Åbn</button>
+            <button class="rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
+              <i class="fa-solid fa-download"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
