@@ -18,12 +18,18 @@ permalink: /assignment-1/
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Assignment 1</p>
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">Data collection and basic visualization</h1>
       <p class="mt-4 max-w-3xl text-slate-300">
-        The first assignment focuses on data collection, basic statistical analysis and simple visualizations.
-        Learn to work with CSV files, process raw data and create initial visualizations with static plots.
+        This assignment analyzes selected crime categories in San Francisco from 2003 to 2025.
+        The dataset is filtered from city incident records and used to study temporal trends, district profiles,
+        distribution patterns, spatial concentration, and cross-category relationships through static and interactive plots.
+      </p>
+      <p class="mt-4 text-sm font-semibold text-slate-200">Selected crime categories:</p>
+      <p class="mt-2 max-w-4xl text-sm text-slate-300">
+        Arson, Assault, Burglary, Drug Offense, Homicide, Larceny Theft, Motor Vehicle Theft,
+        Prostitution, Suicide, Suspicious Occ, and Vandalism.
       </p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="{{ '/assets/py/assignment_a1_group25.ipynb' | relative_url }}" class="cta-link rounded-md bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-amber-400 flex items-center gap-2">
+        <a href="{{ '/assets/py/assignment_a1_group25.ipynb' | relative_url }}" download="assignment_a1_group25.ipynb" onclick="return downloadAsFile(event, this.href, 'assignment_a1_group25.ipynb');" class="cta-link rounded-md bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-amber-400 flex items-center gap-2">
           <i class="fa-solid fa-download text-xs"></i>
           Download notebook
         </a>
@@ -148,6 +154,35 @@ permalink: /assignment-1/
       <iframe id="overlayFrame" class="overlay-iframe" title="Overlay content"></iframe>
     </div>
   </div>
+
+  <script>
+    async function downloadAsFile(event, fileUrl, filename) {
+      // Keep native browser download as fallback when JS is unavailable.
+      event.preventDefault();
+
+      try {
+        const response = await fetch(fileUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`Download failed with status ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = objectUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(objectUrl);
+      } catch (error) {
+        console.error(error);
+        window.location.href = fileUrl;
+      }
+
+      return false;
+    }
+  </script>
 </body>
 </html>
 
