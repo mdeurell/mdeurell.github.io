@@ -1,0 +1,64 @@
+/* -------------------------------------------------------
+   General site styles
+   Tailwind utility classes are applied via CDN in HTML.
+   Custom overrides and non-Tailwind styles live here.
+------------------------------------------------------- */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Constrain layout to ~860 px and centre it */
+.site-container {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ---- Navigation ---- */
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  color: #374151;          /* gray-700 */
+  font-size: 0.75rem;      /* text-xs */
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-link i {
+  font-size: 1.1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #F3F4F6; /* gray-100 */
+  color: #111827;            /* gray-900 */
+}
+
+/* ---- Mobile hamburger ---- */
+#mobile-menu {
+  display: none;
+}
+
+#mobile-menu.open {
+  display: flex;
+}
+
+/* ---- Footer ---- */
+footer a {
+  color: #6B7280;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: #374151;
+}
