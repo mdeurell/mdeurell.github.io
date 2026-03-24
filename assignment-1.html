@@ -23,59 +23,95 @@ permalink: /assignment-1/
       </p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="{{ '/assets/py/assignment_a1_group25.ipynb' | relative_url }}" class="rounded-md bg-slate-800 px-5 py-3 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 flex items-center gap-2">
+        <a href="{{ '/assets/py/assignment_a1_group25.ipynb' | relative_url }}" class="rounded-md bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-amber-400 flex items-center gap-2">
           <i class="fa-solid fa-download text-xs"></i>
           Download notebook
         </a>
       </div>
     </section>
 
-    <!-- Statiske plots -->
+    <!-- Assignment tasks -->
     <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold text-slate-100">Static visualizations</h2>
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Assignment tasks and outputs</h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Plot 1 -->
+        <!-- Assignment 1.1 -->
         <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
+            <i class="fa-solid fa-chart-line text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">Distribution analysis</h3>
-          <p class="mt-2 text-sm text-slate-300">Histogram showing data distribution in the dataset.</p>
+          <h3 class="text-lg font-semibold text-slate-100">Assignment 1.1 - Temporal overview</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Build a yearly overview of incidents for each personal focus crime across the full combined dataset.
+            The plot should cover at least 2003-2025 and clearly show long-term movement in activity.
+            Use labels, legend, and title, then interpret major shifts such as spikes, drops, or COVID-era effects.
+          </p>
           <div class="mt-4 flex gap-2">
-            <button onclick="openOverlay('{{ '/ass_1_1.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button onclick="openOverlay('{{ '/ass_1_2.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+            <button onclick="openOverlay('{{ '/ass_1_1.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open task output</button>
           </div>
         </div>
 
-        <!-- Plot 2 -->
+        <!-- Assignment 1.2 -->
         <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
+            <i class="fa-solid fa-table-cells-large text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">Correlation matrix</h3>
-          <p class="mt-2 text-sm text-slate-300">Visual correlations between variables in the dataset.</p>
+          <h3 class="text-lg font-semibold text-slate-100">Assignment 1.2 - District crime profiles</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Compute conditional crime ratios for each police district to compare local crime profiles with city-wide baselines.
+            Visualize over- and under-representation across districts and focus crimes in one comparable chart view.
+            Select one standout district and explain which geographic or demographic factors might drive the pattern.
+          </p>
           <div class="mt-4 flex gap-2">
-            <button onclick="openOverlay('{{ '/ass_1_3.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button onclick="openOverlay('{{ '/ass_1_4.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+            <button onclick="openOverlay('{{ '/ass_1_2.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open task output</button>
           </div>
         </div>
 
-        <!-- Plot 3 -->
+        <!-- Assignment 1.3 -->
         <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
+            <i class="fa-solid fa-chart-scatter text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">Time series plot</h3>
-          <p class="mt-2 text-sm text-slate-300">Evolution of variables over time.</p>
+          <h3 class="text-lg font-semibold text-slate-100">Assignment 1.3 - Visualizing distributions</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Recreate core distribution views from DAOST using your own crime data: jitter plots, QQ/probability plots,
+            and box-plot style time-of-day comparisons. Use these visuals to assess data precision, normality deviations,
+            and whether crime types show distinct day/night rhythms.
+          </p>
           <div class="mt-4 flex gap-2">
-            <button onclick="openOverlay('{{ '/ass_1_5.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button onclick="openOverlay('{{ '/ass_1_5_interactive.html' | relative_url }}')" class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+            <button onclick="openOverlay('{{ '/ass_1_3.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open task output</button>
+          </div>
+        </div>
+
+        <!-- Assignment 1.4 -->
+        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+            <i class="fa-solid fa-location-dot text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Assignment 1.4 - Spatial power law</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Test whether your most frequent focus crime is spatially concentrated by counting incidents in ~100m grid cells.
+            Compare the distribution on linear and log-log axes to evaluate power-law behavior.
+            Use the result to discuss hotspot concentration and limits of neighborhood averages.
+          </p>
+          <div class="mt-4 flex gap-2">
+            <button onclick="openOverlay('{{ '/ass_1_4.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open task output</button>
+          </div>
+        </div>
+
+        <!-- Assignment 1.5 -->
+        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+            <i class="fa-solid fa-chart-column text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Assignment 1.5 - Regression and correlation</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Build 168-hour weekly vectors for at least four focus crimes and compare each pair in a scatterplot matrix.
+            Add closed-form linear regression lines and R2 scores to quantify shared weekly rhythms.
+            Use the strongest and weakest pairs to discuss which crime types move together and why.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button onclick="openOverlay('{{ '/ass_1_5.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open static output</button>
+            <button onclick="openOverlay('{{ '/ass_1_5_interactive.html' | relative_url }}')" class="rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400 transition">Open interactive output</button>
           </div>
         </div>
       </div>
