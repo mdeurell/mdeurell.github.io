@@ -21,3 +21,10 @@ a {
   color: inherit;
 }
 
+footer {
+  min-height: 80px;
+  height: 80px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
