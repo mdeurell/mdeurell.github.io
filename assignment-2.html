@@ -12,126 +12,82 @@ permalink: /assignment-2/
 <body class="min-h-screen text-slate-100 antialiased">
   {% include nav.html %}
   <main class="mx-auto max-w-6xl px-6 py-12">
-    <!-- Projekt Intro -->
+    <!-- Project Intro -->
     <section class="mb-12 rounded-md border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Assignment 2</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">Advanced analysis and interactive visualizations</h1>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">A Short Data Story</h1>
       <p class="mt-4 max-w-3xl text-slate-300">
-        The second assignment builds on more complex data processing, statistical tests and interactive visualizations.
-        Work with Plotly to create dynamic plots that allow deeper exploration of your data.
+        Assignment 2 focuses on building a concise data story from the course work completed so far,
+        following the Week 8 Part 2 Exercise 2.1 format. The page should present a clear narrative,
+        selected visual evidence, and short interpretation blocks that guide the reader from question to conclusion.
       </p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#" class="rounded-md bg-slate-100 px-5 py-3 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 flex items-center gap-2">
+        <a href="https://raw.githubusercontent.com/suneman/socialdata2026/main/assignments/Assignment2.ipynb" download="Assignment2.ipynb" class="btn-cta btn-download">
           <i class="fa-solid fa-download text-xs"></i>
           Download notebook
         </a>
-        <a href="#" class="rounded-md border border-slate-600 bg-slate-800 px-5 py-3 text-sm font-medium text-slate-100 transition hover:-translate-y-0.5 flex items-center gap-2">
-          <i class="fa-solid fa-database text-xs"></i>
-          Download data
+        <a href="https://github.com/suneman/socialdata2026/blob/main/assignments/Assignment2.ipynb" class="btn-cta btn-external" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-link text-xs"></i>
+          Open Assignment
         </a>
       </div>
     </section>
 
-    <!-- Statiske plots -->
+    <!-- Assignment tasks -->
     <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold text-slate-100">Static visualizations</h2>
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Assignment tasks and outputs</h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">Regression analysis</h3>
-          <p class="mt-2 text-sm text-slate-300">Linear regression with fitted lines.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">Box plots</h3>
-          <p class="mt-2 text-sm text-slate-300">Comparing distributions across categories.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-image text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">Heatmap</h3>
-          <p class="mt-2 text-sm text-slate-300">Intensity map of correlations and values.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Plotly interaktive plots -->
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold text-slate-100">Interactive plots (Plotly)</h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
             <i class="fa-solid fa-chart-line text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">3D scatter plot</h3>
-          <p class="mt-2 text-sm text-slate-300">Three-dimensional visualization with rotation and zoom.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+          <h3 class="text-lg font-semibold text-slate-100">2.1 - Story framing</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Placeholder for the opening section of the story: topic, motivation, and core question.
+            This box will later open the first narrative artifact in overlay mode.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              Open overlay
+            </a>
           </div>
-        </div>
+        </article>
 
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-chart-bar text-slate-300"></i>
+            <i class="fa-solid fa-sliders text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">Animated timeline</h3>
-          <p class="mt-2 text-sm text-slate-300">Interactive animation of data evolution over time.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+          <h3 class="text-lg font-semibold text-slate-100">2.2 - Visual evidence</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Placeholder for the central visuals that support the narrative.
+            This section is intended for plots or interactive views that communicate the key pattern quickly.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              Open overlay
+            </a>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- Folium kort -->
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold text-slate-100">Geographic visualization (Folium)</h2>
-      <div class="grid gap-6">
-        <div class="rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm hover:border-slate-600 transition">
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-map text-slate-300"></i>
+            <i class="fa-solid fa-chart-column text-slate-300"></i>
           </div>
-          <h3 class="text-lg font-semibold text-slate-100">Heatmap map</h3>
-          <p class="mt-2 text-sm text-slate-300">Geographic density map with color-coded values.</p>
-          <div class="mt-4 flex gap-2">
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">Open</button>
-            <button class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition">
-              <i class="fa-solid fa-download"></i>
-            </button>
+          <h3 class="text-lg font-semibold text-slate-100">2.3 - Interpretation and takeaway</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Placeholder for the final section where findings are interpreted and summarized.
+            This card should close the story with a concise takeaway and possible next steps.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              Open overlay
+            </a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>
