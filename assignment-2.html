@@ -12,20 +12,82 @@ permalink: /assignment-2/
 <body class="min-h-screen text-slate-100 antialiased">
   {% include nav.html %}
   <main class="mx-auto max-w-6xl px-6 py-12">
-    <!-- Story -->
-    <section class="rounded-md border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
+    <!-- Project Intro -->
+    <section class="mb-12 rounded-md border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Assignment 2</p>
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">A Short Data Story</h1>
       <p class="mt-4 max-w-3xl text-slate-300">
-        This assignment is presented as a single story section. Open the overlay to view the linked site
-        and use it as the content frame for the narrative.
+        Assignment 2 focuses on building a concise data story from the course work completed so far,
+        following the Week 8 Part 2 Exercise 2.1 format. The page should present a clear narrative,
+        selected visual evidence, and short interpretation blocks that guide the reader from question to conclusion.
       </p>
 
-      <div class="mt-6">
-        <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
-          <i class="fa-solid fa-magnifying-glass-chart"></i>
-          Open story overlay
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://raw.githubusercontent.com/suneman/socialdata2026/main/assignments/Assignment2.ipynb" download="Assignment2.ipynb" class="btn-cta btn-download">
+          <i class="fa-solid fa-download text-xs"></i>
+          Download notebook
         </a>
+        <a href="https://github.com/suneman/socialdata2026/blob/main/assignments/Assignment2.ipynb" class="btn-cta btn-external" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-link text-xs"></i>
+          Open Assignment
+        </a>
+      </div>
+    </section>
+
+    <!-- Assignment tasks -->
+    <section class="mb-12">
+      <h2 class="mb-6 text-2xl font-bold text-slate-100">Assignment tasks and outputs</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+            <i class="fa-solid fa-clipboard-list text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">2.1 - Story setup</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Introduces the narrative frame for the assignment, the selected San Francisco crime dataset,
+            and the central focus on how the crime categories evolve over time.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Open overlay
+            </a>
+          </div>
+        </article>
+
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+            <i class="fa-solid fa-chart-area text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">2.2 - Visual evidence</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Highlights the plotted evidence that supports the story, including trend changes,
+            category comparisons, and the visual signals that motivate the interpretation.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Open overlay
+            </a>
+          </div>
+        </article>
+
+        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+            <i class="fa-solid fa-bullseye text-slate-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">2.3 - Takeaway</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Summarizes the main conclusion from the story and leaves room for a short reflection on
+            what the reported incidents suggest about the selected crime types.
+          </p>
+          <div class="mt-auto pt-4">
+            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Open overlay
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
