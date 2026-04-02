@@ -12,82 +12,20 @@ permalink: /assignment-2/
 <body class="min-h-screen text-slate-100 antialiased">
   {% include nav.html %}
   <main class="mx-auto max-w-6xl px-6 py-12">
-    <!-- Project Intro -->
-    <section class="mb-12 rounded-md border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
+    <!-- Story -->
+    <section class="rounded-md border border-slate-700 bg-slate-900/70 p-8 shadow-sm">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Assignment 2</p>
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-100">A Short Data Story</h1>
       <p class="mt-4 max-w-3xl text-slate-300">
-        Assignment 2 focuses on building a concise data story from the course work completed so far,
-        following the Week 8 Part 2 Exercise 2.1 format. The page should present a clear narrative,
-        selected visual evidence, and short interpretation blocks that guide the reader from question to conclusion.
+        This assignment is presented as a single story section. Open the overlay to view the linked site
+        and use it as the content frame for the narrative.
       </p>
 
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://raw.githubusercontent.com/suneman/socialdata2026/main/assignments/Assignment2.ipynb" download="Assignment2.ipynb" class="btn-cta btn-download">
-          <i class="fa-solid fa-download text-xs"></i>
-          Download notebook
+      <div class="mt-6">
+        <a href="#" onclick="openOverlay('https://s195377.github.io/'); return false;" class="btn-cta btn-overlay">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          Open story overlay
         </a>
-        <a href="https://github.com/suneman/socialdata2026/blob/main/assignments/Assignment2.ipynb" class="btn-cta btn-external" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-link text-xs"></i>
-          Open Assignment
-        </a>
-      </div>
-    </section>
-
-    <!-- Assignment tasks -->
-    <section class="mb-12">
-      <h2 class="mb-6 text-2xl font-bold text-slate-100">Assignment tasks and outputs</h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-chart-line text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.1 - Story framing</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Placeholder for the opening section of the story: topic, motivation, and core question.
-            This box will later open the first narrative artifact in overlay mode.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
-
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-sliders text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.2 - Visual evidence</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Placeholder for the central visuals that support the narrative.
-            This section is intended for plots or interactive views that communicate the key pattern quickly.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
-
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-chart-column text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.3 - Interpretation and takeaway</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Placeholder for the final section where findings are interpreted and summarized.
-            This card should close the story with a concise takeaway and possible next steps.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('test.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
       </div>
     </section>
   </main>
