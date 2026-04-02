@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2 Story</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+      color: #e2e8f0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .status {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .story-root {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .story-root img,
+    .story-root iframe {
+      max-width: 100%;
+    }
+
+    .story-error {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(127, 29, 29, 0.35);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      color: #fecaca;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main id="app" class="status">Loading story content…</main>
+
+  <script>
+    const SOURCE_URL = 'https://s195377.github.io/';
+
+    function toAbsoluteUrl(value) {
+      try {
+        return new URL(value, SOURCE_URL).href;
+      } catch {
+        return value;
+      }
+    }
+
+    function rewriteEmbeddedUrls(root) {
+      root.querySelectorAll('[src]').forEach((el) => {
+        const src = el.getAttribute('src');
+        if (src) {
+          el.setAttribute('src', toAbsoluteUrl(src));
+        }
+      });
+
+      root.querySelectorAll('[href]').forEach((el) => {
+        const href = el.getAttribute('href');
+        if (href && !href.startsWith('#')) {
+          el.setAttribute('href', toAbsoluteUrl(href));
+        }
+      });
+
+      root.querySelectorAll('img[srcset]').forEach((el) => {
+        const srcset = el.getAttribute('srcset');
+        if (!srcset) return;
+        const rewritten = srcset
+          .split(',')
+          .map((part) => {
+            const trimmed = part.trim();
+            if (!trimmed) return trimmed;
+            const pieces = trimmed.split(/\s+/);
+            pieces[0] = toAbsoluteUrl(pieces[0]);
+            return pieces.join(' ');
+          })
+          .join(', ');
+        el.setAttribute('srcset', rewritten);
+      });
+    }
+
+    function extractStory(documentFromSource) {
+      const outer = documentFromSource.body && documentFromSource.body.firstElementChild;
+      if (!outer) {
+        throw new Error('Could not find the source story container.');
+      }
+
+      const story = outer.cloneNode(true);
+      const children = Array.from(story.children);
+      const dataSection = children.find((child) => /San Francisco Data/i.test(child.textContent || ''));
+      if (dataSection) {
+        dataSection.remove();
+      }
+
+      rewriteEmbeddedUrls(story);
+      story.classList.add('story-root');
+      return story;
+    }
+
+    async function loadStory() {
+      const app = document.getElementById('app');
+      try {
+        const response = await fetch(SOURCE_URL, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
+        const html = await response.text();
+        const parsed = new DOMParser().parseFromString(html, 'text/html');
+        const story = extractStory(parsed);
+        app.replaceWith(story);
+      } catch (error) {
+        app.className = 'story-error';
+        app.innerHTML = `
+          <strong>Could not load the story content.</strong><br>
+          The remote page may be unavailable or blocked.\n          <br><br>
+          Fallback source: <a href="${SOURCE_URL}" target="_blank" rel="noopener noreferrer">${SOURCE_URL}</a>
+          <br><br>
+          <small>${String(error.message || error)}</small>
+        `;
+      }
+    }
+
+    loadStory();
+  </script>
+</body>
+</html>
+
