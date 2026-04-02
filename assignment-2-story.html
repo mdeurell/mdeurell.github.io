@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2 Story</title>
+  <style>
+	:root { color-scheme: dark; }
+
+	html, body {
+	  margin: 0;
+	  background: linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+	  color: #e2e8f0;
+	  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	}
+
+	body { padding: 24px; box-sizing: border-box; }
+
+	.story {
+	  max-width: 960px;
+	  margin: 0 auto;
+	  padding: 28px;
+	  border-radius: 12px;
+	  background: rgba(15, 23, 42, 0.78);
+	  border: 1px solid rgba(148, 163, 184, 0.18);
+	  box-sizing: border-box;
+	}
+
+	h1, h2 { margin-top: 0; }
+
+	h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+	h2 { font-size: 1.15rem; margin-top: 1.75rem; }
+
+	p, li {
+	  color: #cbd5e1;
+	  line-height: 1.65;
+	}
+
+	.meta {
+	  text-transform: uppercase;
+	  letter-spacing: 0.18em;
+	  color: #93c5fd;
+	  font-size: 0.8rem;
+	  font-weight: 700;
+	}
+
+	.panel {
+	  margin-top: 1rem;
+	  padding: 18px;
+	  border-radius: 10px;
+	  background: rgba(30, 41, 59, 0.72);
+	  border: 1px solid rgba(148, 163, 184, 0.14);
+	}
+
+	.panel img, .panel iframe {
+	  display: block;
+	  width: 100%;
+	  max-width: 100%;
+	  border: 0;
+	  border-radius: 8px;
+	  background: #fff;
+	}
+
+	.chart-frame {
+	  margin-top: 12px;
+	  width: 100%;
+	  overflow: hidden;
+	}
+
+	.frame-heatmap { height: 760px; }
+	.frame-plotly { height: 635px; }
+  </style>
+</head>
+<body>
+  <main id="story" class="story">
+	<div class="meta">Assignment 2</div>
+	<h1>San Francisco's Deadly Drug Problem</h1>
+
+	<div class="panel">
+	  <p>
+		San Francisco has shown a downward trend in several major crime types, but drug offenses stand out
+		as the one category that has risen sharply. Looking at police reports back to 2003, the goal of this
+		story is to understand how that pattern changed over time and what might explain it.
+	  </p>
+	  <p>
+		The selected focus data covers crime reports in San Francisco from 2003 to 2025, with an emphasis on
+		the categories that were used throughout the plots in the analysis.
+	  </p>
+	  <img src="https://s195377.github.io/crime_change_2015_2025_matplotlib.png" alt="Change in crime 2015-2025">
+	</div>
+
+	<div class="panel">
+	  <h2>Drug-offense patterns</h2>
+	  <p>
+		Out of the main crime types, drug offense is the one that increased most strongly over the last decade.
+		One part of the story looks at how marijuana-related reports changed, while another focuses on harder drugs
+		and the broader context around the fentanyl epidemic.
+	  </p>
+	  <iframe class="chart-frame frame-heatmap" src="https://s195377.github.io/heatmap_interactive.html" title="Heatmap interactive"></iframe>
+	  <iframe class="chart-frame frame-plotly" src="https://s195377.github.io/drug_offense_interactive.html" title="Drug offense interactive"></iframe>
+	</div>
+
+	<div class="panel">
+	  <h2>Data context</h2>
+	  <p>
+		The underlying dataset combines the San Francisco police incident reports from 2003 onward and uses a
+		harmonized focus-crime selection so that the categories can be compared consistently across years.
+	  </p>
+	  <ul>
+		<li>Crime categories are harmonized from the historical and current police report sources.</li>
+		<li>The analysis focuses on a reduced set of selected types that appear throughout the visuals.</li>
+		<li>The story highlights one strong long-term increase in drug offenses relative to other crime types.</li>
+	  </ul>
+	</div>
+  </main>
+
+  <script>
+	(function() {
+	  const targetOrigin = window.location.origin;
+
+	  function reportHeight() {
+		const root = document.documentElement;
+		const body = document.body;
+		const height = Math.max(
+		  root.scrollHeight,
+		  body.scrollHeight,
+		  root.offsetHeight,
+		  body.offsetHeight
+		);
+
+		if (window.parent && window.parent !== window) {
+		  window.parent.postMessage({ type: 'overlay:resize', height }, targetOrigin);
+		}
+	  }
+
+	  const schedule = () => {
+		requestAnimationFrame(reportHeight);
+		setTimeout(reportHeight, 50);
+		setTimeout(reportHeight, 250);
+	  };
+
+	  window.addEventListener('load', schedule);
+	  window.addEventListener('resize', schedule);
+
+	  if (window.ResizeObserver) {
+		const observer = new ResizeObserver(schedule);
+		observer.observe(document.documentElement);
+		observer.observe(document.body);
+	  }
+
+	  schedule();
+	})();
+  </script>
+</body>
+</html>
+
