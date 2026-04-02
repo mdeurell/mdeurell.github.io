@@ -37,58 +37,28 @@ permalink: /assignment-2/
     <!-- Assignment tasks -->
     <section class="mb-12">
       <h2 class="mb-6 text-2xl font-bold text-slate-100">Assignment tasks and outputs</h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-clipboard-list text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.1 - Story setup</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Introduces the narrative frame for the assignment, the selected San Francisco crime dataset,
-            and the central focus on how the crime categories evolve over time.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
-
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-chart-area text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.2 - Visual evidence</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Highlights the plotted evidence that supports the story, including trend changes,
-            category comparisons, and the visual signals that motivate the interpretation.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
-
-        <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
-            <i class="fa-solid fa-bullseye text-slate-300"></i>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-100">2.3 - Takeaway</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Summarizes the main conclusion from the story and leaves room for a short reflection on
-            what the reported incidents suggest about the selected crime types.
-          </p>
-          <div class="mt-auto pt-4">
-            <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              Open overlay
-            </a>
-          </div>
-        </article>
-      </div>
+      <article class="flex h-full flex-col rounded-md border border-slate-700 bg-slate-900/70 p-6 shadow-sm transition hover:border-slate-600 md:max-w-3xl">
+        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-slate-800">
+          <i class="fa-solid fa-book-open text-slate-300"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-100">2.1 - Story overview</h3>
+        <p class="mt-2 text-sm text-slate-300">
+          This section combines the setup, visual evidence, and takeaway into one narrative entry point.
+          It frames the selected San Francisco crime data, explains the observed pattern shifts, and
+          leads into the interpretation that ties the story together.
+        </p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li><span class="font-semibold text-slate-100">Setup:</span> crime categories and the time span under review.</li>
+          <li><span class="font-semibold text-slate-100">Evidence:</span> the plots and trends that support the narrative.</li>
+          <li><span class="font-semibold text-slate-100">Takeaway:</span> the concise conclusion from the analysis.</li>
+        </ul>
+        <div class="mt-auto pt-6">
+          <a href="#" onclick="openOverlay('assignment-2-story.html'); return false;" class="btn-cta btn-overlay">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Open overlay
+          </a>
+        </div>
+      </article>
     </section>
   </main>
 
