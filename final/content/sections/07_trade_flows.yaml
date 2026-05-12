@@ -1,0 +1,195 @@
+# Section 6 — Trade flows: how the materials actually move.
+# 6.1 upstream supplier map (top-10 China suppliers, colour-by-material) —
+# placeholder reference until viz builds from the freshly fetched Cu/Graphite/Pt data.
+# 6.2 animated bilateral flow map with Raw-in / Refined-out toggle.
+id: trade-flows
+class: longform--econ
+blocks:
+
+  # ── 6.1 prose intro ─────────────────────────────────────────────────
+  - type: prose
+    id: trade-flows
+    class: longform--econ
+    eyebrow: "Section 6 &nbsp;·&nbsp; How the materials actually move"
+    heading: "Where China gets its rock — and where the West can fight back"
+    dropcap: true
+    text: |
+      Section 6 made the chokepoint visible. The next question is
+      *who feeds it*. China refines, but it does not mine most of what
+      it refines — copper concentrate, cobalt mattes, lithium carbonate,
+      rare-earth ores, graphite flake, platinum concentrate all arrive
+      at Chinese ports from somewhere else first.
+
+      The map below sums China's imports of the relevant trade codes
+      across 2015–2023 and shows the top-ten upstream supplier
+      countries, with each arc coloured by material. Each of those
+      countries is a leverage point: a partnership, an offtake
+      agreement, a port investment, a smelter co-financing arrangement.
+      This is where the United States, Europe, Japan and the Five Eyes
+      partners actually fight for the chain — not by trying to out-build
+      Chinese refining capacity, which would take a decade, but by
+      redirecting the upstream.
+
+  # ── Explainer factbox: reading the HS codes ─────────────────────────
+  - type: factbox
+    heading: "The Digital Passport of Global Trade"
+    tone: oxblood
+    body: |
+      To track global trade, we use the **Harmonized System (HS)**—a global 
+      coding standard that ensures a shipment of "refined copper" is labeled 
+      with the same six-digit number whether it is in Chile, China, or Germany. 
+      These codes act as a digital passport, allowing us to compare 
+      cross-border flows accurately.
+      **Tracking the transformation:**
+      A focal material's code changes as it moves from the ground to the 
+      factory. To see the full supply chain, we must monitor multiple codes 
+      for a single material. For example, **Copper** begins as ore 
+      (**260300**), is refined into a cathode (**740311**), and eventually 
+      circulates as scrap (**740400**).
+      **The "Junk Drawer" problem:**
+      Some codes, like **253090**, are "catch-alls" that mix rare earths, 
+      lithium, and other minerals together. We have manually cleaned this 
+      data to ensure that Australian lithium isn't accidentally counted 
+      as a rare earth, keeping our analysis strictly on the ten focal 
+      supply lines.
+      **Primary Codes at a Glance:**
+      - **Rare Earths:** 253090 (Ore) · 284690 (Compounds) · 850511 (Magnets)
+      - **Lithium:** 283691 (Carbonate) · 282520 (Hydroxide)
+      - **Cobalt:** 810520 (Intermediates) · 282200 (Battery Oxides)
+      - **Copper:** 260300 (Ore) · 740311 (Cathode) · 740400 (Scrap)
+      - **Graphite:** 250410 (Natural) · 380110 (Artificial)
+      - **Nickel:** 750210 (Unwrought) · 283324 (Sulfates)
+      - **Manganese:** 811100 (Unwrought) · 282010 (Dioxides)
+      - **Platinum/PGM:** 711011 (Pt) · 711021 (Pd) · 261690 (Ore)
+      - **Aluminum:** 760110 (Unwrought) · 760200 (Scrap)
+      - **Gallium:** 811292 (Unwrought)
+
+        Captions name the specific codes used in each chart so the
+        reader can see what is — and what is not — being counted.
+
+  - type: figure
+    src: visualizations/trade-flows/upstream_supplier_map.html
+    alt: "Top-10 upstream suppliers feeding China's refining capacity, 2015–2023"
+    title: "Where China gets its rock"
+    aria_label: "Upstream supplier map"
+    section_class: story-section--econ
+    frame_class: map-frame
+    figure_number: "Figure 6.1"
+    caption: |
+      Top-ten upstream supplier countries to China across seven focal
+      materials, 2015–2023 cumulative import value, China as reporter.
+      Arc width is proportional to total import value; arc colour
+      encodes the material.
+      <span class="figure-takeaway">DRC, Australia, Chile, Myanmar,
+      Peru, Indonesia, Guinea, Brazil, South Africa, Russia — these
+      ten countries account for the lion's share of upstream supply
+      into Chinese refineries.</span>
+      <br><br>
+      **HS codes used (China imports, flow = M):**
+      Cobalt 810520 (mattes / intermediates) · Lithium 283691
+      (carbonate) · Copper 260300 (ore + concentrate) · Graphite
+      250410 (natural, flake / powder) · Platinum 711011 (unwrought)
+      · Gallium 811292 (unwrought) · Rare Earths 253090 + 280530 +
+      284610 + 284690 (ore, metal, REE compounds) + 850511 (magnets).
+      Coverage caveat: this map uses one principal upstream code per
+      material; downstream / battery-precursor flows are tracked
+      separately in Figure 8.3. The copper view here excludes refined
+      cathode imports (HS 740311), which would broaden the DRC and
+      Zambia presence in the Copperbelt picture. Source: UN Comtrade.
+
+  # ── 6.3 Multi-form view ────────────────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      The HS factbox above made the structural point; the chart below
+      makes it concrete. For four of the focal materials, China's
+      annual imports are broken down by HS-coded form. Lithium has
+      shifted from spodumene ore to refined carbonate and now hydroxide
+      as battery chemistry has moved up the energy-density curve.
+      Copper arrives as concentrate, as refined cathode (the DRC /
+      Zambia channel), as blister and as scrap — each a different
+      step in the chain, each with its own supplier geography. Cobalt
+      mattes still dominate but oxide and sulfate are growing as the
+      cathode-precursor trade matures. A single number for "lithium
+      imports" hides this.
+
+  - type: figure
+    src: visualizations/trade-flows/multi_form_view.html
+    alt: "Multi-form trade view per material, China imports 2000–2024"
+    title: "Same material, different shipments"
+    aria_label: "Multi-form HS trade view"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 6.2"
+    caption: |
+      Annual import value into China, decomposed by HS-coded form per
+      material, 2000–2024. Each band in a panel is one HS code; the
+      stack is the material's full import flow. The mix changes
+      visibly over time: lithium adds hydroxide alongside carbonate;
+      copper adds cathode and scrap on top of concentrate. The HS
+      factbox above lists the specific codes plotted.
+      <span class="figure-takeaway">Looking at one HS code per
+      material understates the real flow — and worse, the codes used
+      change as supply chains evolve.</span>
+      <br><br>
+      **HS codes per panel:** Lithium — 253090 (spodumene re-tagged),
+      283691 (carbonate), 282520 (hydroxide). Cobalt — 810520
+      (mattes), 282200 (oxide), 283329 (sulfate). Copper — 260300
+      (concentrate), 740311 (cathode), 740200 (blister), 740400
+      (scrap). Rare Earths — 253090 (ore), 280530 (metal), 284610
+      (cerium compounds), 284690 (other REE compounds), 850511
+      (magnets). Source: UN Comtrade via
+      `china_trade_flows_all_materials.csv`.
+
+  # ── 6.4 (was 6.2) prose transition + animated flow map ─────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      The static map shows the lifetime balance; the animation below
+      plays the same data year by year, 2000–2024, with one arc per
+      top-fifteen partner. The dropdown at the top right switches
+      between materials; the slider runs the year. The toggle above
+      the map switches between China's <em>raw in</em> flow — what
+      arrives at Chinese ports as ore, concentrate or feedstock — and
+      China's <em>refined out</em> flow — what leaves as oxide, salt,
+      magnet or finished alloy.
+
+      The default view is Rare Earths refined out, the cleanest case
+      in the dataset: Germany, the United States and Japan dominate
+      the customer mix throughout, and the 2010 Senkaku export halt,
+      the 2018 trade-war pivot and the 2023 gallium / germanium
+      export-control pulse all appear as visible breaks in the partner
+      ranking.
+
+  - type: animation_toggle
+    aria_label: "China flow animation"
+    section_class: story-section--econ
+    frame_id: china-flow-frame
+    frame_class: tall-frame
+    default_src: visualizations/bifurcation/china_flow_exports.html
+    title: "China critical-mineral trade flows, animated 2000–2024"
+    toggles:
+      - { label: "Refined out", flow: "exports", src: "visualizations/bifurcation/china_flow_exports.html", active: true }
+      - { label: "Raw in",      flow: "imports", src: "visualizations/bifurcation/china_flow_imports.html", active: false }
+    figure_number: "Figure 6.3"
+    caption: |
+      Animated bilateral trade flows with China as reporter,
+      2000–2024. Each arc connects China to one of its top-fifteen
+      trading partners that year; partner markers are sized in
+      proportion to the square root of value in current US dollars.
+      The dropdown switches between material categories; the
+      direction toggle above the figure switches between *refined
+      out* (China as exporter, outbound value-added) and *raw in*
+      (China as importer, inbound upstream).
+      <br><br>
+      **HS codes per category:** Rare Earths bundles 253090 (ore),
+      280530 (metal / alloy), 284610 (cerium compounds), 284690
+      (other REE compounds) and 850511 (magnets) — the full
+      downstream chain in one trace. Gallium = 811292. Lithium
+      carbonate = 283691. Cobalt intermediates = 810520. Copper =
+      260300 (ore, inbound) and 740311 (refined cathode, outbound).
+      Graphite = 250410 (natural, inbound) and 380110 (artificial,
+      outbound). Platinum = 711011 (unwrought, inbound) and 711019
+      (semi-mfg, outbound). Source: UN Comtrade.

@@ -1,0 +1,82 @@
+# Section 4 – The processing barrier (pattern 3).
+# Source: notebooks/exploration/02_attractive_but_hard_to_get.ipynb, pattern 3.
+# Note: the 2020-2024 price chart from the notebook is intentionally NOT here
+# (it overlaps Figure 5.1 in the economics chapter). Only the REE separation
+# value-cliff figure carries forward, with a single illustrative argument
+# made through value-per-kg rather than time-series price.
+id: processing
+blocks:
+  - type: prose
+    id: processing
+    eyebrow: "Section 4 &nbsp;·&nbsp; The processing barrier"
+    heading: "The ore is everywhere. The process is the barrier."
+    dropcap: true
+    text: |
+      A third structural pattern applies to materials where neither geology
+      nor geopolitics is the primary constraint. Deposits are found in
+      many countries, no single actor holds a monopoly on reserves, and
+      the dynamics of the first or second pattern – processing capture or
+      geological scarcity – do not apply in the same way. The barrier here is purely
+      technical and economic: converting these ores into a grade usable in
+      batteries, magnets, or semiconductors is so demanding, so
+      energy-intensive, and so expensive that even without political
+      barriers, practical supply remains limited.
+
+      **Graphite** requires battery-grade carbon at 99.95% purity, far above the
+      85–92% found in natural flake ore. Reaching that purity requires
+      either furnace temperatures above 3,000 °C or aggressive chemical
+      purification. Both demand specialised, purpose-built industrial
+      plants. The process is not secret – it is hard and expensive, and
+      that difficulty alone has kept production highly concentrated even
+      where ore availability is not.
+
+      **Lithium** is mined on three continents. But turning lithium ore
+      into battery-grade lithium hydroxide – the specific chemical form
+      required by high-energy-density cathodes – requires high-temperature
+      roasting, acid leaching, and multiple precision crystallisation
+      stages. The chemistry is understood; the challenge is that building
+      the integrated industrial plants to do it at scale and competitive
+      cost takes a decade and substantial capital. Many countries hold
+      ore; very few hold the processing infrastructure.
+
+      **Rare earth separation** illustrates the most technically extreme
+      version of this barrier. Even where ore deposits exist locally,
+      separating a single rare earth element from a mixed concentrate
+      requires hundreds of sequential solvent-extraction stages – one of
+      the most complex industrial chemical processes in routine production.
+      Getting from raw ore to 99.5% pure Nd₂O₃ for a
+      motor magnet represents a manufacturing challenge of the first order,
+      and the price premium for doing so reflects it.
+
+      The chart below captures this barrier in price terms. The same ore
+      body – a mixed rare-earth concentrate – yields finished oxides
+      ranging from a few dollars per kilogram (cerium, lanthanum, the easy
+      ones) to more than $800 per kilogram (terbium, the demanding one).
+      That spread is not scarcity. It is separation.
+
+  - type: figure
+    src: visualizations/processing/ree_value_cliff.html
+    alt: "Rare earth separation value cliff – price per kg by oxide"
+    title: "REE separation value cliff"
+    aria_label: "Rare earth separation value cliff"
+    figure_number: "Figure 4.1"
+    caption: |
+      Estimated 2024 price per kilogram of the oxide form of six
+      rare-earth elements drawn from the same family of mixed concentrates.
+      Cerium and lanthanum, separated with a single column stage, sit at
+      the bottom; mischmetal sits in the middle; the magnet-grade oxides
+      neodymium and dysprosium ride higher; terbium oxide at 99.99%
+      purity sits at the top of the cliff. The price spread is roughly
+      eight-hundred-fold – driven not by geology, but by the number of
+      sequential separation stages each oxide requires.
+      Source: USGS Mineral Commodity Summaries 2025 (price column).
+
+  - type: prose
+    text: |
+      The same logic explains why China dominates rare-earth processing
+      even in years where Chinese mines produce a smaller share of the
+      raw ore. The barrier to entry is not access to a deposit; it is the
+      operational stamina to run a hundred-stage solvent-extraction line
+      profitably for years. Section 5 picks up the economic side of the
+      same story – what the ledger says when refining capacity cannot keep
+      pace with demand, and how that signal moves through prices.

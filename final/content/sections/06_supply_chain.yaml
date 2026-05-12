@@ -1,0 +1,167 @@
+# Section 5 — Supply chain.
+# A conceptual schematic (6.1), then the per-material Sankey carousel (6.2),
+# then the all-material system view (6.3). Together: where the chain pinches,
+# material by material and overall.
+id: supply-chain
+class: longform--econ
+blocks:
+
+  # ── 5.1 Schematic: five stages from rock to product ─────────────────
+  - type: prose
+    id: supply-chain
+    class: longform--econ
+    eyebrow: "Section 5 &nbsp;·&nbsp; The supply chain"
+    heading: "From rock to product"
+    dropcap: true
+    text: |
+      Section 5 showed the symptoms — prices that won't fall, volumes
+      that won't compensate. To find the cause, follow the chain. Every
+      one of the focal materials travels through the same five stages
+      between the ore body and the consumer product, and at each stage
+      a different actor takes over.
+      
+  - type: figure
+    src: visualizations/processing/ree_value_cliff.html
+    alt: "Rare earth separation value cliff – price per kg by oxide"
+    title: "REE separation value cliff"
+    aria_label: "Rare earth separation value cliff"
+    figure_number: "Figure 5.1"
+    caption: |
+      Estimated 2024 price per kilogram of the oxide form of six rare-earth
+      elements drawn from the same family of mixed concentrates. The price spread 
+      is roughly eight-hundred-fold – driven not by geology, but by the number of
+      sequential separation stages each oxide requires.
+      Source: USGS Mineral Commodity Summaries 2025.
+
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+
+      The schematic below lays out those five stages with the actors
+      and the leverage points named. The diagram does no statistics; it
+      sets the vocabulary for the two data figures that follow.
+
+  - type: figure
+    src: visualizations/supply-chain/supply_chain_schematic.html
+    alt: "Supply chain schematic — ore to end product, five stages"
+    title: "From rock to product — five stages"
+    aria_label: "Supply chain schematic"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 5.2"
+    caption: |
+      Editorial schematic of the five-stage critical-minerals supply
+      chain. Stage 1 (ore) and Stage 2 (concentrate) happen at or near
+      the mine; the country that holds the rock holds these two
+      stages by geological default. Stage 3 (refined intermediate)
+      is the chemistry barrier — solvent extraction, smelting,
+      electrowinning, hundreds of stages for rare-earth separation —
+      and is also the stage that has collapsed into the smallest
+      number of national hubs. Stage 4 (functional material) and
+      Stage 5 (end product) re-fan back out into the global economy.
+      <span class="figure-takeaway">The strategic question is not who
+      pulls the rock — it is who runs Stage 3.</span> No data; the
+      figures that follow are where the data lives.
+
+  # ── 5.2 Per-material Sankey carousel ────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      Each card in the carousel below traces one material across two
+      of those stages — country of mining on the left, country of
+      processing on the right. Flow widths are share of global tonnage
+      at each stage.
+
+      **How to read each diagram.** Each Sankey has three columns. The
+      left column lists *mining countries* — where the ore comes out of
+      the ground. The right column lists *processing countries* — where
+      it is refined into a usable industrial material. The two solid
+      bars in the middle are the bridge between those stages: every
+      tonne mined on the left passes through them and emerges in a
+      different country mix on the right. The wider a band, the larger
+      that country's share at that stage. Shifts between left and right
+      are where the supply-chain bifurcation actually happens.
+
+      Cobalt is the cleanest illustration: about 70 % of mined cobalt
+      comes from a single country (the Democratic Republic of the
+      Congo); 80 % of refined cobalt is processed in a different
+      country (China). The metal physically travels several thousand
+      miles between mine and refinery, and the value it carries rises
+      by an order of magnitude over that distance.
+
+      Step through the cards. Some look like cobalt — concentrated
+      geology funnelled into a narrower processing stage. Some look
+      stranger. Platinum's mining sits 70 % in South Africa but its
+      processing fans out across seven countries with no single one
+      above 50 %. Graphite is mined across China, Mozambique and
+      Brazil, but every commercial-grade refined gram comes through
+      Chinese facilities. Gallium is 98 % to 98 % at both stages —
+      there is no second supplier on either side of the chain.
+
+  - type: raw
+    html: |
+      <section class="sankey-rail-section" aria-label="Per-material supply chain Sankeys">
+        <div class="sankey-rail-header">
+          <p class="caption">Section 5.2 &nbsp;·&nbsp; Per-material supply chains</p>
+          <h2>Each material, its own shape of dependency</h2>
+          <p class="standfirst">Seven materials, seven 2023 supply chains. Mining countries on the
+      left, processing countries on the right; the trunk between them is
+      the material itself. Use the chips, the arrows or the keyboard to
+      step through.</p>
+        </div>
+        <div class="sankey-rail-nav" id="sankey-nav"></div>
+        <div class="sankey-rail-wrap">
+          <button class="rail-arrow rail-prev" data-sankey-arrow="prev" aria-label="Previous material">&#8592;</button>
+          <div class="sankey-rail" id="sankey-rail" tabindex="0" aria-label="Sankey carousel"></div>
+          <button class="rail-arrow rail-next" data-sankey-arrow="next" aria-label="Next material">&#8594;</button>
+        </div>
+      </section>
+
+      <section class="longform figure-caption-section">
+        <p class="figure-caption">
+      <strong>Figure 5.2.</strong>     Per-material supply-chain Sankey diagrams, 2023, seven cards:
+      Cobalt, Lithium, Graphite, Copper, Platinum, Gallium and Rare Earths.
+      Each card shows mining-country shares (left), the material trunk
+      (centre), and processing-country shares (right). Flow widths are
+      share-of-global-tonnage; a country labelled with no incoming line
+      is one that mines but does not refine its own ore (Chile and
+      Australia for lithium, the DRC for cobalt, every miner of
+      platinum-group metals except South Africa). The four rare-earth
+      elements profiled individually in Section 1 — Nd, Dy, Tb — are
+      folded into the basket card here because USGS attributes
+      statistically identical mining and processing shares (≈70 % / 90 %)
+      to all four. Source: USGS <em>Mineral Commodity Summaries 2025</em>;
+      USGS <em>Mining and Processing Fact Sheet</em> (Dataset E); processed
+      via the <code>master_supply_chain_trade</code> dataset
+      (<code>record_type == 'stage_share'</code>).
+        </p>
+      </section>
+
+  # ── 5.3 All-material master Sankey ──────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      Each card in 5.2 carried a different mineral; the chart below
+      collapses all seven onto one canvas. Mining countries on the
+      left, the seven material trunks in the centre, processing
+      countries on the right. Each material contributes 100 units of
+      flow on each side, so the canvas reads as <em>concentration of
+      control</em> rather than physical tonnage — the question being
+      asked is who decides each step.
+
+      The visual answer is that one node on the right-hand side
+      dominates almost every line entering it. China refines somewhere
+      between 60 % and 100 % of every material in the panel except
+      platinum. The mining left side is comparatively diversified —
+      DRC, Australia, Chile, South Africa, Peru, Russia all carry
+      meaningful tonnage — but the mid-stream funnel is one country
+      wide for almost everything.
+
+      This is the structural answer to the question at the top of the
+      report. Not "China owns the rocks" — China does not own the
+      rocks — but <em>China owns the step that decides what the rocks
+      are worth</em>.
+

@@ -1,0 +1,11 @@
+# Section 1 — Materials carousel. Cards rendered by main.js from data.
+blocks:
+  - type: carousel
+    aria_label: "The portfolio"
+    eyebrow: "Section 1 &nbsp;·&nbsp; The portfolio"
+    heading: "Ten materials, one fragile system"
+    standfirst: |
+      A scrolling encyclopedia of the elements at the heart of this story.
+      Start with the rare earths, where a handful of nearly identical metals
+      carry the entire modern magnet industry, then move outward to battery
+      metals, base metals and the precious-metal outlier.

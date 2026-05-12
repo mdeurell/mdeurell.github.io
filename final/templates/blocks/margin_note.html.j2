@@ -1,0 +1,16 @@
+{# Margin note — short aside that floats to the right of body text on wide
+   viewports, falls inline on narrow ones. Sits inside .longform.
+   YAML fields:
+     - body (markdown)
+     - heading (optional)
+#}
+{% set extra_class = block.class if block.class else (section.class | default('')) %}
+{% set class_attr = ('longform ' ~ extra_class) | trim %}
+<section class="{{ class_attr }}">
+  <div class="longform-inner">
+    <aside class="margin-note">
+      {% if block.heading %}<p class="margin-note-heading">{{ block.heading | safe }}</p>{% endif %}
+      <div class="margin-note-body">{{ block.body | md | safe }}</div>
+    </aside>
+  </div>
+</section>

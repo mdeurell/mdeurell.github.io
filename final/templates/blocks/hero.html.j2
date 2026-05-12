@@ -1,0 +1,19 @@
+{# Frontpage hero: full-bleed image + masthead title.
+   site.hero supplies image, kicker, title_html (raw HTML allowed for <br> + <em>),
+   and byline. #}
+<section class="hero-frontpage">
+  <img class="hero-frontpage-bg"
+       src="{{ site.hero.bg_image }}"
+       alt=""
+       aria-hidden="true">
+  <div class="hero-frontpage-overlay"></div>
+  <div class="hero-frontpage-content">
+    {% if site.hero.kicker %}
+    <p class="hero-frontpage-kicker">{{ site.hero.kicker }}</p>
+    {% endif %}
+    <h1 class="hero-frontpage-title">{{ site.hero.title_html }}</h1>
+    {% if site.hero.byline %}
+    <p class="hero-frontpage-byline">{{ site.hero.byline | safe }}</p>
+    {% endif %}
+  </div>
+</section>

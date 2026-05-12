@@ -1,0 +1,49 @@
+# Critical Earth — top-level site config.
+# Defines page metadata, hero, primary nav, and section ordering.
+# Each entry under `sections` is a filename in content/sections/.
+
+title: Critical Materials
+description: >-
+  A narrative website about critical material trade, concentration, and
+  whether world supply chains are splitting into blocs.
+
+wordmark: Critical Earth
+notebook_href: explainer_notebook.ipynb
+
+hero:
+  bg_image: images/Rare-Earth-Elements-Featured-Image-1200x675-1_frontpage.webp
+  kicker: A Critical Earth investigation
+  title_html: |
+    The Materials<br>
+    of Civilization
+    <em>The new mastery of the atom</em>
+  byline: DTU 02806 &nbsp;·&nbsp; Social Data Analysis &amp; Visualization
+
+nav:
+  - { href: "#stakes",       label: "Why it matters" }
+  - { href: "#deposits",     label: "Where they are" }
+  - { href: "#case-1",       label: "Value chain" }
+  - { href: "#bifurcation",  label: "Trade split" }
+  - { href: "#conclusion",   label: "Conclusion" }
+
+footer:
+  title: Critical Earth
+  body: Built from processed master datasets and standalone exported visualizations only.
+
+# Sections are rendered in order. Each file lives in content/sections/.
+sections:
+  - 00_prologue.yaml
+  - 01_high_tech.yaml
+  - 01_portfolio.yaml
+  - 02_deposits.yaml
+  - 03_new_section.yaml
+  # - 003_attractive.yaml   # superseded by 03_new_section.yaml
+  # - 003_processing.yaml   # superseded by 03_new_section.yaml
+  - 05_chapter_mark.yaml
+  - 05_economics.yaml
+  - 06_supply_chain.yaml
+  - 07_trade_flows.yaml
+  - 08_dependencies.yaml
+  - 09_bifurcation_blocs.yaml
+  - 07_new_conclusion.yaml
+  # - 10_conclusion.yaml

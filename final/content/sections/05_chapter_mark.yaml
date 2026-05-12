@@ -1,0 +1,13 @@
+# Part II divider — between geology/processing chapters and economics chapter.
+blocks:
+  - type: chapter_mark
+    aria_label: "Part II opener"
+    eyebrow: "Part II"
+    title: "From geology to the ledger"
+    standfirst: |
+      The focus now shifts from where the rocks lie to how their value moves
+      on the worlds trade map. 
+      This transition tracks the signals hidden in global pricing, identifies 
+      the specific points where material flows get stuck, and explores whether 
+      the world's trade maps are beginning to split along economic and 
+      geopolitical lines.

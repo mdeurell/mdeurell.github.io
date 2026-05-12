@@ -1,0 +1,174 @@
+# Section 3 – Attractive but Hard to Get: patterns 1 + 2.
+# Sourced from notebooks/exploration/02_attractive_but_hard_to_get.ipynb.
+# Pattern 1 (abundant-but-captive – slope chart) and 2 (scarce-and-captured –
+# concentration bars + cobalt trap) live here. Pattern 3 (processing barrier)
+# moves to section 04. The 2020-2024 price chart from pattern 3 is omitted
+# because it overlaps Figure 5.1 in the economics chapter.
+id: attractive
+blocks:
+
+  # ── Section opener: 3 structural types ──────────────────────────────
+  - type: prose
+    id: case-1
+    eyebrow: "Section 3 &nbsp;·&nbsp; Attractive but hard to get"
+    heading: "A deposit on a map is not the same as supply"
+    dropcap: true
+    text: |
+      Three distinct structural patterns explain how materials that appear
+      geographically abundant can still be practically inaccessible.
+
+      **1 – Abundant but Captive.** Ore bodies are geologically
+      distributed and mining is reasonably spread across countries. The
+      bottleneck exists downstream: processing capacity has concentrated in the
+      hands of one or a few actors through deliberate investment, industrial
+      policy, and/or decades of accumulated expertise. The ore is available;
+      access to the finished, usable material is limited.
+
+      **2 – Scarce and Captured.** The ore bodies themselves are rare
+      and geographically concentrated in one or two places. No industrial
+      investment elsewhere changes this - the geology is the constraint.
+      Whoever holds the deposits holds the leverage along side their partners, regardless of what
+      happens downstream.
+
+      **3 – Abundant but Hard to Get.** Deposits exist across many
+      countries and no single actor has a geological monopoly. The barrier
+      is purely technical and economic: Converting these ores to the purity
+      grade required by industry is so demanding, energy-intensive, and
+      expensive that practical production is limited everywhere – not by
+      politics, but by process complexity and thus cost.
+
+      Each creates a different kind of supply vulnerability and requires a
+      different response. Sections 3 and 4 walk the three in turn. Section 3
+      covers 1 and 2 – where the constraint sits at the ore or
+      early-processing stage. Section 4 picks up 3 – where the ore is
+      everywhere but the chemistry is the challenge.
+
+  # ── 1: Abundant but Captive ──────────────────────────────────────────
+  - type: prose
+    eyebrow: "1 &nbsp;·&nbsp; Abundant but Captive"
+    heading: "The ore is on every continent. Access to it is not."
+    dropcap: true
+    text: |
+      Copper is mined on five continents, yet more than 40% of the global
+      refining capacity is found in a single country. Most of the world's
+      lithium is extracted as ore in Australia and South America; the
+      majority of it becomes battery-grade chemicals in facilities
+      elsewhere. Roughly nine out of ten tonnes of battery-grade graphite
+      emerge from one nation's processing plants – despite natural deposits
+      being mapped across Africa, the Americas, and Asia. Notably, this is
+      not always the same country as the top miner: Japan refines nearly
+      6% of global copper despite mining essentially none of it. Industrial
+      capture does not require geological ownership – it requires
+      infrastructure, geopolitical strategy, and decades of investment in
+      technology.
+
+      This is the character of the first "trap": the bottleneck is
+      industrial and strategic, not geological. The status quo was built
+      over decades through capital, expertise,1 and policy – and it cannot
+      be resolved by finding new ore bodies. The slope chart below shows
+      the structural pattern: where ore is extracted and where it is
+      refined are two very different maps.
+
+  - type: figure
+    src: visualizations/attractive/slope_mining_vs_processing.html
+    alt: "Mining share vs. processing share – slope chart for Copper, Lithium, Graphite, and Rare Earths"
+    title: "Mining share vs. processing share"
+    aria_label: "Mining vs. processing slope chart"
+    figure_number: "Figure 3.1"
+    caption: |
+      Mining share vs. processing share for four abundant-but-captive minerals – Copper,
+      Lithium, Graphite, Rare Earths. Each line tracks one country's
+      position from "where the ore comes from" (left axis) to "where it is
+      refined" (right axis). A flat line is balance; a steep upward line
+      is industrial capture; a steep downward line is mining without value
+      capture. China lines climb on every panel. Japan refines roughly 6%
+      of global copper while mining essentially none of it.
+      Sources: USGS Fact Sheet 2025-3038; USGS Mineral Commodity Summaries 2025.
+
+  # ── 2: Scarce and Captured ───────────────────────────────────────────
+  - type: prose
+    id: case-2
+    eyebrow: "2 &nbsp;·&nbsp; Scarce and Captured"
+    heading: "When the geology itself is the lock"
+    dropcap: true
+    text: |
+      For a second group of materials, there is no processing bottleneck
+      to unblock and no industrial catch-up to pursue. The ore itself is
+      rare, and its rarity is a well-known geological fact. These minerals
+      do not occur in most of the world's rock – they form only under
+      specific geological conditions that have played out in a handful of
+      places on Earth. Whoever sits on those places holds the leverage,
+      regardless of what happens downstream.
+
+      **Cobalt** is the clearest example. The Democratic Republic of Congo
+      accounts for approximately 76% of global cobalt mining – a
+      consequence of the unique mineralogy of the Central African
+      Copperbelt, a stratiform geological formation with no confirmed
+      equivalent at comparable scale anywhere else. This is not policy or
+      industrial choice; it is geography. What compounds the challenge is
+      a structural decoupling: the country that holds the ore does not
+      control its refinement. Cobalt leaves the DRC as partially processed
+      material and is refined elsewhere, meaning the ore-holder captures
+      the extraction risk while others capture the finished-product value.
+
+      **Heavy rare earth elements** – Dysprosium and Terbium – present a
+      related but distinct case. The geological formations that contain
+      these elements in practically extractable form are themselves
+      geographically rare. Ion-adsorption clay deposits, the specific
+      laterite type that makes heavy REE recovery feasible at industrial
+      scale, require millions of years of specific tropical weathering to
+      develop. Outside the regions where those conditions existed, the
+      formations did not form. Even full refining capacity built elsewhere
+      would still require ore sourced from the same narrow geography.
+
+      **Platinum** illustrates the category from a different angle: the
+      Bushveld Igneous Complex in South Africa holds roughly 80% of global
+      platinum reserves – a permanent geological fact. But here, unlike
+      cobalt, the country that holds the ore largely controls its
+      processing too. This makes it a case of geological concentration that
+      has not produced the same kind of external vulnerability, and a
+      useful reminder that the second pattern does not automatically mean
+      supply insecurity – only that the leverage is geological rather than
+      industrial.
+
+      For these materials, the honest policy response is not "build more
+      refining capacity." It is: stockpile, invest in material substitution,
+      and accept managed dependence where no alternative exists.
+
+  - type: figure
+    src: visualizations/attractive/concentration_type2.html
+    alt: "Mining concentration for scarce-and-captured minerals – stacked bars by country"
+    title: "Mining concentration for Type 2 minerals"
+    aria_label: "Ore concentration by country"
+    figure_number: "Figure 3.2"
+    caption: |
+      Share of global mine production (2023–2024) for the five scarce-and-captured
+      minerals – Cobalt, Dysprosium, Gallium, Platinum, Terbium. Each bar
+      is read horizontally: the longest band is the country that holds the
+      majority of the ore. The DRC controls 76% of cobalt; China controls 99% of gallium,
+      80% of terbium, 70% of dysprosium; South Africa controls 70% of
+      platinum. Supply chains in this group are shaped by which countries
+      happen to sit on top of the right geology – a constraint that no
+      industrial build-out elsewhere can dissolve.
+      Source: USGS Mineral Commodity Summaries 2025.
+
+  - type: factbox
+    heading: "The Cobalt Trap"
+    tone: oxblood
+    body: |
+      **DRC mines 76%** of global cobalt as crude hydroxide; the material
+      ships out as a partially processed export. **China refines 80%** of
+      it into battery-grade salts and metal. Refined cobalt then flows to
+      cathode and battery manufacturers worldwide.
+
+      The ore-holder earns the extraction risk. The refiner captures most of the
+      value.
+
+  - type: prose
+    text: |
+      Where Section 3 has shown that some bottlenecks come from industrial
+      capture (1) and others from geological scarcity (2),
+      Section 4 turns to the third pattern. There, the constraint is not
+      geography or geology – the deposits exist almost everywhere – but
+      the chemistry of separation. The ore is plentiful. The process is
+      the lock.

@@ -1,0 +1,15 @@
+{# Pull quote — large italic Playfair quote, sits inside .longform.
+   YAML fields:
+     - text (required, markdown)
+     - source (optional, attribution line)
+#}
+{% set extra_class = block.class if block.class else (section.class | default('')) %}
+{% set class_attr = ('longform ' ~ extra_class) | trim %}
+<section class="{{ class_attr }}">
+  <div class="longform-inner">
+    <blockquote class="pull-quote">
+      <p>{{ block.text | md_inline | safe }}</p>
+      {% if block.source %}<cite>— {{ block.source | safe }}</cite>{% endif %}
+    </blockquote>
+  </div>
+</section>

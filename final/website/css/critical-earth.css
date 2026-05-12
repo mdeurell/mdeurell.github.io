@@ -1,0 +1,455 @@
+/* ============================================================
+   CRITICAL EARTH — Global Style System
+   "The Geography of Power in a Post-Oil World"
+   ============================================================
+   Fonts: Lato (chrome / UI) + Playfair Display (editorial display)
+          + Georgia (body prose, system serif).
+   Legacy variable names kept; values swapped to avoid a global
+   sweep across rules that already reference --font-primary /
+   --font-serif. New rules for body prose use --font-body.
+   Usage: @import this file in every HTML page and notebook export.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+
+:root {
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-primary: 'Lato', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-body: Georgia, 'Times New Roman', Times, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+  --fw-extrabold:  800;
+
+  --fs-hero:       clamp(2.5rem, 5vw, 4rem);
+  --fs-h1:         clamp(2rem, 4vw, 3rem);
+  --fs-h2:         clamp(1.5rem, 3vw, 2rem);
+  --fs-h3:         1.25rem;
+  --fs-body:       1rem;
+  --fs-small:      0.875rem;
+  --fs-caption:    0.75rem;
+
+  --lh-tight:      1.1;
+  --lh-heading:    1.2;
+  --lh-body:       1.6;
+
+  /* ── Core Palette ────────────────────────────────────────── */
+  --midnight:      #0D1B2A;     /* Primary dark background        */
+  --deep-slate:    #1B3A4B;     /* Cards on dark, secondary dark   */
+  --molten-orange: #0F3D5C;     /* Primary accent — Prussian blue (was orange) */
+  --prussian:      #0F3D5C;     /* alias for the new accent         */
+  --oxblood:       #7B2D26;     /* Secondary accent — used sparingly */
+  --raw-chalk:     #F0EDE5;     /* Light section backgrounds       */
+  --warm-white:    #FAF9F6;     /* Body background, light mode     */
+  --off-black:     #1A1A1A;     /* Body text on light              */
+
+  /* Semi-transparent overlays */
+  --midnight-90:   rgba(13, 27, 42, 0.9);
+  --midnight-70:   rgba(13, 27, 42, 0.7);
+  --midnight-40:   rgba(13, 27, 42, 0.4);
+  /* Legacy --orange-* tokens now hold Prussian-blue rgba values */
+  --orange-20:     rgba(15, 61, 92, 0.2);
+  --orange-10:     rgba(15, 61, 92, 0.1);
+  --oxblood-30:    rgba(123, 45, 38, 0.3);
+  --oxblood-15:    rgba(123, 45, 38, 0.15);
+
+  /* ── Mineral Colors ──────────────────────────────────────── */
+  /* Case 1: Abundant but captive (cool tones) */
+  --mineral-neodymium:   #3AAFA9;   /* Teal — REE magnets            */
+  --mineral-lithium:     #45B7D1;   /* Sky blue — batteries          */
+  --mineral-copper:      #8B5A2B;   /* Deep bronze — electrification */
+  --mineral-graphite:    #5C5C5C;   /* Graphite grey — anodes        */
+
+  /* Case 2: Scarce and captured (warm/intense tones) */
+  --mineral-dysprosium:  #C49A02;   /* Deep gold — heat-resist REE   */
+  --mineral-cobalt:      #3A5EA5;   /* Cobalt blue — batteries/jets  */
+  --mineral-gallium:     #6E8898;   /* Slate blue-grey — chips        */
+  --mineral-platinum:    #A8A8A8;   /* Platinum silver — catalysts   */
+
+  /* ── Country Accents ─────────────────────────────────────── */
+  --country-china:       #DE2910;
+  --country-usa:         #3C3B6E;
+  --country-eu:          #003399;
+  --country-australia:   #FFD700;
+  --country-south-africa:#007A4D;
+  --country-drc:         #007FFF;
+  --country-chile:       #D52B1E;
+  --country-japan:       #BC002D;
+  --country-russia:      #6B6B6B;   /* Neutral grey — political */
+
+  /* ── Chart Palette (ordered for sequential use) ──────────── */
+  --chart-1: var(--mineral-neodymium);
+  --chart-2: var(--mineral-cobalt);
+  --chart-3: var(--molten-orange);
+  --chart-4: var(--mineral-lithium);
+  --chart-5: var(--mineral-copper);
+  --chart-6: var(--mineral-gallium);
+  --chart-7: var(--mineral-graphite);
+  --chart-8: var(--mineral-platinum);
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --max-width:     1200px;
+  --content-width: 800px;
+  --gutter:        clamp(1rem, 4vw, 3rem);
+
+  /* 3-tier width system. Pick one per block:
+     --measure for prose, --frame for figures, --bleed for hero only.
+     Beyond --bleed the page mattes rather than stretches. */
+  --measure: 65ch;
+  --frame:   min(1280px, calc(100vw - 2 * var(--gutter)));
+  --bleed:   min(2400px, 100vw);
+
+  /* Default aspect ratios for media containers */
+  --media-aspect: 16 / 9;
+  --map-aspect:   21 / 9;
+
+  --section-gap:   clamp(4rem, 8vw, 8rem);
+  --radius-sm:     6px;
+  --radius-md:     10px;
+  --radius-lg:     16px;
+  --radius-xl:     24px;
+  --radius-pill:   9999px;
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-mid:  300ms;
+  --duration-slow: 600ms;
+}
+
+
+/* ── Base Reset ────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--off-black);
+  background: #f7f4ee;  /* paper-warm — matches longform sections so figures don't sit on a whiter halo */
+}
+
+
+/* ── Typography ────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-extrabold);
+}
+
+.hero-title {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+h1, .h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; }
+h2, .h2 { font-size: var(--fs-h2); letter-spacing: -0.01em; }
+h3, .h3 { font-size: var(--fs-h3); font-weight: var(--fw-bold); }
+
+.subtitle {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  color: var(--molten-orange);
+  line-height: var(--lh-body);
+}
+
+.caption {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mineral-graphite);
+}
+
+.stat-number {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--mineral-graphite);
+  margin-top: 0.25rem;
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+
+/* ── Dark Sections ─────────────────────────────────────────── */
+
+.dark-section {
+  background: var(--midnight);
+  color: var(--raw-chalk);
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3 {
+  color: #fff;
+}
+
+.dark-section .subtitle {
+  color: var(--molten-orange);
+}
+
+.dark-section .stat-label {
+  color: rgba(240, 237, 229, 0.6);
+}
+
+.dark-section .caption {
+  color: rgba(240, 237, 229, 0.5);
+}
+
+
+/* ── Cards ─────────────────────────────────────────────────── */
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform var(--duration-mid) var(--ease-out),
+              box-shadow var(--duration-mid) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(13, 27, 42, 0.08);
+}
+
+.dark-section .card {
+  background: var(--deep-slate);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-section .card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ── Mineral Chips / Tags ──────────────────────────────────── */
+
+.mineral-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.mineral-chip[data-mineral="neodymium"]  { background: var(--mineral-neodymium); }
+.mineral-chip[data-mineral="lithium"]    { background: var(--mineral-lithium); }
+.mineral-chip[data-mineral="copper"]     { background: var(--mineral-copper); }
+.mineral-chip[data-mineral="graphite"]   { background: var(--mineral-graphite); }
+.mineral-chip[data-mineral="dysprosium"] { background: var(--mineral-dysprosium); }
+.mineral-chip[data-mineral="cobalt"]     { background: var(--mineral-cobalt); }
+.mineral-chip[data-mineral="gallium"]    { background: var(--mineral-gallium); }
+.mineral-chip[data-mineral="platinum"]   { background: var(--mineral-platinum); color: #1A1A1A; }
+
+
+/* ── Buttons ───────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.btn-primary {
+  background: var(--molten-orange);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #d46a2e;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--molten-orange);
+  border: 1.5px solid var(--molten-orange);
+}
+
+.btn-outline:hover {
+  background: var(--orange-10);
+}
+
+
+/* ── Scroll Narrative Layout ───────────────────────────────── */
+
+.scroll-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.content-narrow {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.content-wide {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+
+/* ── Chart Container ───────────────────────────────────────── */
+
+.chart-container {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.chart-container.dark {
+  background: var(--midnight);
+  padding: 1.5rem;
+}
+
+.chart-title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.25rem;
+}
+
+.chart-subtitle {
+  font-size: var(--fs-small);
+  color: var(--mineral-graphite);
+  margin-bottom: 1rem;
+}
+
+
+/* ── Legend ─────────────────────────────────────────────────── */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+
+/* ── Dividers & Accents ────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: var(--section-gap) 0;
+}
+
+.dark-section .divider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.accent-line {
+  width: 48px;
+  height: 3px;
+  background: var(--molten-orange);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+}
+
+
+/* ── Plotly Theme Overrides ────────────────────────────────── */
+/* Apply these in Python:
+   layout = dict(
+       font=dict(family="Lato", color="#F0EDE5"),
+       paper_bgcolor="#0D1B2A",
+       plot_bgcolor="#0D1B2A",
+       title_font_size=20,
+       title_font_weight=800,
+   )
+*/
+
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --gutter: 1rem;
+  }
+}
+
+
+/* ── Print ─────────────────────────────────────────────────── */
+
+@media print {
+  .dark-section {
+    background: #fff;
+    color: #000;
+  }
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

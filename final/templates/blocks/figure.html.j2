@@ -1,0 +1,59 @@
+{# Figure block: chart / map iframe + Prussian-blue-framed caption.
+   YAML fields:
+     - src                  (required) — iframe path
+     - alt / title          (required) — iframe title attribute
+     - aria_label           (optional) — story-section aria-label
+     - aspect               (optional) — '16/9', '21/9', '4/3'; informs .map-frame / .tall-frame class
+     - frame_class          (optional) — extra class on iframe (e.g. 'map-frame', 'tall-frame')
+     - bleed                (optional bool, default true) — wrap in .viz-bleed
+     - frameless            (optional bool, default true) — adds .is-frameless
+     - dark                 (optional bool) — adds .dark-card to the article
+     - figure_number        (required) — e.g. "Figure 3.1"
+     - caption              (required) — markdown body of the caption
+     - caption_footnote_id  (optional) — id of an empty <span class="footnote-inline"> appended for JS to fill
+     - section_class        (optional) — class on the outer story-section (defaults inherit from section.class)
+#}
+{% set bleed = block.bleed if block.bleed is defined else true %}
+{% set frameless = block.frameless if block.frameless is defined else true %}
+{% set dark = block.dark | default(false) %}
+{% set frame_class_attr = (' ' ~ block.frame_class) if block.frame_class else '' %}
+{% set is_map = block.frame_class and 'map-frame' in block.frame_class %}
+{% set article_classes = ['viz-card'] %}
+{% if bleed %}{% set _ = article_classes.append('viz-bleed') %}{% endif %}
+{% if is_map %}{% set _ = article_classes.append('viz-bleed--map') %}{% endif %}
+{% if frameless %}{% set _ = article_classes.append('is-frameless') %}{% endif %}
+{% if dark %}{% set _ = article_classes.append('dark-card') %}{% endif %}
+{% set section_class = block.section_class | default(section.class | default('')) %}
+{% set story_class = ('story-section ' ~ section_class) | trim %}
+
+<section class="{{ story_class }}"{% if block.aria_label %} aria-label="{{ block.aria_label }}"{% endif %}>
+  <div class="content-wide section-shell">
+    {% if block.display_title %}
+    <p class="figure-display-title">
+      {% if block.figure_number %}<span class="figure-display-eyebrow">{{ block.figure_number }}</span>{% endif %}
+      <span class="figure-display-text">{{ block.display_title | safe }}</span>
+    </p>
+    {% endif %}
+    <article class="{{ article_classes | join(' ') }}">
+      {# Append the site asset_version as a query string so iframe content
+         is cache-busted on every rebuild. Plotly chart HTML files have no
+         site-level versioning of their own, so without this the browser
+         caches stale charts indefinitely. #}
+      {% set src_sep = '&' if '?' in block.src else '?' %}
+      <iframe
+        class="viz-frame{{ frame_class_attr }}"
+        src="{{ block.src }}{{ src_sep }}v={{ asset_version }}"
+        title="{{ block.title | default(block.alt | default('Figure')) }}"
+        loading="lazy"
+      ></iframe>
+    </article>
+  </div>
+</section>
+
+<section class="longform figure-caption-section"{% if block.caption_id %} id="{{ block.caption_id }}"{% endif %}>
+  <p class="figure-caption">
+    {% if block.figure_number %}<strong>{{ block.figure_number }}.</strong> {% endif %}
+    {{ block.caption | md_inline | safe }}
+    {% if block.caption_footnote_id %}<span id="{{ block.caption_footnote_id }}" class="footnote-inline"></span>{% endif %}
+  </p>
+</section>

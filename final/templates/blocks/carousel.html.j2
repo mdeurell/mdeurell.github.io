@@ -1,0 +1,23 @@
+{# Carousel: the .material-rail block (10 minerals). The actual cards
+   are rendered by main.js from data; this template just emits the shell.
+   YAML fields:
+     - eyebrow      (e.g. "Section 1 · The portfolio")
+     - heading
+     - standfirst   (markdown)
+     - rail_id      (optional) — defaults to "material-rail"
+     - nav_id       (optional) — defaults to "material-nav"
+     - aria_label   (optional)
+#}
+<section class="material-rail-section"{% if block.aria_label %} aria-label="{{ block.aria_label }}"{% endif %}>
+  <div class="material-rail-header">
+    {% if block.eyebrow %}<p class="caption">{{ block.eyebrow | safe }}</p>{% endif %}
+    {% if block.heading %}<h2>{{ block.heading | safe }}</h2>{% endif %}
+    {% if block.standfirst %}<p class="standfirst">{{ block.standfirst | md_inline | safe }}</p>{% endif %}
+  </div>
+  <div class="material-rail-nav" id="{{ block.nav_id | default('material-nav') }}"></div>
+  <div class="material-rail-wrap">
+    <button class="rail-arrow rail-prev" data-rail-arrow="prev" aria-label="Previous material">&#8592;</button>
+    <div class="material-rail" id="{{ block.rail_id | default('material-rail') }}" tabindex="0" aria-label="Materials carousel"></div>
+    <button class="rail-arrow rail-next" data-rail-arrow="next" aria-label="Next material">&#8594;</button>
+  </div>
+</section>

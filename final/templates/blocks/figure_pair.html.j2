@@ -1,0 +1,36 @@
+{# Figure pair: two figures side-by-side (e.g. Fig 5.3 — 2015 vs 2023).
+   YAML fields:
+     - aria_label           (optional)
+     - left:  { eyebrow, src, title }
+     - right: { eyebrow, src, title }
+     - figure_number, caption, caption_footnote_id   (single shared caption)
+     - section_class        (optional)
+#}
+{% set section_class = block.section_class | default(section.class | default('')) %}
+{% set story_class = ('story-section ' ~ section_class) | trim %}
+
+<section class="{{ story_class }}"{% if block.aria_label %} aria-label="{{ block.aria_label }}"{% endif %}>
+  <div class="content-wide section-shell">
+    <div class="viz-grid two-up viz-grid--econ">
+      {% for panel in [block.left, block.right] %}
+      <article class="viz-card viz-card--econ">
+        {% if panel.eyebrow %}<p class="viz-card-eyebrow">{{ panel.eyebrow | safe }}</p>{% endif %}
+        <iframe
+          class="viz-frame"
+          src="{{ panel.src }}"
+          title="{{ panel.title | default('Figure') }}"
+          loading="lazy"
+        ></iframe>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="longform figure-caption-section"{% if block.caption_id %} id="{{ block.caption_id }}"{% endif %}>
+  <p class="figure-caption">
+    {% if block.figure_number %}<strong>{{ block.figure_number }}.</strong> {% endif %}
+    {{ block.caption | md_inline | safe }}
+    {% if block.caption_footnote_id %}<span id="{{ block.caption_footnote_id }}" class="footnote-inline"></span>{% endif %}
+  </p>
+</section>

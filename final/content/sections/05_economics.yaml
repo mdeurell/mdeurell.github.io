@@ -1,0 +1,163 @@
+# Section 4 — Prices & volumes.
+# What the market is telling us: price moves, modern-era trajectories,
+# whether prices move together, and the production volume backdrop.
+id: bifurcation
+class: longform--econ
+blocks:
+
+  # ── 5.1 Small-multiples price chart (full history, real terms) ─────
+  - type: prose
+    id: bifurcation
+    class: longform--econ
+    eyebrow: "Section 4 &nbsp;·&nbsp; Prices &amp; volumes"
+    heading: "What the market is telling us"
+    dropcap: true
+    text: |
+      Before any government writes a resilience policy, the markets usually 
+      move first. Prices are the earliest, noisiest, and most honest signal 
+      a critical material supply chain produces. They register refining 
+      bottlenecks, export controls, and demand surges weeks or months 
+      before the official press releases. However, these indications of 
+      where the market is moving change when a market exists at 
+      monopolistic-like levels.
+
+      Each panel below traces one material's real price (in 2015 USD) from 
+      1900 to 2024. Use the plot to read the *shape* of the 
+      trend rather than the *absolute level* as the y-axes uses different intervals. 
+      A pre-industrial *flat* 
+      dominates most lines until the mid-twentieth century; the post-1995 
+      era is where things start to lurch.
+
+  - type: figure
+    src: visualizations/prices/price_small_multiples.html
+    alt: "Real prices, ten focal materials, 1900–2024, small multiples"
+    title: "Real prices, 1900–2024 — by material"
+    aria_label: "Price small multiples"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 4.1"
+    caption: |
+      Ten per-material panels of annual real price (US CPI-deflated to
+      2015 USD), 1900–2024. Each panel has its own y-axis — Terbium
+      tops $600/kg while copper sits at $7/kg — so the chart asks the
+      reader to compare *shape* and *volatility*, not level. The 2015
+      baseline is marked on each line. Series begin where USGS Dataset
+      D first publishes the material: 1900 for copper, cobalt, graphite,
+      platinum; 1922 for the rare-earth elements; 1936 for lithium;
+      1943 for gallium. 2023–2024 values are spliced from USGS Mineral
+      Commodity Summaries 2025 (industry-standard categories: LME cash
+      for cobalt and copper, Argus for individual REEs, Engelhard for
+      platinum). <span class="figure-takeaway">Lithium, cobalt and
+      terbium carry the steepest post-2015 moves; copper and platinum
+      barely tilt.</span>
+
+  # ── 5.2 Modern-era zoom on the single index axis ───────────────────
+  #- type: prose
+  #  class: longform--econ
+  #  dropcap: false
+  #  text: |
+  #    The full-history view buries the post-2000 dynamics in a long
+  #    flat century. The companion chart re-centres on the modern era —
+  #    2000–2024 — with every material rebased to its own 2015 average
+  #    = 100. Now the lines can sit side by side.
+
+  - type: figure
+    src: visualizations/prices/price_index_modern.html
+    alt: "Modern-era price index, 2000–2024, 2015 = 100"
+    title: "Modern-era price moves — 2000–2024"
+    aria_label: "Price index modern era"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 4.2"
+    caption: |
+      Each material's annual real price rebased so the 2015 average
+      equals 100, 2000–2024. The dotted line at 100 is the baseline.
+      Lithium's 2017–2022 spike, the cobalt 2018 squeeze, the rare-earth
+      pulse around 2010–2011 and the post-2020 Tb/Dy climb all read
+      directly. The rare-earth basket has no MCS unit-value series past
+      2020 and is extended with a synthetic basket index built as the
+      geometric mean of Nd / Dy / Tb 2015-indexes — flagged in the data
+      with `source_tag = ree_basket_synthetic`.
+      <span class="figure-takeaway">Lithium has moved by roughly an
+      order of magnitude in 22 years; copper has moved by less than a
+      quarter.</span>
+
+  # ── 5.3 Correlation matrix ─────────────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      A second question, less often asked: **do these materials move 
+      together?** If the modern era is driven by one giant, shared 
+      shock — such as the EV and clean-energy demand pull, or a single 
+      chokepoint policy — we should see strong positive correlations 
+      across the basket. If each material has its own market, the 
+      matrix should look mostly mottled.
+
+      The chart below pairs every material with every other and computes 
+      the **price correlation**—measuring how closely their year-on-year 
+      changes move in sync. We have ordered the ten materials by 
+      hierarchical clustering so that those with the most similar 
+      behaviors are grouped together. Read it as **a sociogram of the basket**.
+
+  - type: figure
+    src: visualizations/prices/price_correlation.html
+    alt: "Pairwise correlation matrix of price moves, 2000–2024"
+    title: "Do prices move together?"
+    aria_label: "Price correlation matrix"
+    section_class: story-section--econ
+    figure_number: "Figure 4.3"
+    caption: |
+      This Pearson correlation matrix shows how closely prices move in sync from 2000–2024. 
+      **Blue** indicates materials that move together, **red** indicates 
+      they move in opposite directions, and **neutral tones** mean their 
+      prices are unrelated. Materials are grouped so that those with 
+      the most similar price behaviors sit next to each other. Observe that 
+      the *battery cluster* (lithium, cobalt, graphite, neodymium) and the *rare earth cluster* 
+      (Tb, Dy, REE basket) emerging as solid blocks. Materials that 
+      sit alone  — like copper and platinum — operate on their own unique 
+      global market dynamics.
+      
+
+  # ── 5.4 Production volumes ─────────────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      Prices are the noisy signal. Production tonnage is the slow one.
+      The chart below traces world annual mine production for each
+      **focal material from 1900 to 2024** — the same window as the price
+      chart, against the same set of materials.
+
+      This is the industrial revolution occurring downstream, once 
+      the ore has been processed into value. **Copper**
+      grew from roughly 500,000 tonnes a year in 1900 to about 22
+      million tonnes in 2024 — a 4.000% surge. **Lithium** went from a few
+      hundred tonnes annually in the 1930s to 130,000 tonnes in 2024,
+      three orders of magnitude.e Cobalt, gallium and the rare-earth
+      basket carry similar growth multiples.
+
+      Volumes went up by orders of
+      magnitude, but unit prices did not collapse the way commodity
+      textbooks predict for markets expanding this fast. Steel did.
+      Aluminium did. These materials did not. That asymmetry is what
+      the rest of the report is about — the binding constraint sits
+      downstream of the mine.
+
+  - type: figure
+    src: visualizations/stakes/production_history.html
+    alt: "World mine production, ten focal materials, 1900–2024"
+    title: "World mine production — 1900–2024"
+    aria_label: "World mine production history"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 4.4"
+    caption: |
+      World annual mine production, ten focal materials, 1900–2024, in
+      metric tonnes (logarithmic y-axis). Continuous series from 1900
+      for copper, cobalt, graphite, platinum. Series begin 1922 for the
+      rare-earth basket and individual REEs (Nd, Dy, Tb); 1925 for
+      lithium; 1973 for gallium — recovered as a byproduct of bauxite
+      refining and not separately tracked before its semiconductor
+      demand emerged. 2023–2024 figures are USGS *Mineral Commodity
+      Summaries 2025* provisional estimates.

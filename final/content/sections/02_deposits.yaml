@@ -1,0 +1,153 @@
+# Section 2 — Where they are. Prose + global deposits map (Figure 2).
+id: deposits
+blocks:
+  - type: prose
+    id: deposits
+    eyebrow: "Section 2 &nbsp;·&nbsp; Where they are"
+    heading: "Geography is not the bottleneck"
+    dropcap: true
+    text: |
+      The raw materials for the energy transition exist on every continent.
+      Africa, South America, North America, Australia, and Asia all hold
+      significant deposits of the ten elements profiled in the previous
+      section. The geological story is one of **abundance and breadth**,
+      not scarcity. Critical materials are critical not because the rocks
+      are missing, but because the systems built on top of those rocks —
+      mines, refineries, separation plants, trade contracts — have over
+      decades collapsed into a handful of dominant hubs.
+
+      A country that mines a material does not automatically capture its
+      value. And a country with no mines at all can still dominate the
+      supply chain if it controls the refining step. The pattern repeats
+      across nearly every material in this study: **deposits are
+      everywhere; chokepoints are not**.
+
+      The world map below plots **13,723 known deposit locations**
+      drawn from the United States Geological Survey's Critical Minerals
+      Geodatabase and the Global Rare Earth Element Occurrence Database.
+      Each point is a documented occurrence — anything from a small
+      historic prospect to a producing mine. Use the layer panel to
+      filter by mineral, switch between dot view and density heatmap, or
+      isolate light and heavy rare earth subgroups.
+
+      The visual takeaway is the same whichever filter is selected. The
+      dots fan out across six continents. The story this project chases
+      starts where the map ends — in the refineries, the long-term
+      offtake contracts and the trade networks that decide which of these
+      deposits ever reach a finished product.
+
+  - type: figure
+    src: visualizations/deposits/deposit_map.html
+    alt: "Global critical mineral deposits map"
+    title: "Global critical mineral deposits map"
+    aria_label: "Global deposits map"
+    frame_class: map-frame
+    bleed: true
+    frameless: true
+    dark: true
+    figure_number: "Figure 2"
+    caption_id: deposits-caption
+    caption_footnote_id: deposits-coverage
+    caption: |
+      Global distribution of documented critical material deposits (*n* = 13,723).
+      Each marker is a single occurrence; marker colour encodes the material and
+      marker opacity its development stage, ranging from active mines (solid)
+      through confirmed reserves and country-level estimates to exploration
+      targets (faded). Stars denote landmark mines profiled in the explainer
+      notebook. The *Layers* control (top right) toggles individual material
+      families, separates light from heavy rare earths, and switches the radial
+      density heatmap, which is computed with a 500 km cap on cluster spread so
+      that only true concentrations of activity register. The *Icons* key
+      (bottom right) summarises the opacity scale. Zoom and pan controls (top
+      left) include a wheel-zoom toggle, off by default to preserve page scroll,
+      and a full-screen expander.
+      Sources: USGS Professional Paper 1802 Critical Minerals Geodatabase;
+      USGS Global Rare Earth Element Occurrence Database (2017). Basemap © CartoDB.
+
+  - type: prose
+    eyebrow: "Section 2 &nbsp;·&nbsp; Nine mines that shape the world"
+    heading: "The landmark sites, one by one"
+    dropcap: false
+    text: |
+      The map's stars mark nine landmark mines — operating, idled, or
+      blocked — that together carry an outsized share of the global
+      narrative for critical materials. Each tells a different version of
+      the same lesson: the deposit is rarely the bottleneck.
+
+      ### Bayan Obo &nbsp;—&nbsp; China, Inner Mongolia · Active
+      *Neodymium · carbonatite-hosted iron-REE*
+
+      The backbone of China's rare-earth dominance. Scale is unmatched
+      — the processing city built around it is why China controls
+      roughly 90% of global REE refining. Also a major iron-ore
+      operation. Produces primarily light REE (La, Ce, Pr, Nd).
+
+      ### Mountain Pass &nbsp;—&nbsp; United States, California · Active
+      *Neodymium · carbonatite* 
+
+      Supplied most of the Western world's REE through the 1980s, then
+      closed in 2002 when China undercut prices. Reopened in 2017 under
+      MP Materials. Still ships concentrate to China for separation —
+      domestic processing capacity is under construction.
+
+      ### Mt Weld &nbsp;—&nbsp; Australia, Western Australia · Active
+      *Neodymium · supergene-enriched carbonatite*
+
+      The main non-Chinese supplier of separated rare-earth products to
+      Western markets. World's highest-grade REE deposit (two to three
+      times Bayan Obo). Ore is shipped to Lynas' processing plant in
+      Malaysia for separation. Critical to any Western supply-chain
+      diversification strategy.
+
+      ### Nolans Bore &nbsp;—&nbsp; Australia, Northern Territory · Development
+      *Neodymium · phosphate-REE apatite vein*
+
+      Largest undeveloped NdPr project in the Western pipeline. REE is
+      hosted in apatite — a phosphate mineral — alongside uranium,
+      requiring complex processing. Feasibility completed 2023; now in
+      financing. If built, would add roughly 10% to non-Chinese NdPr
+      supply.
+
+      ### Kvanefjeld &nbsp;—&nbsp; Greenland, Ilimaussaq complex · Blocked
+      *Dysprosium · peralkaline igneous intrusion*
+
+      Largest undeveloped heavy-REE deposit globally — currently
+      inaccessible. License revoked in 2021 by the Greenlandic
+      government over opposition to uranium co-mining. A textbook case
+      of environmental and political barriers locking out a major
+      strategic deposit.
+
+      ### Bou Azzer &nbsp;—&nbsp; Morocco, Anti-Atlas Mountains · Active
+      *Cobalt · cobaltite-arsenide hydrothermal vein*
+
+      The world's oldest continuously operating cobalt mine — running
+      since the 1930s. Most cobalt globally is a byproduct of copper or
+      nickel; Bou Azzer is rare in producing it as the primary product,
+      giving Western buyers a supply option independent of DRC politics.
+
+      ### Tenke Fungurume &nbsp;—&nbsp; DRC, Lualaba Province · Active
+      *Cobalt · stratiform Cu-Co (Copperbelt)*
+
+      The single largest cobalt producer on Earth — about 15% of global
+      annual supply. Originally Western-owned (Freeport-McMoRan +
+      Lundin), sold to Chinese CMOC in 2016. CMOC doubled output in
+      2022–23, flooding the cobalt market and suppressing prices. A
+      focal point of the supply-chain geopolitics story.
+
+      ### Pilgangoora &nbsp;—&nbsp; Australia, Pilbara · Active
+      *Lithium · spodumene pegmatite*
+
+      Textbook Case 1 supply chain: Australia mines the ore, China
+      refines it. Crushed and shipped as concentrate to Chinese
+      converters who process it into lithium hydroxide for battery
+      cathodes.
+
+      ### Atacama Salt Flat &nbsp;—&nbsp; Chile, Atacama Desert · Active
+      *Lithium · salar brine evaporite*
+
+      World's largest lithium resource — about 30% of global production
+      and the lowest-cost source globally (~$3,000/t LCE). Brine is
+      pumped from underground aquifers and solar-evaporated over 12–18
+      months in vast ponds, then processed into lithium carbonate. Part
+      of the Lithium Triangle (Chile, Argentina, Bolivia) holding
+      roughly 60% of global lithium resources.

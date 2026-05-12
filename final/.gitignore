@@ -1,0 +1,17 @@
+.idea/
+.jumbo/
+.jumbo/jumbo.db
+
+.env
+
+__pycache__/
+
+AGENTS.md 
+CLAUDE.md
+JUMBO.md
+
+.uv-cache
+.claude
+.venv
+
+data/

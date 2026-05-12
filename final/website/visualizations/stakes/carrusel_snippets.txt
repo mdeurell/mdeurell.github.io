@@ -1,0 +1,199 @@
+HTML
+
+<div id="carousel">
+<figure id="spinner">
+<figure>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/anton-ploom.jpg" alt="A danseur in brisé (a leap with the legs together) on a blue background">
+    <figcaption>Anton Ploom</figcaption>
+</figure>
+<figure>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/annija-kopstsale.jpg" alt="">
+    <figcaption>Annija Kopshtale</figcaption>
+</figure>
+<figure>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/daria-elmakova.jpg" alt="">
+    <figcaption>Daria Elmakova</figcaption>
+  </figure>
+   <figure>
+     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/margaret-rodchenkova.jpg" alt="">
+<figcaption>Margaret Rodchenkova</figcaption>
+</figure>
+<figure>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/marta-ozolina.jpg" alt="">
+<figcaption>Marta Ozolina</figcaption>
+</figure>
+<figure>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/victoria-ananyan.jpg" alt="">
+<figcaption>Victoria Ananyan</figcaption>
+</figure>
+  <figure>
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ekaterina-gusarova.jpg" alt="A ballerina photographed in ">
+<figcaption>Ekaterina Gusarova</figcaption>
+</figure>
+</div>
+<span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
+<span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>
+  <p>Controls: cursor left and right or click on arrows to rotate, <b>Z</b> or click to toggle zoom on foreground image, <b>C</b> or hover to show/hide caption.
+
+CSS
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #100000;
+  font-family: Avenir,
+    sans-serif;
+  color: #fff;
+}
+p {
+  margin-top: 8rem;
+  font-size: 1rem;
+  color: #777;
+}
+div#carousel {
+  perspective: 1200px;
+  background: #100000;
+  padding-top: 5%;
+  font-size:0;
+  margin-bottom: 3rem;
+}
+figure#spinner {
+  transform-style: preserve-3d;
+  height: 300px;
+  -webkit-transform-origin: 50% 50%;
+  // for Safari
+  transform-origin: 50% 50% -400px;
+  // for all other browsers
+  transition: 1s;
+}
+figure#spinner figure {
+  width: 20%;
+  max-width: 500px;
+  position: absolute;
+  left: 40%;
+  transform-origin: 50% 50% -400px;
+  outline:1px solid transparent;
+  overflow: hidden;
+  transition: 1s;
+}
+figure#spinner figure.focus {
+  width: 26%;
+  left: 37%;
+  margin-top: -3rem;
+}
+figure#spinner figure img {
+  width: 100%;
+}
+figcaption {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding: .3rem;
+  z-index: 2;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0);
+  transition: .6s;
+}
+figure#spinner figure.current:hover figcaption,
+figure#spinner figure.current.caption figcaption
+{
+  top: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+}
+div#carousel ~ span {
+  color: #fff;
+  margin: 5%;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: 0.6s color;
+  position: relative;
+  margin-top: -6rem;
+  border-bottom: none;
+  line-height: 0;
+}
+div#carousel ~ span:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+JS
+
+// forEach method
+var forEach = function (array, callback, scope) {
+  for (var i = 0; i < array.length; i++) {
+    callback.call(scope, i, array[i]);
+  }
+};
+
+var spinner = document.querySelector("#spinner"),
+angle = 0,
+images = document.querySelectorAll("#spinner figure"),
+numpics = images.length,
+degInt = 360 / numpics,
+start = 0,
+current = 1;
+
+forEach (images, function (index, value) {
+    images[index].style.webkitTransform = "rotateY(-"+start+"deg)";
+    images[index].style.transform = "rotateY(-"+start+"deg)";
+    images[index].addEventListener("click", function() {
+	     if (this.classList.contains('current')) {
+			 	this.classList.toggle("focus");
+			 }
+    })
+    start = start + degInt;
+});
+
+function setCurrent(current) {
+  document.querySelector('figure#spinner figure:nth-child('+current+')').classList.add('current');
+}
+
+function galleryspin(sign) {
+	forEach (images, function (index, value) {
+		images[index].classList.remove('current');
+		images[index].classList.remove('focus');
+		images[index].classList.remove('caption');
+	})
+
+	if (!sign) { angle = angle + degInt;
+           current = (current+1);
+            if (current > numpics) { current = 1; }
+				} else {
+            angle = angle - degInt;
+            current = current - 1;
+            	if (current == 0) { current = numpics; }
+           }
+
+spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg)");
+  setCurrent(current);
+}
+
+
+
+document.body.onkeydown = function(e){
+    switch(e.which) {
+        case 37: // left cursor
+        galleryspin('-');
+        break;
+
+        case 39: // right cursor
+        galleryspin('');
+        break;
+
+        case 90: // Z - zoom image in forefront image
+        document.querySelector('figure#spinner figure.current').classList.toggle('focus');
+        break;
+
+        case 67: // C - show caption for forefront image
+        document.querySelector('figure#spinner figure.current').classList.toggle('caption');
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault();
+}
+
+setCurrent(1);

@@ -1,0 +1,42 @@
+# Section 0 — Prologue. Sits between the hero and the first chapter.
+id: standfirst
+blocks:
+  - type: prose
+    eyebrow: "Section 0 &nbsp;·&nbsp; Prologue"
+    dropcap: false
+    text: |
+      The history of civilization is anchored by the materials we master. The Stone Age,
+      the Bronze Age and the Iron Age are self-evident for the critical material at the time.
+      The supply chain has always been a question of access to resource. The ground is not
+      the bottleneck — the bottleneck is what happens after mining: refining, trade routing,
+      and who controls the chokepoints.
+
+  - type: prose
+    heading: "From salt to semi-conductor"
+    dropcap: true
+    rule_after: true
+    standfirst_after: |
+      The question today is whether the world's market demand for processed critical
+      materials is building two competing supply chains, or creating one fragile system
+      with only a few dominant hubs.
+    text: |
+      <img src="images/img.png"
+           alt="P.S. Krøyer 1885"
+           class="img-float-right">
+      For millennia, salt served as one of the ultimate strategic resources, acting as both
+      a biological necessity and a foundation for global economy and military power; its
+      heavy taxation even became a catalyst for the French Revolution. As human needs
+      evolved, the focus shifted to coal and iron to break the limits of organic power,
+      followed by petroleum, steel and rubber to mobilize a global transport revolution.
+
+      <img src="images/Moore's_Law_Transistor_Count_1970-2020.png"
+           alt="Moore's Law — transistor count per chip, 1970–2020"
+           class="img-float-left">
+      The invention of the transistor — the move from energy-hungry vacuum tubes to small
+      integrated circuits — started the search for smaller, faster, cheaper microelectronics.
+      In 1965, Gordon Moore predicted that transistor counts would double approximately
+      every two years; a forecast that held true for decades. By the early 1970s, a surging
+      demand for specialized metals and minerals in microelectronics shifted the global
+      pursuit of critical materials once more. This began the era of **high tech**,
+      where civilizational progress became measured by our ability to manipulate the
+      periodic table at the atomic scale.

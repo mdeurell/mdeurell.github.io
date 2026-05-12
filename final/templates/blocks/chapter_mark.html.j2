@@ -1,0 +1,14 @@
+{# Chapter mark — Part-II divider with eyebrow + Playfair italic title + standfirst.
+   YAML fields:
+     - eyebrow      (e.g. "Part II")
+     - title        (h2 text — italic Playfair via .chapter-mark-title)
+     - standfirst   (markdown lede paragraph)
+     - aria_label   (optional)
+#}
+<section class="chapter-mark"{% if block.aria_label %} aria-label="{{ block.aria_label }}"{% endif %}>
+  <div class="chapter-mark-inner">
+    {% if block.eyebrow %}<p class="chapter-mark-eyebrow">{{ block.eyebrow | safe }}</p>{% endif %}
+    {% if block.title %}<h2 class="chapter-mark-title">{{ block.title | safe }}</h2>{% endif %}
+    {% if block.standfirst %}<p class="chapter-mark-standfirst">{{ block.standfirst | md_inline | safe }}</p>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,260 @@
+# Section 7 — Dependencies: what happens if someone pulls the plug?
+# 7.1 China's bloc-share timeline. 7.2 manufacturing dependency chart.
+# 7.3 China's reciprocal upstream dependence (placeholder until built).
+id: dependencies
+class: longform--econ
+blocks:
+
+  # ── 7.1 China bloc-share timeline ───────────────────────────────────
+  - type: prose
+    id: dependencies
+    class: longform--econ
+    eyebrow: "Section 7 &nbsp;·&nbsp; Dependencies"
+    heading: "What if someone pulls the plug?"
+    dropcap: true
+    text: |
+      A processing chokepoint only matters if it can be turned into a
+      lever. Most years the trade record is flat — partners stay where
+      they are, prices grind on, no one weaponises anything. The
+      tension lives in the exceptions.
+
+      The chart below pulls the Comtrade record into a longitudinal
+      view, year by year from 2010, splitting China's export
+      destinations into the Western bloc and the BRICS+ / Belt-and-Road
+      bloc. What emerges is not a clean break but a slow, lumpy
+      reorientation — punctuated by the policy events that actually
+      moved trade.
+
+  - type: figure
+    src: visualizations/bifurcation/china_timeline.html
+    alt: "China export destinations over time, by bloc"
+    title: "China export destinations over time, by bloc"
+    aria_label: "China export destination timeline"
+    section_class: story-section--econ
+    figure_number: "Figure 7.1"
+    caption: |
+      China's annual export share to the Western bloc (United States,
+      EU-27+, Japan, South Korea) and the BRICS+ / Belt-and-Road bloc,
+      by value, 2010–2023. The 2018 trade-war pivot, the 2020 COVID
+      dip and the 2023 gallium / germanium export-control pulse are
+      visible as kinks rather than discontinuities.
+      <span class="figure-takeaway">A fully bipolar system would show
+      a clean inversion between the two series; the data instead
+      shows persistence plus rebalancing.</span>
+      <br><br>
+      **HS codes used (China exports, flow = X):** 253090, 280530,
+      284610, 284690, 850511 (REE chain), 283691 (lithium carbonate),
+      810520 (cobalt intermediates), 811292 (gallium unwrought). All
+      eight aggregated to total annual export value; partner countries
+      assigned to bloc by political grouping. Source: UN Comtrade.
+
+  # ── Verified precedent (factbox) ────────────────────────────────────
+  - type: factbox
+    heading: "When the lever has been pulled"
+    tone: oxblood
+    body: |
+      The trade record runs flat most years. The exceptions are short,
+      sharp, and concentrated on materials China processes:
+
+      - **Sep 2010** — Senkaku Islands dispute. After a Chinese
+        fishing-boat collision near the disputed islands on 7 Sep,
+        Chinese customs halted rare-earth shipments to Japan around
+        21 Sep. Exports resumed within days of the captain's release
+        on 24 Sep; Beijing officially denied any embargo. Prices
+        spiked regardless.
+      - **2010–2015** — REE export quotas. China set sharply reduced
+        annual quotas. The US, EU and Japan won a WTO case in
+        Mar 2014 (DS431/432/433); China formally lifted the quotas
+        in Jan 2015 while keeping licensing in place.
+      - **1 Aug 2023** — Export-licensing regime on gallium and germanium.
+        Announced 3 Jul 2023 by MOFCOM, effective 1 Aug. Global —
+        not country-specific. China produced ~98 % of gallium and
+        ~60 % of germanium at the time; export volumes of both fell
+        to roughly zero in Aug 2023.
+      - **3 Dec 2024** — Outright ban on gallium, germanium, antimony
+        *and* superhard materials, exports to the United States only,
+        announced the day after a fresh round of US semiconductor
+        sanctions. (Suspended for ~one year in Nov 2025.)
+      - **4 Apr 2025** — Seven medium and heavy rare earths added to
+        the export-control list: samarium, gadolinium, terbium,
+        dysprosium, lutetium, scandium, yttrium — plus oxides, alloys
+        and compounds. Issued by MOFCOM and General Administration of
+        Customs in response to US tariffs.
+
+      Each event moved prices. None of them collapsed the global
+      supply chain.
+
+  # ── 7.2 Event-overlay price chart ──────────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      Whether each of those levers *actually moved markets* is a data
+      question. The chart below overlays the five events on the real
+      price index for the materials China has actually weaponised —
+      the rare-earth basket, terbium, dysprosium, gallium. The
+      Senkaku halt and the 2010–11 quota regime ride together as the
+      first big rare-earth pulse. Gallium climbs sharply around the
+      August 2023 licensing announcement. The 2024 US-specific ban
+      and the April 2025 REE additions sit at the right edge of the
+      chart; the corresponding price moves are still resolving in the
+      data.
+
+  - type: figure
+    src: visualizations/supply-chain/event_overlay.html
+    alt: "Real-price index 2000-2024 with export-control events overlaid"
+    title: "Did the lever actually move prices?"
+    aria_label: "Event overlay on price"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 7.2"
+    caption: |
+      Real-price index (2015 = 100, log-scale y-axis) for the
+      rare-earth basket, terbium, dysprosium and gallium, 2000–2024,
+      with verified Chinese export-control events overlaid as dotted
+      verticals. Tb / Dy series end where USGS MCS coverage ends;
+      gallium runs through 2024. The 2010–11 REE pulse is
+      contemporaneous with the Senkaku halt and the formal quota
+      regime; the gallium climb starts before the August 2023
+      announcement but accelerates after it. Source: USGS Mineral
+      Commodity Summaries 2025 spliced with USGS Historical
+      Statistics via `price_unified.csv`.
+      <span class="figure-takeaway">Every named event in the factbox
+      shows up as a real price move. The lever exists.</span>
+
+  # ── 7.3 (was 7.2) Manufacturing dependency chart ───────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      A chokepoint only bites if there is something downstream that
+      needs the processed material. The chart below pairs two numbers
+      per material — China's share of global processing (the
+      chokepoint) and the United States' net-import reliance (one
+      Western consumer's exposure to that chokepoint). Each row is
+      annotated with the dominant manufacturing application that
+      would feel the squeeze first.
+
+      Gallium and graphite, both 98–100 % Chinese-processed, route
+      directly into integrated circuits and battery anodes — the
+      supply chain of every modern semiconductor and every modern EV.
+      Rare earths — 90 % Chinese-processed — feed permanent-magnet
+      manufacturing that underpins wind-turbine generators, EV
+      traction motors and guided-munitions seekers. Cobalt, 80 %
+      Chinese-processed, disappears into superalloys for aircraft
+      turbines and into lithium-ion battery cathodes. None of these
+      manufacturing chains have a meaningful non-Chinese alternative
+      on a sub-decade horizon.
+
+  - type: figure
+    src: visualizations/supply-chain/dependency_chart.html
+    alt: "China processing share vs US net-import reliance, by material"
+    title: "China processing share vs US net-import reliance, by material"
+    aria_label: "Manufacturing dependency chart"
+    section_class: story-section--econ
+    figure_number: "Figure 7.3"
+    caption: |
+      Manufacturing-dependency view, seven focal materials. Red bars:
+      China's share of global processing capacity, 2023. Blue bars:
+      US net-import reliance, latest available year per material from
+      USGS Mineral Commodity Summaries. Italic labels at the right
+      edge: the dominant end-use category and its share of total
+      consumption. Materials are ordered by China processing share so
+      the deepest chokepoints sit at the top.
+      <span class="figure-takeaway">A high red bar combined with a
+      high blue bar reads as direct downstream exposure: the United
+      States cannot substitute domestic supply, and the processing
+      alternative does not exist outside one country.</span>
+      <br><br>
+      This figure is not Comtrade-based. Processing-share data comes
+      from USGS MCS 2025 and from the USGS *Mining and Processing
+      Fact Sheet* (Dataset E); US net-import reliance is the
+      `us_net_import_reliance_pct` metric in
+      `master_economic_timeseries.csv`. No HS codes apply.
+
+  # ── 7.3 Reciprocal dependence — full feedstock view ─────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      A processing-stage blockade is also self-injury, but the size of
+      the self-injury depends on the material. China sits on most of
+      its own rare-earth ore (~80 % of feedstock domestic), most of
+      its own graphite, and essentially all of its own gallium. For
+      those materials the "top supplier" figures from Figure 7.1 are
+      thin marginal streams — they look big on a map of imports
+      because imports are small.
+
+      The leverage is real for the materials where the Prussian-blue
+      bar is short. **Cobalt** and **platinum** are not produced in
+      China at any scale; nearly every gram of feedstock arrives by
+      ship. **Lithium** and **copper** sit in between — China mines
+      some, but the supplier side is the bigger half.
+
+      Three countries hold dual-material leverage over China, and the
+      proper trade-flow view — counting every HS code in which a
+      material actually moves — reveals each of them more clearly than
+      the import-only view did.
+
+      The **Democratic Republic of the Congo** holds the deepest grip
+      in the dataset: cobalt at roughly 84 % of China's effective
+      feedstock, plus a meaningful share of copper once refined-cathode
+      shipments are counted alongside concentrate. The Copperbelt
+      flows make the dual position visible.
+
+      **Australia** is the lithium pivot — the spodumene that ships out
+      of Greenbushes and Pilgangoora under HS 253090 is the single
+      largest external feed for Chinese lithium refineries (≈ 48 % of
+      Chinese supply). Australia is also a major non-Chinese source of
+      rare-earth concentrate through the Lynas / Malaysia route. A
+      Western ally whose upstream ore continues to feed the Chinese
+      chokepoint — the structural paradox the 2025 US-Australia
+      Critical Minerals Framework is designed to interrupt.
+
+      **Chile** carries the cleanest single-country dual story:
+      copper concentrate (≈ 20 % of Chinese supply) and lithium
+      carbonate (≈ 32 % of Chinese lithium imports, second only to
+      Australia). Chile alone has signed lithium offtake agreements
+      with the United States, the European Union and Chinese SOEs
+      simultaneously.
+
+      **Zambia** sits beside the DRC in the same Copperbelt geology
+      and plays the complementary, smaller copper role. The leverage
+      across these four countries is direct, narrow, well-known to
+      both sides, and runs in both directions.
+
+  - type: figure
+    src: visualizations/supply-chain/reciprocal_dependence.html
+    alt: "China's feedstock supply mix — domestic vs top supplier vs other imports, by material"
+    title: "China's own upstream dependence"
+    aria_label: "Reciprocal dependence chart"
+    section_class: story-section--econ
+    figure_number: "Figure 7.4"
+    caption: |
+      Each bar shows 100 % of China's annual refining feedstock for
+      one material, decomposed into three slices: Prussian blue is
+      China's own mine production; oxblood is the share imported from
+      China's single largest external supplier; pale tan is all other
+      imports combined. Best-estimate shares for 2023, reconciling
+      USGS Mineral Commodity Summaries domestic-mining tonnage (in
+      contained-element basis) with UN Comtrade import tonnage
+      adjusted using material-specific concentrate-to-metal ratios
+      (copper concentrate ≈ 25 % Cu; cobalt mattes ≈ 30 % Co;
+      spodumene ≈ 6 % Li₂O; REE concentrate ≈ 50 % REO).
+      <span class="figure-takeaway">Where the Prussian bar is short
+      — Cobalt, Platinum, Lithium, Copper — the chokepoint cuts both
+      ways. Where it is long — REE, Graphite, Gallium — the import
+      shares in Figure 6.1 are marginal streams, not load-bearing
+      supply.</span>
+      <br><br>
+      **HS codes used per material (China imports):** Cobalt 810520
+      (mattes) · Lithium 283691 (carbonate) · Copper 260300
+      (concentrate) · Rare Earths 253090 + 280530 + 284610 + 284690
+      (ore + metal + REE compounds) · Graphite 250410 (natural) ·
+      Platinum 711011 (unwrought) · Gallium 811292 (unwrought).
+      Coverage caveat: this chart uses upstream / mid-stream codes
+      only — refined copper cathodes (HS 740311) shipped by the DRC
+      and Zambia are not captured and would broaden the Copperbelt
+      picture; cobalt sulfate / oxide (HS 282200, 283329) and lithium
+      hydroxide (HS 282520) are also not in this view. Source:
+      USGS MCS 2025; UN Comtrade.

@@ -1,0 +1,204 @@
+# Section 8 — Two supply chains, or one? Five-bloc decomposition of China's
+# critical-mineral export value, 2010–2024, plus swing-states / EU / India.
+id: bifurcation-blocs
+class: longform--econ
+blocks:
+  - type: prose
+    id: bifurcation-blocs
+    class: longform--econ
+    eyebrow: "Section 8 &nbsp;·&nbsp; Two supply chains, or one?"
+    heading: "Belt &amp; Road, the West, India, and the EU"
+    dropcap: true
+    text: |
+      Section 7 showed that the chokepoint cuts both ways — China
+      cannot weaponise refining without losing its upstream feed.
+      Section 8 asks the next question: is the world building two
+      parallel supply chains around that fact, or is it staying
+      tangled?
+
+      The chart below cuts China's critical-mineral exports into five
+      blocs: the Western alliance (United States, Japan, South Korea,
+      Canada, Australia, New Zealand, the United Kingdom), the
+      **EU-27+** (the 27 member states plus the EEA / EFTA group —
+      Norway, Switzerland, Iceland, Liechtenstein — which sit inside
+      the same regulatory and ideological space), India on its own
+      (the BRICS+ heavyweight outside China), the rest of BRICS+
+      (Brazil, Russia, South Africa, Indonesia, the Middle East
+      states), and the Belt-and-Road signatories not already in the
+      other blocs.
+
+      The picture is closer to a slow rotation than a split. The
+      Western alliance and the EU-27+ still account for the largest
+      combined share of China's critical-mineral export value across
+      the panel; their share is shrinking, not collapsing. India is
+      rising — its share has roughly doubled across the window,
+      though from a small base. The Belt-and-Road band is broader
+      than the BRICS+ residual but neither is large enough to absorb
+      a full reorientation. If a parallel supply chain is forming, it
+      is forming through accumulation rather than substitution.
+
+      The honest read: there is no second self-contained supply chain
+      in this data. There is one global supply chain that funnels
+      through Chinese processing, with shifting downstream
+      distribution. A bipolar future would require either a
+      substantial non-Chinese refining capacity to emerge (the
+      structural argument of Section 8) or a deliberate policy
+      fragmentation that the trade record does not yet reflect.
+
+  - type: figure
+    src: visualizations/bifurcation/bloc_split.html
+    alt: "China critical-mineral export value, share by bloc, 2010-2024"
+    title: "China critical-mineral export value, share by bloc, 2010-2024"
+    aria_label: "Bloc split timeline"
+    section_class: story-section--econ
+    figure_number: "Figure 8.1"
+    caption: |
+      China's critical-mineral export value, share by bloc, 2010–2024.
+      Five-bloc decomposition: Western alliance (US, UK, Japan, South
+      Korea, Canada, Australia, New Zealand); EU-27+ (the 27 EU member
+      states plus the EEA / EFTA group: Norway, Switzerland, Iceland,
+      Liechtenstein); India alone; BRICS+ excluding India and China
+      (Brazil, Russia, South Africa, Indonesia, Iran, Saudi Arabia,
+      UAE, Egypt, Ethiopia); Belt-and-Road signatories outside the
+      other blocs (Pakistan, Kazakhstan, Türkiye, Vietnam, Malaysia,
+      Thailand, Philippines, Argentina, Chile, Peru, Hungary, Greece).
+      "Other" is the long-tail residual.
+      <span class="figure-takeaway">A clean bipolar break would show
+      the Western + EU-27+ bands collapsing while the BRICS+ +
+      Belt-and-Road bands swell to mirror them; the actual data shows
+      gradual rebalancing. India's band, while small, has the
+      steepest growth slope of any single bloc — the closest thing in
+      the data to a structural reorientation.</span>
+      <br><br>
+      **HS codes used (China exports, flow = X):** the same eight
+      codes that anchor Sections 7 and 8 — 253090, 280530, 284610,
+      284690, 850511 (REE chain), 283691 (lithium carbonate), 810520
+      (cobalt intermediates), 811292 (gallium unwrought). Annual
+      partner-level totals are summed into five political blocs.
+      Source: UN Comtrade.
+
+  # ── 9.2 Swing states — who do upstream countries actually sell to? ──
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      The bloc-split timeline asks "where does China sell?" The harder
+      question is "where do the *upstream* countries sell?" If
+      Australia is locked into the Chinese supply chain, that is a
+      structural fact regardless of what political alliance Canberra
+      signs. The chart below pulls the same Comtrade record from five
+      upstream reporters — Australia, Chile, Indonesia, India and the
+      DRC — and shows the destination mix for each year, 2000–2024.
+
+      Australia's pattern is the textbook "playing both sides" case:
+      sells overwhelmingly to China across the panel, but the Western
+      share is not zero, and the recent slope on the Western line is
+      upward. Chile is similar in shape, with a slower transition.
+      Indonesia tilts hard toward China as Chinese smelter capital
+      poured into the country's nickel sector after the 2014 raw-ore
+      ban. India is the interesting outlier — its export base is
+      smaller, and what little it ships goes more to the West than to
+      China. The DRC is the *non*-swing case: an overwhelming, stable
+      share of cobalt and copper flows to China, with almost no
+      Western component. Geography and refining capital have
+      foreclosed alternatives.
+
+  - type: figure
+    src: visualizations/bifurcation/swing_states.html
+    alt: "Swing-state exports of critical minerals to China vs Western alliance, 2000-2024"
+    title: "Playing both sides?"
+    aria_label: "Swing states small multiples"
+    section_class: story-section--econ
+    frame_class: tall-frame
+    figure_number: "Figure 8.2"
+    caption: |
+      Five-panel small-multiples. Each panel: one upstream country's
+      exports of the eight focal HS codes (REE bundle + lithium
+      carbonate + cobalt mattes + gallium), decomposed by destination
+      bloc and shown as share of total annual exports. Oxblood =
+      China. Prussian = Western alliance (US, UK, Japan, South Korea,
+      Canada, Australia, NZ + EU-27+ collectively).
+      Grey dotted = all other destinations.
+      <span class="figure-takeaway">Australia and Chile actively
+      diversify their customer mix; the DRC has nowhere else to go.
+      "Playing both sides" requires alternative buyers, which exist
+      only where the refining ecosystem outside China exists.</span>
+      <br><br>
+      **HS codes used (each reporter's exports, flow = X):** 253090,
+      280530, 284610, 284690, 850511 (REE chain), 283691 (lithium
+      carbonate), 810520 (cobalt intermediates), 811292 (gallium
+      unwrought). The reporter list omits Cu / Graphite / Pt codes,
+      so Australia's spodumene flow is included (via 253090) but its
+      iron-ore and bauxite flows are not. Source: UN Comtrade with
+      Australia, Chile, Indonesia, India, DRC each as reporter.
+
+  # ── 8.3 Recycling and urban-mining gap ──────────────────────────────
+  - type: prose
+    class: longform--econ
+    dropcap: false
+    text: |
+      If the trade record shows the chain is not yet splitting, the
+      alternative is to build a *parallel* chain on top of the existing
+      one — recycling, urban mining, secondary supply. The argument is
+      politically convenient and technically real: the metal in a
+      decommissioned EV battery is the same metal that has to be
+      mined from the ground. The reality is the chart below.
+
+      Copper and platinum already have functioning secondary markets;
+      roughly a third of annual supply comes from recycling. Cobalt is
+      catching up as lithium-ion battery recycling matures. Everything
+      else is essentially zero. End-of-life recycling rates for
+      lithium, graphite and rare earths sit at 1 %, even as 10-year
+      demand multiples for the same materials run well into double
+      digits. The gap between waste-stream supply and growth is
+      widening — not closing.
+
+      Urban mining is a slogan today; the infrastructure to make it a
+      second supply chain does not exist for the materials that matter
+      most.
+
+  - type: figure
+    src: visualizations/bifurcation/recycling_view.html
+    alt: "End-of-life recycling rate vs 2014-2024 demand multiple per material"
+    title: "The urban-mining gap"
+    aria_label: "Recycling vs demand growth"
+    section_class: story-section--econ
+    figure_number: "Figure 8.3"
+    caption: |
+      Left panel: end-of-life recycling input rate per material, %
+      share of annual supply that comes from recovered secondary
+      material. Right panel: 2014–2024 demand multiple, computed as
+      global mine production in 2024 divided by global mine production
+      in 2014. Sources: UNEP (2011) metals stocks-and-flows report;
+      EU Joint Research Centre *Critical Raw Materials* (2023); IEA
+      *Critical Minerals Outlook* (2024) for recycling rates;
+      `master_economic_timeseries.csv` for demand multiples.
+      <span class="figure-takeaway">Lithium, graphite and rare earths
+      have demand-growth multiples in the high single digits but
+      recycling rates at one per cent. The waste stream is not yet a
+      meaningful supply.</span>
+
+  # ── Swing states callout ────────────────────────────────────────────
+  - type: factbox
+    heading: "Three escape attempts"
+    tone: neutral
+    body: |
+      The countries that *aren't* China are not lining up in one row.
+      Three modes are visible in the trade record:
+
+      - **Playing both sides.** Australia signed the 2025 US-Australia
+        Critical Minerals framework (a $3.5 B commitment) while
+        continuing to ship lithium spodumene and iron ore to China,
+        its largest customer. Chile holds joint lithium operations
+        with Chinese capital (SQM–Tianqi) and MoUs with the EU and US.
+      - **Caught in the middle.** The EU-27+ and India both buy heavily
+        from China while signing offset deals elsewhere — EU with
+        Canada, Ukraine and Chile under the Critical Raw Materials Act;
+        India with Australia and African producers. Neither has the
+        refining capacity to actually break free.
+      - **No good options.** The DRC sells cobalt almost exclusively
+        into the Chinese refining channel because nothing else exists
+        at scale. Indonesia banned raw-nickel exports in 2014 to force
+        smelter investment, then accepted Chinese capital to build
+        that smelter capacity — a forced re-routing through China,
+        not away from it.

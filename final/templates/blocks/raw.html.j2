@@ -1,0 +1,5 @@
+{# Raw block — escape hatch for one-off HTML that doesn't fit any block type.
+   Use sparingly. YAML fields:
+     - html (required)
+#}
+{{ block.html | safe }}

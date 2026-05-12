@@ -1,0 +1,17 @@
+{# Factbox — highlighted callout sidebar. Sits inside .longform like prose.
+   YAML fields:
+     - heading (optional)
+     - body (markdown)
+     - tone (optional: 'neutral' | 'orange' | 'oxblood')
+#}
+{% set tone = block.tone | default('neutral') %}
+{% set extra_class = block.class if block.class else (section.class | default('')) %}
+{% set class_attr = ('longform ' ~ extra_class) | trim %}
+<section class="{{ class_attr }}">
+  <div class="longform-inner">
+    <aside class="factbox factbox--{{ tone }}">
+      {% if block.heading %}<p class="factbox-heading">{{ block.heading | safe }}</p>{% endif %}
+      <div class="factbox-body">{{ block.body | md | safe }}</div>
+    </aside>
+  </div>
+</section>

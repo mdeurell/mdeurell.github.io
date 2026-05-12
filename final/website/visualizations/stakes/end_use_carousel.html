@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critical Mineral End Uses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #0D1B2A;
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #F0EDE5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      padding: 1.5rem 1rem 1rem;
+      user-select: none;
+    }
+
+    #carousel {
+      perspective: 1600px;
+      width: 100%;
+      height: 420px;
+      margin-bottom: 100px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    figure#spinner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform-origin: 50% 50% -600px;
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      pointer-events: none;
+    }
+
+    figure#spinner > figure {
+      position: absolute;
+      width: 22%;
+      height: 88%;
+      top: 6%;
+      left: 39%;
+      transform-origin: 50% 50% -600px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: default;
+      pointer-events: none;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      transition: width 0.9s cubic-bezier(0.16,1,0.3,1),
+                  height 0.9s cubic-bezier(0.16,1,0.3,1),
+                  top 0.9s cubic-bezier(0.16,1,0.3,1),
+                  left 0.9s cubic-bezier(0.16,1,0.3,1),
+                  outline-color 0.3s;
+    }
+
+    figure#spinner > figure.current {
+      outline-color: rgba(15, 61, 92, 0.7);
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    figure#spinner > figure.focus {
+      width: 68%;
+      height: 158%;
+      top: -30%;
+      left: 17%;
+    }
+
+    .mineral-card {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.55rem;
+      padding: 1.5rem 0.9rem 1.1rem;
+      background: linear-gradient(160deg, #1B3A4B 0%, #0D1B2A 100%);
+      border-top: 4px solid var(--mc);
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .mc-icon {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--mc);
+    }
+
+    .mc-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .mc-use {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(240, 237, 229, 0.72);
+      line-height: 1.35;
+    }
+
+    .mc-pct {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--mc);
+      line-height: 1;
+    }
+
+    .mc-bar-wrap {
+      width: 78%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .mc-bar {
+      height: 100%;
+      background: var(--mc);
+      border-radius: 9999px;
+    }
+
+    .mc-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(240, 237, 229, 0.42);
+    }
+
+    .mc-detail {
+      display: none;
+      font-size: 0.9rem;
+      color: rgba(240, 237, 229, 0.88);
+      line-height: 1.7;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      width: 90%;
+      text-align: left;
+    }
+
+    figure#spinner > figure.focus .mc-detail {
+      display: block;
+    }
+
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.72rem;
+      background: rgba(13, 27, 42, 0);
+      color: rgba(240, 237, 229, 0.9);
+      text-align: center;
+      transition: background 0.5s;
+      pointer-events: none;
+    }
+
+    figure#spinner > figure.current:hover figcaption,
+    figure#spinner > figure.current.caption figcaption {
+      background: rgba(13, 27, 42, 0.85);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .ctrl-btn {
+      background: rgba(15, 61, 92, 0.1);
+      border: 1px solid rgba(15, 61, 92, 0.35);
+      color: #0F3D5C;
+      border-radius: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      padding-bottom: 1px;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(15, 61, 92, 0.22);
+      border-color: rgba(15, 61, 92, 0.65);
+    }
+
+    .ctrl-hint {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(240, 237, 229, 0.35);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="carousel">
+    <figure id="spinner">
+
+      <figure>
+        <div class="mineral-card" style="--mc: #45B7D1">
+          <img class="mc-icon" src="../images/Lithium-Metal-chemical-element-with-the-symbol-Li-atomic-number-3.jpg" alt="Lithium">
+          <div class="mc-name">Lithium</div>
+          <div class="mc-use">Batteries</div>
+          <div class="mc-pct">87%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:87%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Li · Atomic no. 3 · Alkali metal<br>
+            <strong>Science:</strong> The lightest of all metals and the least dense solid element — density just 0.534 g/cm³, so it floats on water. Soft enough to cut with a knife. Holds the highest specific heat capacity of all solids. Reacts directly with nitrogen at room temperature, forming a black nitride tarnish. Produces a characteristic bright crimson flame. Must be stored in petroleum jelly to prevent reaction with air and moisture.<br>
+            <strong>Application:</strong> Over three-quarters of global production goes to Li-ion batteries (EVs, smartphones, laptops) thanks to its high electrochemical potential and low atomic mass. Also used in high-temperature lithium grease for aircraft engines, as a ceramic and glass flux improving thermal shock resistance, as lithium carbonate — a WHO Essential Medicine for bipolar disorder — and in nuclear technology where Li-6 produces tritium and Li-7 serves as a reactor coolant.<br>
+            <strong>Source:</strong> Mined as hard-rock spodumene in Australia and pumped as lithium-rich brine from beneath the Atacama salt flats in Chile and Argentina (the &#39;Lithium Triangle&#39;). Extraction faces significant environmental scrutiny over water consumption in arid regions and potential groundwater contamination.<br>
+            <strong>Price story:</strong> Prices surged roughly 10× between 2020 and 2022 on EV demand, then crashed more than 70% by 2024 as a wave of new supply from Australia and South America outpaced the market.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #6E8898">
+          <img class="mc-icon" src="../images/Gallium-Metal-chemical-element-with-the-symbol-Ga-atomic-number-31.jpg" alt="Gallium">
+          <div class="mc-name">Gallium</div>
+          <div class="mc-use">Integrated circuits (ICs)</div>
+          <div class="mc-pct">79%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:79%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Ga · Atomic no. 31 · Post-transition metal<br>
+            <strong>Science:</strong> Melting point of just 29.76 °C — it liquefies in the palm of a human hand. One of the few substances (like water) that expands when it solidifies, requiring specialised storage to prevent container rupture. Famous for liquid metal embrittlement: it diffuses into aluminium grain boundaries causing the metal to shatter like glass. Boiling point of 2,676 K gives it one of the widest liquid ranges of any element. Wets glass and porcelain, making it ideal for high-quality mirror coatings.<br>
+            <strong>Application:</strong> Approximately 98% of gallium goes into semiconductors. Gallium arsenide (GaAs) powers high-frequency microwave circuits and mobile phone switching; Gallium nitride (GaN) is the critical material behind blue LEDs, Blu-ray laser diodes, and 5G power electronics. Gallium-67 and Gallium-68 serve as PET scan tracers to detect inflammation and tumours. Galinstan (gallium-indium-tin alloy) remains liquid to −19 °C as a non-toxic mercury replacement in thermometers.<br>
+            <strong>Source:</strong> Has no independent mines — produced exclusively as a byproduct of aluminium (bauxite) and zinc processing, tying its entire supply to those industries. China produces approximately 98% of the world&#39;s low-purity gallium.<br>
+            <strong>Price story:</strong> China imposed gallium export controls in August 2023, triggering immediate price spikes and emergency stockpiling across the semiconductor industry. Supply concentration makes price behaviour highly reactive to policy decisions.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #3A5EA5">
+          <img class="mc-icon" src="../images/cobalt.png" alt="Cobalt">
+          <div class="mc-name">Cobalt</div>
+          <div class="mc-use">Superalloys (aircraft gas turbine engines)</div>
+          <div class="mc-pct">51%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:51%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Co · Atomic no. 27 · Transition metal<br>
+            <strong>Science:</strong> Hard, lustrous, silver-gray metal. Ferromagnetic with a Curie temperature of 1,115 °C — retaining magnetic properties at higher temperatures than iron or nickel. Cobalt(II) salts form a characteristic pink complex in solution that turns an intense deep blue when dehydrated or combined with chloride, a property used in humidity indicators. Uniquely, cobalt is the central atom of Vitamin B12 (cobalamin), making it an essential micronutrient for all animals.<br>
+            <strong>Application:</strong> Dominant use is in lithium-ion battery cathodes (LiCoO₂), providing energy density and thermal stability. Cobalt-chrome-tungsten superalloys create turbine blades for jet engines capable of withstanding temperatures above 1,000 °C. Acts as a binder in tungsten carbide cutting tools. Cobalt blue remains a standard pigment in ceramics and glass. Essential catalyst for hydrodesulfurization — removing sulfur from crude oil to prevent acid rain. Also used in biocompatible medical implants (hip and knee replacements).<br>
+            <strong>Source:</strong> Over 80% of world supply comes from the Democratic Republic of Congo, typically as a byproduct of copper mining. Widespread artisanal and small-scale mining raises persistent human rights and child labour concerns, driving companies like Apple and Tesla to pursue cobalt-free battery alternatives.<br>
+            <strong>Price story:</strong> Hit historic highs around 2018 driven by EV battery demand, then fell sharply as cathode chemistry shifted toward lower-cobalt formulations (NMC, LFP). Cobalt is classified as a possible carcinogen when inhaled as dust.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #8B5A2B">
+          <img class="mc-icon" src="../images/Copper-Metal-chemical-element-with-the-symbol-Cu-atomic-number-29.jpg" alt="Copper">
+          <div class="mc-name">Copper</div>
+          <div class="mc-use">Building construction</div>
+          <div class="mc-pct">42%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:42%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Cu · Atomic no. 29 · Transition metal<br>
+            <strong>Science:</strong> Known to humans since 8000 BC — one of the first metals used, and among the few found in nature as a pure mineral in native form. Freshly exposed copper has a distinctive pinkish-orange luster; it undergoes passivation in air, forming a protective green patina (verdigris) that prevents structural decay. The highest electrical conductivity of any base metal: 59.6 × 10⁶ S/m, second only to silver. Naturally antimicrobial — destroys bacteria and viruses on contact. 100% recyclable without quality loss; ~80% of all copper ever mined is still in use today.<br>
+            <strong>Application:</strong> Roughly 60% of global copper goes to electrical wiring — the standard for power grids, telecommunications, and high-efficiency motors. Used in architecture for corrosion-resistant roofing, plumbing, and cladding in coastal environments. Essential for hospital touch surfaces due to antimicrobial properties. A single EV requires nearly four times as much copper as a combustion engine car; offshore wind turbines use up to 9 tonnes each.<br>
+            <strong>Source:</strong> Chile is the world&#39;s largest producer (~27% of global output), followed by Peru, DRC, and China. Copper is the 26th most abundant element in the crust at 50 ppm. Ore grades at major mines are declining, pointing toward a structural supply deficit in the early 2030s.<br>
+            <strong>Price story:</strong> Copper prices closely track global industrial output. The 2020–2022 commodity super-cycle drove prices to all-time highs, with the energy transition providing a structural demand floor that previous cycles lacked.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #A8A8A8">
+          <img class="mc-icon" src="../images/platinum.jpg" alt="Platinum">
+          <div class="mc-name">Platinum</div>
+          <div class="mc-use">Catalytic converters (auto emissions)</div>
+          <div class="mc-pct">40%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:40%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Pt · Atomic no. 78 · Platinum group metal<br>
+            <strong>Science:</strong> The most ductile of all pure metals — more so than gold or copper — allowing it to be drawn into extremely fine wires. Density of 21.45 g/cm³, twice as dense as lead. Melting point 1,768 °C. Chemically imperishable: resists oxidation at all temperatures and is insoluble in individual acids, dissolving only in aqua regia. Average crustal abundance is only 0.005 ppm, making it among the rarest elements on Earth. Formerly used to define the international SI standards for the metre and kilogram.<br>
+            <strong>Application:</strong> Approximately 45% of production goes into automotive catalytic converters, where platinum converts toxic CO, hydrocarbons, and NOx emissions into CO₂, H₂O, and N₂. Critical catalyst in Proton Exchange Membrane (PEM) fuel cells and green hydrogen electrolyzers. Platinum-based compounds cisplatin and carboplatin are foundational chemotherapy drugs for cancer treatment. Used in precision resistance thermometers (SPRTs) and in high-end jewellery (ISO code: XPT).<br>
+            <strong>Source:</strong> South Africa&#39;s Bushveld Igneous Complex produces approximately 75% of world supply, often as a byproduct of nickel and copper mining. Persistent load-shedding power outages at South African mines are a structural supply risk.<br>
+            <strong>Price story:</strong> Historically priced above gold for most of the 20th century; trading below gold since 2015 as ICE vehicle demand softens. The hydrogen economy offers a potential second demand wave, creating significant long-term price uncertainty.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #3AAFA9">
+          <img class="mc-icon" src="../images/Neodymium-Metal-chemical-element-with-the-symbol-Nd-atomic-number-60.jpg" alt="Neodymium">
+          <div class="mc-name">Neodymium</div>
+          <div class="mc-use">Catalysts</div>
+          <div class="mc-pct">35%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:35%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Nd · Atomic no. 60 · Rare earth · LREE (lanthanide)<br>
+            <strong>Science:</strong> Fourth member of the lanthanide series. A hard, slightly malleable silvery metal that reacts quickly with moisture and air, producing a flaky oxide layer similar to iron rust — so NdFeB magnets must be plated with nickel or copper for protection. Exists in the +3 oxidation state, producing distinctive pink or purple/blue compounds. Energy product (BH_max) of ~52 MGOe — the industry benchmark for the strongest permanent magnets. Undergoes a crystal structure transformation from double hexagonal to body-centered cubic at 863 °C.<br>
+            <strong>Application:</strong> Alloyed with iron and boron (Nd₂Fe₁₄B), it creates magnets capable of lifting thousands of times their own weight — essential for EV traction motors (1–3 kg per vehicle) and wind turbine generators (200–300 kg each). Neodymium-doped crystals (Nd:YAG) are the industry standard for infrared lasers used in medical surgery, industrial welding, and scientific research. Used as a glass dye producing a lavender hue (shifts to pale blue under fluorescent light), and in &#39;didymium&#39; goggles to protect glassblowers from sodium flare.<br>
+            <strong>Source:</strong> Produced commercially by electrolysis of neodymium halides obtained from monazite sand and bastnäsite ores. China controls approximately 85% of global rare earth processing; the Bayan Obo mine in Inner Mongolia is the world&#39;s largest individual REE deposit.<br>
+            <strong>Price story:</strong> Prices spiked dramatically during China&#39;s 2010 rare earth export restrictions, then collapsed. They climbed sharply again after 2020 as clean energy deployment accelerated demand for EV motors and wind turbines. Neodymium dust is a significant fire and explosion hazard.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #C49A02">
+          <img class="mc-icon" src="../images/Dysprosium-Metal-chemical-element-with-the-symbol-Dy-atomic-number-66.jpg" alt="Dysprosium">
+          <div class="mc-name">Dysprosium</div>
+          <div class="mc-use">Catalysts</div>
+          <div class="mc-pct">35%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:35%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Dy · Atomic no. 66 · Rare earth · HREE (lanthanide)<br>
+            <strong>Science:</strong> Named from the Greek dysprositos — &#39;hard to get&#39; — reflecting the extraordinary difficulty of isolating it; pure dysprosium metal was not produced until 1950 after development of ion exchange techniques. Silvery-white, soft enough to machine. One of the highest magnetic moments of any element — second only to holmium. Below 90.5 K it is ferromagnetic, passing through a helical antiferromagnetic state before becoming paramagnetic at 179 K. Magnetic susceptibility χᵥ ≈ 5.44 × 10⁻³. Crustal abundance of 5.2 mg/kg — similar to tin or lead.<br>
+            <strong>Application:</strong> Adding up to 6 weight percent dysprosium to NdFeB magnets maintains their strength at operating temperatures above 150 °C — essential for EV drive motors and wind turbine generators that run hot. Dysprosium-oxide cermets serve as nuclear reactor control rod material due to its exceptionally high thermal neutron capture cross-section. Key component of Terfenol-D — the material that changes shape in response to magnetic fields more than any other known substance — used in naval SONAR and high-precision fuel injectors.<br>
+            <strong>Source:</strong> Never concentrated enough to mine as a primary product — found only in trace amounts within REE deposits, extracted as a byproduct of yttrium mining from xenotime and monazite. Supply is heavily concentrated in ion-adsorption clay deposits in southern China and Myanmar.<br>
+            <strong>Price story:</strong> Frequently cited as the most critical element for clean energy technology. Supply scarcity and inelastic specialised demand make it among the most price-volatile of all critical minerals, driving strong commercial interest in low-dysprosium or dysprosium-free magnet designs.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #5C5C5C">
+          <img class="mc-icon" src="../images/Graphite-Soft.jpg" alt="Graphite">
+          <div class="mc-name">Graphite</div>
+          <div class="mc-use">Batteries</div>
+          <div class="mc-pct">35%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:35%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> C · Crystalline carbon · Hexagonal graphene layers<br>
+            <strong>Science:</strong> The most stable form of carbon under standard conditions. Structurally, stacked graphene sheets — hexagonal honeycomb lattices of carbon — held together by weak van der Waals forces (interlayer spacing: 0.335 nm). Highly anisotropic: conducts heat and electricity excellently within the planes, but acts as an insulator perpendicular to them. Chemically inert and refractory, remaining stable in non-oxidising environments up to 3,000 °C, but oxidises to CO₂ in air above 700 °C. The weak interlayer bonds allow sheets to slide freely — the origin of graphite&#39;s self-lubricating character.<br>
+            <strong>Application:</strong> The predominant anode material in all Li-ion EV batteries: lithium ions intercalate (&#39;sandwich&#39;) between graphene layers during charging without structural damage. Also used in high-temperature crucibles for steel furnaces, as a dry lubricant for locks and high-temperature machinery, as a neutron moderator in nuclear reactors, and — combined with clay — as the &#39;lead&#39; in pencils (from the Greek graphein, &#39;to write&#39;). Synthetic graphite exceeds 99.9% purity carbon.<br>
+            <strong>Source:</strong> China produces approximately 80% of the world&#39;s natural graphite and dominates synthetic graphite production (manufactured from petroleum coke in Acheson furnaces above 2,100 °C). Natural graphite occurs in three forms: flake, amorphous, and lump. Inhalation of graphite dust can cause graphite pneumoconiosis.<br>
+            <strong>Price story:</strong> Historically more price-stable than other battery raw materials. However, anode-grade battery graphite demand is now growing faster than non-Chinese supply capacity can match, attracting significant investment in Mozambique, Madagascar, and North America.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #E040A0">
+          <img class="mc-icon" src="../images/Terbium-Metal-chemical-element-with-the-symbol-Tb-atomic-number-65.jpg" alt="Terbium">
+          <div class="mc-name">Terbium</div>
+          <div class="mc-use">Catalysts</div>
+          <div class="mc-pct">35%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:35%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> Tb · Atomic no. 65 · Rare earth · HREE (lanthanide)<br>
+            <strong>Science:</strong> One of four elements named after Ytterby, a village on the island of Resarö near Stockholm, Sweden, where gadolinite was first quarried. Identified in 1843 by Carl Gustaf Mosander; pure metal not produced until 1945 with development of ion exchange techniques. Silvery-grey, malleable and ductile, relatively stable in open air, flexible enough to cut with a knife. Most common oxidation state +3 — the Tb³⁺ ion exhibits brilliant lemon-yellow fluorescence driven by a strong green emission line. Below 219 K it becomes ferromagnetic; its oxide is a dark brown powder and the metal dust is flammable and explosive.<br>
+            <strong>Application:</strong> Primary use is in green phosphors: terbium-doped compounds provide the green component of trichromatic fluorescent lamps, CRT screens, LED bulbs, and flat-panel displays (combined with red and blue europium phosphors to create high-efficiency white light). Key component of Terfenol-D — the alloy that changes shape in a magnetic field more than any other known material — critical for naval sonar, precision actuators, and sensors. Also used with zirconia as a high-temperature fuel cell stabiliser, and as a Faraday rotator in optical isolators protecting lasers from back-reflections.<br>
+            <strong>Source:</strong> Extracted from monazite, xenotime, and bastnäsite. Most global supply originates from ion-adsorption clay deposits in southern China; significant undersea deposits have recently been identified near Japan. China holds a near-monopoly on processing with no currently viable alternative commercial source.<br>
+            <strong>Price story:</strong> Among the most expensive critical minerals per kilogram. Price tracks dysprosium closely with amplified volatility, driven by extreme scarcity and almost entirely inelastic specialised demand from the phosphor and magnet industries.
+          </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="mineral-card" style="--mc: #A07850">
+          <img class="mc-icon" src="../images/Rare_Earths.jpg" alt="Rare Earths">
+          <div class="mc-name">Rare Earths</div>
+          <div class="mc-use">Catalysts</div>
+          <div class="mc-pct">35%</div>
+          <div class="mc-bar-wrap"><div class="mc-bar" style="width:35%"></div></div>
+          <div class="mc-label">of demand · 2025</div>
+          <div class="mc-detail">
+            <strong>Symbol:</strong> 17 elements — La through Lu (lanthanides) + Sc + Y<br>
+            <strong>Science:</strong> Not geochemically rare: cerium is more abundant in the Earth&#39;s crust than copper (66 ppm), and all REEs are more abundant than gold. The &#39;rare&#39; refers to the historic difficulty of finding economically mineable concentrations, not crustal abundance. What makes them uniquely valuable is the progressive filling of the inner 4f electron shell across the lanthanide series, producing sharply differentiated optical, magnetic, and catalytic properties that vary element by element and cannot be replicated by cheaper substitutes. REEs invariably co-occur in the same ore minerals — bastnäsite, monazite, xenotime — making separation into individual pure elements a chemically intensive process.<br>
+            <strong>Application:</strong> Nearly every high-tech sector depends on at least one REE: cerium for self-cleaning ovens and glass polishing; lanthanum for camera lenses and NiMH hybrid batteries; europium and terbium for red and green phosphors in every colour screen; gadolinium as MRI contrast agents (thermal neutron cross-section: 259,000 barns); erbium for fibre-optic amplifiers (EDFA at 1,550 nm) that carry internet data across continents; samarium-cobalt magnets stable to 800 °C for aerospace and precision-guided weapons; yttrium for dental crowns and jet engine thermal barrier coatings.<br>
+            <strong>Source:</strong> China produces approximately 60% of global mine output and refines approximately 85% of supply. Ion-adsorption clay deposits in southern China are the primary source of the scarcer heavy REEs (Dy, Tb, Ho, Er). The capital-intensive solvent extraction required to separate individual elements is dominated by Chinese industry.<br>
+            <strong>Price story:</strong> China&#39;s 2010 export quota restriction caused prices to spike 10–50× within months before collapsing after WTO rulings forced policy reversal. That single episode permanently reshaped how governments approach critical mineral supply chain risk. Further export controls on gallium and germanium in 2023 reinforced the established pattern.
+          </div>
+        </div>
+      </figure>
+    </figure>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" onclick="galleryspin('-')" aria-label="Previous mineral">&#8249;</button>
+    <span class="ctrl-hint">&#8592; &#8594; to rotate &middot; click card to zoom</span>
+    <button class="ctrl-btn" onclick="galleryspin('')" aria-label="Next mineral">&#8250;</button>
+  </div>
+
+  <script>
+    document.querySelectorAll('img.mc-icon').forEach(function(img) {
+      img.addEventListener('error', function() {
+        var color = getComputedStyle(this.closest('.mineral-card')).getPropertyValue('--mc').trim();
+        this.style.display = 'none';
+        var fallback = document.createElement('div');
+        fallback.className = 'mc-icon mc-icon-fallback';
+        fallback.style.cssText = 'width:64px;height:64px;border-radius:8px;background:' + color + ';opacity:0.35;border:2px solid ' + color;
+        this.parentNode.insertBefore(fallback, this);
+      });
+    });
+
+    var spinner  = document.querySelector('#spinner');
+    var cards    = document.querySelectorAll('#spinner > figure');
+    var n        = cards.length;
+    var degInt   = 360 / n;
+    var angle    = 0;
+    var current  = 1;
+
+    cards.forEach(function(fig, i) {
+      var rot = -(i * degInt);
+      fig.style.webkitTransform = 'rotateY(' + rot + 'deg)';
+      fig.style.transform       = 'rotateY(' + rot + 'deg)';
+      fig.addEventListener('click', function() {
+        if (this.classList.contains('current')) {
+          this.classList.toggle('focus');
+        }
+      });
+    });
+
+    function setCurrent(idx) {
+      var el = document.querySelector('figure#spinner > figure:nth-child(' + idx + ')');
+      if (el) el.classList.add('current');
+    }
+
+    function galleryspin(sign) {
+      cards.forEach(function(fig) {
+        fig.classList.remove('current', 'focus', 'caption');
+      });
+
+      if (!sign) {
+        angle  += degInt;
+        current = current < n ? current + 1 : 1;
+      } else {
+        angle  -= degInt;
+        current = current > 1 ? current - 1 : n;
+      }
+
+      spinner.style.webkitTransform = 'rotateY(' + angle + 'deg)';
+      spinner.style.transform       = 'rotateY(' + angle + 'deg)';
+      setCurrent(current);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      var cur;
+      switch (e.which) {
+        case 37: galleryspin('-'); break;
+        case 39: galleryspin('');  break;
+        case 90:
+          cur = document.querySelector('#spinner > figure.current');
+          if (cur) cur.classList.toggle('focus');
+          break;
+        case 67:
+          cur = document.querySelector('#spinner > figure.current');
+          if (cur) cur.classList.toggle('caption');
+          break;
+        default: return;
+      }
+      e.preventDefault();
+    });
+
+    setCurrent(1);
+  </script>
+
+</body>
+</html>
