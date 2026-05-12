@@ -1,0 +1,257 @@
+window.STORY_CONTEXT = {
+  "project": {
+    "title": "Critical Material",
+    "subtitle": "How a some materials became leverage in the post-oil economy",
+    "question": "Is the global critical material supply chain splitting into two blocs?",
+    "notebook_href": "explainer_notebook.ipynb",
+    "notebook_source_href": "../notebooks/explainer_notebook.ipynb"
+  },
+  "hero_stats": [
+    {
+      "value": 10,
+      "label": "target critical materials",
+      "detail": "The story follows 10 materials across every processed master."
+    },
+    {
+      "value": 7391,
+      "label": "mapped deposits",
+      "detail": "Deposit points and country-level fallbacks come from the processed geology master."
+    },
+    {
+      "value": 132,
+      "label": "countries with deposits",
+      "detail": "Geology is widespread even when processing power is not."
+    }
+  ],
+  "highlights": {
+    "price": {
+      "latest_year": 2022,
+      "top_mineral": "Platinum",
+      "top_index_vs_2015": 441.8
+    },
+    "end_uses": [
+      {
+        "mineral": "Cobalt",
+        "category": "Superalloys (aircraft gas turbine engines)",
+        "value": 51.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Copper",
+        "category": "Building construction",
+        "value": 42.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Dysprosium",
+        "category": "Catalysts",
+        "value": 35.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Gallium",
+        "category": "Integrated circuits (ICs)",
+        "value": 79.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Graphite",
+        "category": "Batteries",
+        "value": 35.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Lithium",
+        "category": "Batteries",
+        "value": 87.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Neodymium",
+        "category": "Catalysts",
+        "value": 35.0,
+        "year": 2025
+      },
+      {
+        "mineral": "Platinum",
+        "category": "Catalytic converters (auto emissions)",
+        "value": 40.0,
+        "year": 2025
+      }
+    ],
+    "leaders_2023": {
+      "Cobalt": {
+        "mineral": "Cobalt",
+        "mining_country": "Democratic Republic of the Congo",
+        "mining_share": 70.0,
+        "processing_country": "China",
+        "processing_share": 80.0
+      },
+      "Copper": {
+        "mineral": "Copper",
+        "mining_country": "Chile",
+        "mining_share": 24.0,
+        "processing_country": "China",
+        "processing_share": 44.0
+      },
+      "Dysprosium": {
+        "mineral": "Dysprosium",
+        "mining_country": "China",
+        "mining_share": 70.0,
+        "processing_country": "China",
+        "processing_share": 90.0
+      },
+      "Gallium": {
+        "mineral": "Gallium",
+        "mining_country": "China",
+        "mining_share": 98.0,
+        "processing_country": "China",
+        "processing_share": 98.0
+      },
+      "Graphite": {
+        "mineral": "Graphite",
+        "mining_country": "China",
+        "mining_share": 77.0,
+        "processing_country": "China",
+        "processing_share": 100.0
+      },
+      "Lithium": {
+        "mineral": "Lithium",
+        "mining_country": "Australia",
+        "mining_share": 46.0,
+        "processing_country": "China",
+        "processing_share": 60.0
+      },
+      "Neodymium": {
+        "mineral": "Neodymium",
+        "mining_country": "China",
+        "mining_share": 70.0,
+        "processing_country": "China",
+        "processing_share": 90.0
+      },
+      "Platinum": {
+        "mineral": "Platinum",
+        "mining_country": "South Africa",
+        "mining_share": 70.0,
+        "processing_country": "South Africa",
+        "processing_share": 50.0
+      }
+    },
+    "concentration_2023": {
+      "mining": {
+        "high_count": 7,
+        "total": 8
+      },
+      "processing": {
+        "high_count": 8,
+        "total": 8
+      }
+    },
+    "china_bloc_share": {
+      "2015": {
+        "EU-27": 26.3,
+        "Other countries": 60.6,
+        "United States": 13.1,
+        "western_bloc": 39.4
+      },
+      "2023": {
+        "EU-27": 28.4,
+        "Other countries": 58.4,
+        "United States": 13.2,
+        "western_bloc": 41.6
+      }
+    },
+    "trade_note": "Comtrade evidence in the narrative compares 2015 with 2023. 2025 remains a partial reporting year."
+  },
+  "visualization_manifest": {
+    "hero": {
+      "decision": "No exported hero visualization in the first draft; the hero is narrative/layout work for the website goal."
+    },
+    "sections": [
+      {
+        "section": "stakes",
+        "datasets": [
+          "master_economic_timeseries.csv"
+        ],
+        "outputs": [
+          {
+            "file": "website\\visualizations\\stakes\\mineral_grid.html",
+            "purpose": "Mineral overview"
+          },
+          {
+            "file": "website\\visualizations\\stakes\\price_index.html",
+            "purpose": "Price shock opener"
+          },
+          {
+            "file": "website\\visualizations\\stakes\\end_uses.html",
+            "purpose": "End-use framing"
+          }
+        ]
+      },
+      {
+        "section": "deposits",
+        "datasets": [
+          "master_geo_deposits.geojson"
+        ],
+        "outputs": [
+          {
+            "file": "website\\visualizations\\deposits\\deposit_map.html",
+            "purpose": "Global geology map"
+          }
+        ]
+      },
+      {
+        "section": "supply-chain",
+        "datasets": [
+          "master_supply_chain_trade.csv"
+        ],
+        "outputs": [
+          {
+            "file": "website\\visualizations\\supply-chain\\slope_chart.html",
+            "purpose": "Case 1 mining vs processing gap"
+          },
+          {
+            "file": "website\\visualizations\\supply-chain\\production_series.html",
+            "purpose": "Case 1 scaling over time"
+          },
+          {
+            "file": "website\\visualizations\\supply-chain\\sankey_cobalt.html",
+            "purpose": "Case 2 cobalt concentration"
+          }
+        ]
+      },
+      {
+        "section": "bifurcation",
+        "datasets": [
+          "master_supply_chain_trade.csv"
+        ],
+        "outputs": [
+          {
+            "file": "website\\visualizations\\bifurcation\\trade_flows_2015.html",
+            "purpose": "2015 China export destinations"
+          },
+          {
+            "file": "website\\visualizations\\bifurcation\\trade_flows_2023.html",
+            "purpose": "2023 China export destinations"
+          },
+          {
+            "file": "website\\visualizations\\bifurcation\\china_timeline.html",
+            "purpose": "China export destination timeline"
+          }
+        ]
+      },
+      {
+        "section": "conclusion",
+        "datasets": [
+          "master_supply_chain_trade.csv"
+        ],
+        "outputs": [
+          {
+            "file": "website\\visualizations\\conclusion\\hhi_heatmap.html",
+            "purpose": "Concentration synthesis"
+          }
+        ]
+      }
+    ]
+  }
+};
