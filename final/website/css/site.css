@@ -1492,6 +1492,48 @@ section.story-section > .content-wide.section-shell:has(.viz-bleed--wide) {
   gap: 1.25rem;
 }
 
+.footer-team {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.footer-logo-wrap {
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.25rem;
+  flex-shrink: 0;
+}
+
+.footer-dtu-logo {
+  height: 4.5rem;
+  width: auto;
+  display: block;
+}
+
+.footer-team-title {
+  font-weight: 600;
+  color: var(--raw-chalk);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-team p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.footer-copy {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
 @media (max-width: 1024px) {
   .hero-grid,
   .viz-grid.two-up,
