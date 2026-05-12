@@ -1049,7 +1049,7 @@
   text-transform: uppercase;
   font-size: 0.9rem;
   padding: 0.4rem 0.85rem;
-  border: 1px solid rgba(15, 61, 92, 0.85);
+  border: none;
   border-radius: 0;
   white-space: nowrap;
 }
