@@ -9,7 +9,7 @@ blocks:
   - type: prose
     id: dependencies
     class: longform--econ
-    eyebrow: "Section 7 &nbsp;·&nbsp; Dependencies"
+    eyebrow: "Section 8 &nbsp;·&nbsp; Dependencies"
     heading: "What if someone pulls the plug?"
     dropcap: true
     text: |
@@ -31,7 +31,8 @@ blocks:
     title: "China export destinations over time, by bloc"
     aria_label: "China export destination timeline"
     section_class: story-section--econ
-    figure_number: "Figure 7.1"
+    figure_number: "Figure 8.1"
+    figure_size: text
     caption: |
       China's annual export share to the Western bloc (United States,
       EU-27+, Japan, South Korea) and the BRICS+ / Belt-and-Road bloc,
@@ -107,18 +108,22 @@ blocks:
     aria_label: "Event overlay on price"
     section_class: story-section--econ
     frame_class: tall-frame
-    figure_number: "Figure 7.2"
+    figure_number: "Figure 8.2"
+    figure_size: text
     caption: |
       Real-price index (2015 = 100, log-scale y-axis) for the
-      rare-earth basket, terbium, dysprosium and gallium, 2000–2024,
-      with verified Chinese export-control events overlaid as dotted
-      verticals. Tb / Dy series end where USGS MCS coverage ends;
-      gallium runs through 2024. The 2010–11 REE pulse is
-      contemporaneous with the Senkaku halt and the formal quota
-      regime; the gallium climb starts before the August 2023
-      announcement but accelerates after it. Source: USGS Mineral
-      Commodity Summaries 2025 spliced with USGS Historical
-      Statistics via `price_unified.csv`.
+      rare-earth basket, terbium, dysprosium and gallium, 2000–2024.
+      Dotted verticals mark the five Chinese export-control events
+      enumerated in the factbox above — *Sep 2010 Senkaku halt*,
+      *Mar 2014 WTO ruling*, *Aug 2023 Ga/Ge licensing*,
+      *Dec 2024 US-only ban*, *Apr 2025 seven REEs added*.
+      Tb / Dy series end where USGS MCS coverage ends; gallium runs
+      through 2024. The 2010–11 REE pulse is contemporaneous with
+      the Senkaku halt and the formal quota regime; the gallium
+      climb starts before the August 2023 announcement but
+      accelerates after it. Source: USGS Mineral Commodity
+      Summaries 2025 spliced with USGS Historical Statistics via
+      `price_unified.csv`.
       <span class="figure-takeaway">Every named event in the factbox
       shows up as a real price move. The lever exists.</span>
 
@@ -152,7 +157,8 @@ blocks:
     title: "China processing share vs US net-import reliance, by material"
     aria_label: "Manufacturing dependency chart"
     section_class: story-section--econ
-    figure_number: "Figure 7.3"
+    frame_class: tall-frame
+    figure_number: "Figure 8.3"
     caption: |
       Manufacturing-dependency view, seven focal materials. Red bars:
       China's share of global processing capacity, 2023. Blue bars:
@@ -181,7 +187,7 @@ blocks:
       the self-injury depends on the material. China sits on most of
       its own rare-earth ore (~80 % of feedstock domestic), most of
       its own graphite, and essentially all of its own gallium. For
-      those materials the "top supplier" figures from Figure 7.1 are
+      those materials the "top supplier" figures from Figure 8.1 are
       thin marginal streams — they look big on a map of imports
       because imports are small.
 
@@ -229,7 +235,8 @@ blocks:
     title: "China's own upstream dependence"
     aria_label: "Reciprocal dependence chart"
     section_class: story-section--econ
-    figure_number: "Figure 7.4"
+    figure_number: "Figure 8.4"
+    figure_size: text
     caption: |
       Each bar shows 100 % of China's annual refining feedstock for
       one material, decomposed into three slices: Prussian blue is
@@ -244,7 +251,7 @@ blocks:
       <span class="figure-takeaway">Where the Prussian bar is short
       — Cobalt, Platinum, Lithium, Copper — the chokepoint cuts both
       ways. Where it is long — REE, Graphite, Gallium — the import
-      shares in Figure 6.1 are marginal streams, not load-bearing
+      shares in Figure 7.1 are marginal streams, not load-bearing
       supply.</span>
       <br><br>
       **HS codes used per material (China imports):** Cobalt 810520

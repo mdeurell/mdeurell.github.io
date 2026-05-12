@@ -1,15 +1,15 @@
-# Section 4 — Prices & volumes.
+# Section 5 — Prices & volumes.
 # What the market is telling us: price moves, modern-era trajectories,
 # whether prices move together, and the production volume backdrop.
-id: bifurcation
+id: prices
 class: longform--econ
 blocks:
 
-  # ── 5.1 Small-multiples price chart (full history, real terms) ─────
+  # ── 6.1 Small-multiples price chart (full history, real terms) ─────
   - type: prose
-    id: bifurcation
+    id: prices
     class: longform--econ
-    eyebrow: "Section 4 &nbsp;·&nbsp; Prices &amp; volumes"
+    eyebrow: "Section 6 &nbsp;·&nbsp; Prices &amp; volumes"
     heading: "What the market is telling us"
     dropcap: true
     text: |
@@ -35,7 +35,7 @@ blocks:
     aria_label: "Price small multiples"
     section_class: story-section--econ
     frame_class: tall-frame
-    figure_number: "Figure 4.1"
+    figure_number: "Figure 6.1"
     caption: |
       Ten per-material panels of annual real price (US CPI-deflated to
       2015 USD), 1900–2024. Each panel has its own y-axis — Terbium
@@ -50,37 +50,6 @@ blocks:
       platinum). <span class="figure-takeaway">Lithium, cobalt and
       terbium carry the steepest post-2015 moves; copper and platinum
       barely tilt.</span>
-
-  # ── 5.2 Modern-era zoom on the single index axis ───────────────────
-  #- type: prose
-  #  class: longform--econ
-  #  dropcap: false
-  #  text: |
-  #    The full-history view buries the post-2000 dynamics in a long
-  #    flat century. The companion chart re-centres on the modern era —
-  #    2000–2024 — with every material rebased to its own 2015 average
-  #    = 100. Now the lines can sit side by side.
-
-  - type: figure
-    src: visualizations/prices/price_index_modern.html
-    alt: "Modern-era price index, 2000–2024, 2015 = 100"
-    title: "Modern-era price moves — 2000–2024"
-    aria_label: "Price index modern era"
-    section_class: story-section--econ
-    frame_class: tall-frame
-    figure_number: "Figure 4.2"
-    caption: |
-      Each material's annual real price rebased so the 2015 average
-      equals 100, 2000–2024. The dotted line at 100 is the baseline.
-      Lithium's 2017–2022 spike, the cobalt 2018 squeeze, the rare-earth
-      pulse around 2010–2011 and the post-2020 Tb/Dy climb all read
-      directly. The rare-earth basket has no MCS unit-value series past
-      2020 and is extended with a synthetic basket index built as the
-      geometric mean of Nd / Dy / Tb 2015-indexes — flagged in the data
-      with `source_tag = ree_basket_synthetic`.
-      <span class="figure-takeaway">Lithium has moved by roughly an
-      order of magnitude in 22 years; copper has moved by less than a
-      quarter.</span>
 
   # ── 5.3 Correlation matrix ─────────────────────────────────────────
   - type: prose
@@ -106,7 +75,7 @@ blocks:
     title: "Do prices move together?"
     aria_label: "Price correlation matrix"
     section_class: story-section--econ
-    figure_number: "Figure 4.3"
+    figure_number: "Figure 6.2"
     caption: |
       This Pearson correlation matrix shows how closely prices move in sync from 2000–2024. 
       **Blue** indicates materials that move together, **red** indicates 
@@ -151,7 +120,8 @@ blocks:
     aria_label: "World mine production history"
     section_class: story-section--econ
     frame_class: tall-frame
-    figure_number: "Figure 4.4"
+    figure_number: "Figure 6.3"
+    figure_size: text
     caption: |
       World annual mine production, ten focal materials, 1900–2024, in
       metric tonnes (logarithmic y-axis). Continuous series from 1900

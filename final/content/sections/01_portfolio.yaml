@@ -2,7 +2,7 @@
 blocks:
   - type: carousel
     aria_label: "The portfolio"
-    eyebrow: "Section 1 &nbsp;·&nbsp; The portfolio"
+    eyebrow: "Section 2 &nbsp;·&nbsp; The portfolio"
     heading: "Ten materials, one fragile system"
     standfirst: |
       A scrolling encyclopedia of the elements at the heart of this story.

@@ -1,4 +1,4 @@
-# Section 5 — Supply chain.
+# Section 4 — Supply chain.
 # A conceptual schematic (6.1), then the per-material Sankey carousel (6.2),
 # then the all-material system view (6.3). Together: where the chain pinches,
 # material by material and overall.
@@ -14,8 +14,9 @@ blocks:
     heading: "From rock to product"
     dropcap: true
     text: |
-      Section 5 showed the symptoms — prices that won't fall, volumes
-      that won't compensate. To find the cause, follow the chain. Every
+      Section 4 mapped the bottlenecks — where geology, industry and
+      chemistry each lock the flow in place. To trace those locks in
+      sequence, follow the chain. Every
       one of the focal materials travels through the same five stages
       between the ore body and the consumer product, and at each stage
       a different actor takes over.
@@ -42,29 +43,7 @@ blocks:
       and the leverage points named. The diagram does no statistics; it
       sets the vocabulary for the two data figures that follow.
 
-  - type: figure
-    src: visualizations/supply-chain/supply_chain_schematic.html
-    alt: "Supply chain schematic — ore to end product, five stages"
-    title: "From rock to product — five stages"
-    aria_label: "Supply chain schematic"
-    section_class: story-section--econ
-    frame_class: tall-frame
-    figure_number: "Figure 5.2"
-    caption: |
-      Editorial schematic of the five-stage critical-minerals supply
-      chain. Stage 1 (ore) and Stage 2 (concentrate) happen at or near
-      the mine; the country that holds the rock holds these two
-      stages by geological default. Stage 3 (refined intermediate)
-      is the chemistry barrier — solvent extraction, smelting,
-      electrowinning, hundreds of stages for rare-earth separation —
-      and is also the stage that has collapsed into the smallest
-      number of national hubs. Stage 4 (functional material) and
-      Stage 5 (end product) re-fan back out into the global economy.
-      <span class="figure-takeaway">The strategic question is not who
-      pulls the rock — it is who runs Stage 3.</span> No data; the
-      figures that follow are where the data lives.
-
-  # ── 5.2 Per-material Sankey carousel ────────────────────────────────
+  # ── 4.2 Per-material Sankey carousel ────────────────────────────────
   - type: prose
     class: longform--econ
     dropcap: false
@@ -85,8 +64,9 @@ blocks:
       are where the supply-chain bifurcation actually happens.
 
       Cobalt is the cleanest illustration: about 70 % of mined cobalt
-      comes from a single country (the Democratic Republic of the
-      Congo); 80 % of refined cobalt is processed in a different
+      comes from a single country (the DRC, anchored by **Tenke
+      Fungurume** in Lualaba — the single largest cobalt operation on
+      Earth); 80 % of refined cobalt is processed in a different
       country (China). The metal physically travels several thousand
       miles between mine and refinery, and the value it carries rises
       by an order of magnitude over that distance.
@@ -129,7 +109,7 @@ blocks:
       is one that mines but does not refine its own ore (Chile and
       Australia for lithium, the DRC for cobalt, every miner of
       platinum-group metals except South Africa). The four rare-earth
-      elements profiled individually in Section 1 — Nd, Dy, Tb — are
+      elements profiled individually in Section 2 — Nd, Dy, Tb — are
       folded into the basket card here because USGS attributes
       statistically identical mining and processing shares (≈70 % / 90 %)
       to all four. Source: USGS <em>Mineral Commodity Summaries 2025</em>;
@@ -144,7 +124,7 @@ blocks:
     class: longform--econ
     dropcap: false
     text: |
-      Each card in 5.2 carried a different mineral; the chart below
+      Each card in Figure 5.2 carried a different material; the chart below
       collapses all seven onto one canvas. Mining countries on the
       left, the seven material trunks in the centre, processing
       countries on the right. Each material contributes 100 units of
@@ -155,13 +135,33 @@ blocks:
       The visual answer is that one node on the right-hand side
       dominates almost every line entering it. China refines somewhere
       between 60 % and 100 % of every material in the panel except
-      platinum. The mining left side is comparatively diversified —
-      DRC, Australia, Chile, South Africa, Peru, Russia all carry
-      meaningful tonnage — but the mid-stream funnel is one country
-      wide for almost everything.
+      platinum, much of it through the **Bayan Obo** complex in Inner
+      Mongolia for the rare-earth chain. The mining left side is
+      comparatively diversified — DRC, Australia, Chile, South Africa,
+      Peru, Russia all carry meaningful tonnage — but the mid-stream
+      funnel is one country wide for almost everything.
 
       This is the structural answer to the question at the top of the
       report. Not "China owns the rocks" — China does not own the
       rocks — but <em>China owns the step that decides what the rocks
       are worth</em>.
 
+  - type: figure
+    src: visualizations/supply-chain/sankey_master.html
+    alt: "All-material supply chain Sankey, 2023"
+    title: "All-material supply chain Sankey, 2023"
+    aria_label: "All-material supply chain Sankey"
+    section_class: story-section--econ
+    frame_class: master-sankey-frame
+    figure_number: "Figure 5.3"
+    caption: |
+      All-material supply-chain Sankey, 2023, locked three-column
+      layout. Left: top 10 mining countries by aggregate share across
+      the seven materials, plus *Other countries* residual. Centre:
+      the seven material trunks. Right: top 10 processing countries
+      (after EU-27 grouping) plus *Other countries* residual. Each
+      material is normalised to 100 units of flow on each side, so the
+      canvas reads <em>control concentration</em>, not physical
+      tonnage. China-bound links are tinted red so the chokepoint
+      reads at a glance. Source: USGS <em>Mineral Commodity Summaries
+      2025</em>; <em>Mining and Processing Fact Sheet</em> (Dataset E).

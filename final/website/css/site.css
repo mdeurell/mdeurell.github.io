@@ -1311,7 +1311,10 @@ body { padding-top: 0; }
   margin-right: auto;
   aspect-ratio: var(--media-aspect);
   min-height: 520px;
-  max-height: 80vh;
+  /* No max-height cap on the default frame — clamping height made the
+     iframe back-compute a narrower width (the CSS aspect-ratio rule
+     re-derives the un-clamped dimension), so charts ended up rendered
+     in the middle of a void of paper-warm. */
   border: none;
   border-radius: var(--radius-md);
   background: var(--paper-warm);  /* matches cream page during iframe load */
@@ -1345,6 +1348,122 @@ section.story-section > .content-wide.section-shell:has(.viz-bleed--map) {
 .tall-frame {
   aspect-ratio: 4 / 3;
   min-height: 620px;
+}
+
+/* ── Figure size conventions ───────────────────────────────────
+   Three opt-in widths a figure block can use, set via YAML field
+   `figure_size: bleed | text | margin`.
+
+   bleed   — full viewport width, edge to edge (default; current behaviour).
+   text    — same width as the prose column (.longform-inner 42rem), centred.
+   margin  — slotted into the right margin beside the text column,
+             extending to the viewport's right edge. Like a margin factbox
+             but full chart-sized.
+   ============================================================ */
+
+/* bleed: nothing extra — viz-bleed CSS already handles full-viewport. */
+
+/* Caption widths match their figure's size, so the Prussian-rule frame
+   lines up with the chart edges instead of running full viewport when
+   the figure is text/margin/text-wide. */
+.caption-size-text > .figure-caption {
+  width: 70vw;
+  max-width: 70vw;
+  margin: 0 auto !important;
+}
+.caption-size-text-wide > .figure-caption {
+  width: min(100vw, calc(70vw + 50vw));
+  max-width: 95vw;
+  margin: 0 auto !important;
+}
+.caption-size-margin > .figure-caption {
+  width: clamp(20rem, 32vw, 28rem);
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* text-aligned: centered card at 70 % of viewport width.
+   This is the global default for figures (see figure.html.j2). Maps
+   (frame_class: map-frame) and wide-frame charts auto-opt-out and render
+   at full bleed instead. */
+.viz-size-text {
+  width: 70vw !important;
+  max-width: 70vw !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.viz-size-text .viz-frame {
+  width: 100% !important;
+  max-width: none !important;
+  /* Tighter aspect than the default 16/9 — at 70 vw a 16/9 iframe is
+     too tall for typical bar/line charts and leaves a dead band between
+     the plot and the caption. 5/2 keeps the chart wide-and-flat. */
+  aspect-ratio: 5 / 2;
+  min-height: 380px;
+}
+/* When a figure carries an explicit frame_class (tall-frame for Sankeys,
+   map-frame for geo, etc.), that aspect ratio wins over the size-text
+   default. Without these overrides the 5/2 rule above squashes Sankey
+   panels horizontally. */
+.viz-size-text .viz-frame.tall-frame,
+.viz-size-text-wide .viz-frame.tall-frame {
+  aspect-ratio: 4 / 3;
+  min-height: 620px;
+}
+.viz-size-text .viz-frame.map-frame,
+.viz-size-text-wide .viz-frame.map-frame {
+  aspect-ratio: 12 / 5;
+}
+.viz-size-text .viz-frame.wide-frame,
+.viz-size-text-wide .viz-frame.wide-frame {
+  aspect-ratio: 21 / 8;
+}
+
+/* Wider centered variant — text column + 50 % on each side. Used for
+   figures that need more horizontal room than `text` but should still
+   read as centred (not full bleed). */
+.viz-size-text-wide {
+  width: min(100vw, calc(70vw + 50vw)) !important;
+  max-width: 95vw !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.viz-size-text-wide .viz-frame {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* margin-aligned (DEPRECATED for figures): the original idea was to float the
+   figure into the right margin so prose wrapped around it. In practice each
+   block renders as its own <section>, so the float never escaped to wrap the
+   neighbouring prose, and the resulting ~28rem iframe was too narrow for the
+   Plotly charts inside (titles clipped, axis labels overlapped — SVG text
+   doesn't reflow with the iframe).
+   `figure_size: margin` is now treated by figure.html.j2 as a back-compat
+   alias for `figure_size: bleed, caption_in_margin: true` — the figure
+   renders at full width and only the caption sits in the margin. The class
+   below is kept as a no-op (defers to .viz-bleed) so older selectors don't
+   break. To put a *factbox* in the right or left margin, use the factbox
+   block with `align: right` (or `align: left`) — see .factbox--margin /
+   .factbox--margin-left below. */
+.viz-size-margin {
+  /* intentionally empty — back-compat shim, see comment above */
+}
+
+/* Wide chart — full viewport bleed, no horizontal void. Use for line
+   charts that need the full timeline width. */
+.wide-frame {
+  width: 100% !important;
+  max-width: none !important;
+  aspect-ratio: 21 / 8;
+  min-height: 560px;
+}
+.viz-bleed--wide {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+section.story-section > .content-wide.section-shell:has(.viz-bleed--wide) {
+  max-width: none !important;
 }
 
 .master-sankey-frame {
@@ -1510,10 +1629,21 @@ section.story-section > .content-wide.section-shell:has(.viz-bleed--map) {
   width: clamp(16rem, 28vw, 22rem);
   margin: 0.3rem -10rem 1.2rem 1.8rem;
 }
+/* Mirror of .factbox--margin for the left margin. Same width and inset, but
+   pulled into the left gutter so body text wraps around its right edge. */
+.factbox--margin-left {
+  float: left;
+  clear: left;
+  width: clamp(16rem, 28vw, 22rem);
+  margin: 0.3rem 1.8rem 1.2rem -10rem;
+}
 /* Two steps below body (.longform p is 1.13rem). */
 .factbox--margin .factbox-body,
 .factbox--margin .factbox-body p,
-.factbox--margin .factbox-body li {
+.factbox--margin .factbox-body li,
+.factbox--margin-left .factbox-body,
+.factbox--margin-left .factbox-body p,
+.factbox--margin-left .factbox-body li {
   font-size: 0.9rem;
   line-height: 1.55;
 }
@@ -1521,7 +1651,8 @@ section.story-section > .content-wide.section-shell:has(.viz-bleed--map) {
 /* Collapse the float at narrower viewports: drop back inline so the
    margin doesn't overlap navigation chrome or the page edge. */
 @media (max-width: 1100px) {
-  .factbox--margin {
+  .factbox--margin,
+  .factbox--margin-left {
     float: none;
     width: auto;
     margin: 1.6rem 0;

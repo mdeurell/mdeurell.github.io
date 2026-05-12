@@ -1,0 +1,164 @@
+# Section 11 — Methodology & sources. A grader's reference page.
+id: methodology
+class: longform--appendix
+blocks:
+
+  - type: prose
+    id: methodology
+    class: longform--appendix
+    eyebrow: "Section 11 &nbsp;·&nbsp; Methodology &amp; sources"
+    heading: "How this page was built"
+    dropcap: true
+    text: |
+      Every chart in this article is generated from open, versioned
+      data through a build pipeline checked into the repository. This
+      section enumerates the underlying datasets, the transformation
+      steps that produced each processed file, and the assumptions
+      that bear on the headline numbers.
+
+  - type: factbox
+    heading: "Primary data sources"
+    tone: neutral
+    body: |
+      - **USGS Critical Minerals Geodatabase** (Professional Paper
+        1802). 13,723 deposit points; powers the Section 2 map. Also
+        ships with development-stage and country fields used to drive
+        marker opacity on Figure 2.1.
+      - **USGS Global Rare Earth Element Occurrence Database**
+        (2017). LREE / HREE classification and deposit status for
+        the rare-earth sub-layer of Figure 2.1.
+      - **USGS Mineral Commodity Summaries (MCS) 2025.** World
+        production, reserves, end-use shares, US net-import
+        reliance, processing-stage shares per material. Single most
+        cited source after Comtrade.
+      - **USGS Historical Statistics for Mineral and Material
+        Commodities** (Dataset D). 1900–2022 unit-value series in
+        both nominal and 1998-real USD. The backbone of Figures 5.1,
+        5.2, 8.2.
+      - **USGS Mining and Processing Fact Sheet** (Dataset E).
+        Mining-share vs processing-share by country, 2023, for the
+        Sankey diagrams in Section 6.
+      - **UN Comtrade** (via the `comtradeapicall` Python client).
+        Annual bilateral trade flows at HS6 granularity, China and
+        five swing-state reporters, 2000–2024. Drives all of Sections
+        7, 8 and 9.
+      - **Our World in Data — Mine Production of Minerals.** Used as
+        a sanity check against USGS world-production figures.
+      - **Natural Earth 110m Admin 0 Sovereignty.** Country polygons
+        and centroids for both the deposit map and the trade-arc
+        maps.
+
+  - type: factbox
+    heading: "Processed data files (single source of truth)"
+    tone: neutral
+    body: |
+      All charts read from `data/processed/`. Never from raw.
+
+      - `master_geo_deposits.geojson` — 13,723 deposit points,
+        mineral / status / country / continent fields.
+      - `master_economic_timeseries.csv` — 9,202 rows of long-form
+        (mineral, year, metric, value) for prices, production,
+        reserves, US NIR, end uses.
+      - `master_supply_chain_trade.csv` — 704,034 rows of
+        bilateral trade flows + stage shares + HHI for the original
+        eight HS codes.
+      - `price_unified.csv` — spliced real-2015 USD / 2015-indexed
+        prices for all ten materials, 1900–2024. Built by
+        `pipeline/transform/unify_prices.py`.
+      - `china_trade_flows_all_materials.csv` — China-as-reporter
+        trade flows with HS-form labels and inflation-adjusted
+        real-2015 USD column. Built by
+        `pipeline/transform/build_upstream_view.py` from raw
+        Comtrade pulls.
+      - `upstream_top10_by_material.csv` — top-10 upstream supplier
+        per material, derived from the above.
+
+  - type: factbox
+    heading: "Build pipeline"
+    tone: neutral
+    body: |
+      A YAML file per section under `content/sections/`. A Jinja
+      template per block type under `templates/blocks/`. One build
+      command emits the whole site:
+
+      ```
+      python -m pipeline.build.build_index
+      ```
+
+      The chart build (one Python script per figure under
+      `pipeline/build/`) writes standalone Plotly HTML files into
+      `website/visualizations/`. Re-running a chart script
+      regenerates that one figure; running `build_index` re-emits
+      the page that frames it. Both are idempotent.
+
+  - type: factbox
+    heading: "Assumptions that bear on the headlines"
+    tone: oxblood
+    body: |
+      The numbers cited in body prose follow from these reconciliations:
+
+      - **Real vs nominal prices.** Historical prices are deflated to
+        2015 USD using US CPI-U annual averages, with linear
+        interpolation between anchor years 1998 / 2000 / 2005 / 2010
+        / 2015 / 2020–2024. Real prices are then rebased to 2015 = 100
+        for the modern-era charts.
+      - **Trade-value deflation.** Comtrade values are deflated with
+        the same CPI series and exposed as
+        `value_real_2015_usd` alongside the nominal
+        `value_usd`. Cross-year comparisons use the real column.
+      - **REE basket extension.** The MCS 2025 unit-value series ends
+        in 2020 for the rare-earth basket. Figures 5.1b and 5.2
+        extend the basket index 2021–2024 as the geometric mean of
+        the Nd / Dy / Tb individual indexes. Source-tagged in the data.
+      - **HS 253090 reclassification.** Australia and Zimbabwe
+        shipments under HS 253090 ("mineral substances, n.e.s.")
+        are re-tagged from "Rare Earths" to "Lithium" because the
+        dominant 253090 export from these countries is spodumene
+        rather than monazite. All other partners stay tagged as REE.
+      - **REE row deduplication.** The master trade dataset
+        triplicates rows under Nd / Dy / Tb / Rare Earths labels per
+        HS code. The pipeline collapses these into a single
+        "Rare Earths" row before any aggregation.
+      - **Concentrate-to-metal conversion** for Figure 8.4. Copper
+        concentrate is assumed 25 % Cu, cobalt mattes 30 % Co,
+        spodumene 6 % Li₂O, REE concentrate 50 % REO.
+      - **Bloc definitions.** Western alliance: US, UK, Japan, South
+        Korea, Canada, Australia, New Zealand. EU-27+: the 27 member
+        states plus the EEA / EFTA bloc — Norway, Switzerland, Iceland
+        and Liechtenstein — which sit inside the same regulatory and
+        ideological space as the EU. Norway and Switzerland are not
+        EU members but their critical-minerals policy and supply-chain
+        alignment is so close to Brussels that grouping them as
+        "Western alliance" obscures more than it reveals. BRICS+
+        excluding India and China. Belt-and-Road signatories outside
+        the other blocs.
+
+  - type: factbox
+    heading: "Reproducing the build from scratch"
+    tone: neutral
+    body: |
+      ```
+      uv sync                                                 # install deps
+      python -m pipeline.transform.unify_prices               # rebuild price_unified.csv
+      python -m pipeline.transform.build_upstream_view        # rebuild china_trade_flows_all_materials.csv
+      python -m pipeline.build.build_section5_charts          # 5.1 5.2 5.3
+      python -m pipeline.build.build_supply_chain_schematic   # 6.1
+      python -m pipeline.build.build_multi_form_view          # 7.2
+      python -m pipeline.build.build_china_flow_animation     # 7.3
+      python -m pipeline.build.build_upstream_supplier_map    # 7.1
+      python -m pipeline.build.build_event_overlay            # 8.2
+      python -m pipeline.build.build_reciprocal_dependence    # 8.4
+      python -m pipeline.build.build_reserve_to_production    # 2.2
+      python -m pipeline.build.build_recycling_view           # 9.2
+      python -m pipeline.build.build_swing_states             # 9.3 (when fetch lands)
+      python -m pipeline.build.build_index                    # emit website/index.html
+      ```
+
+      Optional re-fetches (require `data/raw/comtrade/.env` only for
+      keyed mode; the public preview API runs without a key):
+      ```
+      python -m pipeline.ingest.fetch_comtrade --query-set extended \
+          --start-year 2000 --end-year 2024 --include-end-year --mode public
+      python -m pipeline.ingest.fetch_comtrade --query-set swing-states \
+          --start-year 2000 --end-year 2024 --include-end-year --mode public
+      ```

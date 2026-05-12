@@ -222,6 +222,8 @@ gets the global Prussian-blue top/bottom rule automatically.
   section_class: story-section--econ  # optional modifier on the outer story-section
   caption_id: deposits-caption       # optional <section id="…"> on the caption section
   caption_footnote_id: deposits-coverage   # optional <span> for JS to fill at runtime
+  caption_in_margin: true            # optional — pull caption into right margin
+                                     # (figure stays at its natural width)
   caption: |                        # markdown
     Annual price index for ten focal materials, 1995–2022, normalized
     on 2015 USD level. Source: USGS MCS 2025.
@@ -231,6 +233,28 @@ gets the global Prussian-blue top/bottom rule automatically.
 - (none) → 16:9 (default for charts)
 - `map-frame` → 21:9 (for world maps)
 - `tall-frame` → 4:3 (for tall layouts like Sankey)
+
+**Figure width** is controlled by `figure_size`:
+- `text` (default) → centred at 70vw — the global house style
+- `text-wide` → text column + 50% on each side, centred (~95vw)
+- `bleed` → full viewport, edge to edge
+
+Maps (`frame_class: map-frame`) and wide-timeline charts
+(`frame_class: wide-frame`) auto-opt-out of the 70vw default and render
+at full bleed instead. Carousels are a separate block type
+(`type: carousel`) and are not affected.
+
+**Caption position** is controlled separately by `caption_in_margin`:
+- `false` (default) → caption sits below the figure at matching width
+- `true` → caption pulled into the right margin; figure stays at its
+  `figure_size` width
+
+> **Note** — the legacy `figure_size: margin` value is now an alias for
+> `figure_size: bleed, caption_in_margin: true`. It used to shrink the
+> iframe to ~28rem, but Plotly chart text (titles, axis labels) is SVG and
+> doesn't reflow with the iframe — the result was clipped titles and
+> overlapping ticks. Author new figures with the explicit
+> `caption_in_margin: true` field instead.
 
 ---
 
@@ -338,12 +362,23 @@ oxblood / orange via `tone:`).
 - type: factbox
   heading: "The Cobalt Trap"
   tone: oxblood                   # 'neutral' (default) | 'orange' | 'oxblood'
+  align: right                    # optional: omit | 'left' | 'right'
+                                  # omit  → renders inline within the prose column
+                                  # right → floats into the right margin
+                                  # left  → floats into the left margin (mirror)
   body: |
     **DRC mines 76%** of global cobalt as crude hydroxide; the material
     ships out as a partially processed export. **China refines 80%** of it.
 
     The ore-holder earns the extraction risk. The refiner captures the value.
 ```
+
+**Margin positioning.** When a factbox immediately follows a long-enough
+prose block (≥ 2 paragraphs OR ≥ 600 chars), `build_index` automatically
+absorbs it into that prose and renders it as a margin aside. The same
+`align: left | right` field controls which margin it floats into; the
+default is `right` to match historical behaviour. Set `align: left` when
+you want the box to wrap text on its right side instead.
 
 ---
 

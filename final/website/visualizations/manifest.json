@@ -15,7 +15,15 @@
         },
         {
           "file": "website\\visualizations\\stakes\\price_index.html",
-          "purpose": "Price shock opener"
+          "purpose": "5.1 Price shock opener (1900-2024, real/nominal toggle)"
+        },
+        {
+          "file": "website\\visualizations\\stakes\\price_index_zoom.html",
+          "purpose": "5.1b Modern-era zoom (2000-2024)"
+        },
+        {
+          "file": "website\\visualizations\\stakes\\production_history.html",
+          "purpose": "5.2 World mine production 1900-2024"
         },
         {
           "file": "website\\visualizations\\stakes\\end_uses.html",
@@ -55,7 +63,35 @@
         },
         {
           "file": "website\\visualizations\\supply-chain\\sankey_cobalt.html",
-          "purpose": "Case 2 cobalt concentration"
+          "purpose": "5.3 carousel - Cobalt"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_lithium.html",
+          "purpose": "5.3 carousel - Lithium"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_graphite.html",
+          "purpose": "5.3 carousel - Graphite"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_copper.html",
+          "purpose": "5.3 carousel - Copper"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_platinum.html",
+          "purpose": "5.3 carousel - Platinum"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_gallium.html",
+          "purpose": "5.3 carousel - Gallium"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_rare_earths.html",
+          "purpose": "5.3 carousel - Rare Earths"
+        },
+        {
+          "file": "website\\visualizations\\supply-chain\\sankey_master.html",
+          "purpose": "5.5 All-material chokepoint Sankey"
         }
       ]
     },

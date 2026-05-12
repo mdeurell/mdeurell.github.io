@@ -1,18 +1,18 @@
 # Section 8 — Two supply chains, or one? Five-bloc decomposition of China's
 # critical-mineral export value, 2010–2024, plus swing-states / EU / India.
-id: bifurcation-blocs
+id: bifurcation
 class: longform--econ
 blocks:
   - type: prose
-    id: bifurcation-blocs
+    id: bifurcation
     class: longform--econ
-    eyebrow: "Section 8 &nbsp;·&nbsp; Two supply chains, or one?"
+    eyebrow: "Section 9 &nbsp;·&nbsp; Two supply chains, or one?"
     heading: "Belt &amp; Road, the West, India, and the EU"
     dropcap: true
     text: |
-      Section 7 showed that the chokepoint cuts both ways — China
+      Section 8 showed that the chokepoint cuts both ways — China
       cannot weaponise refining without losing its upstream feed.
-      Section 8 asks the next question: is the world building two
+      Section 9 asks the next question: is the world building two
       parallel supply chains around that fact, or is it staying
       tangled?
 
@@ -42,7 +42,7 @@ blocks:
       through Chinese processing, with shifting downstream
       distribution. A bipolar future would require either a
       substantial non-Chinese refining capacity to emerge (the
-      structural argument of Section 8) or a deliberate policy
+      structural argument of Section 5) or a deliberate policy
       fragmentation that the trade record does not yet reflect.
 
   - type: figure
@@ -51,7 +51,8 @@ blocks:
     title: "China critical-mineral export value, share by bloc, 2010-2024"
     aria_label: "Bloc split timeline"
     section_class: story-section--econ
-    figure_number: "Figure 8.1"
+    figure_number: "Figure 9.1"
+    figure_size: text
     caption: |
       China's critical-mineral export value, share by bloc, 2010–2024.
       Five-bloc decomposition: Western alliance (US, UK, Japan, South
@@ -90,10 +91,12 @@ blocks:
       upstream reporters — Australia, Chile, Indonesia, India and the
       DRC — and shows the destination mix for each year, 2000–2024.
 
-      Australia's pattern is the textbook "playing both sides" case:
-      sells overwhelmingly to China across the panel, but the Western
-      share is not zero, and the recent slope on the Western line is
-      upward. Chile is similar in shape, with a slower transition.
+      Australia's pattern (Pilgangoora and Greenbushes spodumene, Mt
+      Weld rare-earth concentrate) is the textbook "playing both sides"
+      case: sells overwhelmingly to China across the panel, but the
+      Western share is not zero, and the recent slope on the Western
+      line is upward. Chile (Atacama brine via SQM and Albemarle) is
+      similar in shape, with a slower transition.
       Indonesia tilts hard toward China as Chinese smelter capital
       poured into the country's nickel sector after the 2014 raw-ore
       ban. India is the interesting outlier — its export base is
@@ -110,7 +113,7 @@ blocks:
     aria_label: "Swing states small multiples"
     section_class: story-section--econ
     frame_class: tall-frame
-    figure_number: "Figure 8.2"
+    figure_number: "Figure 9.2"
     caption: |
       Five-panel small-multiples. Each panel: one upstream country's
       exports of the eight focal HS codes (REE bundle + lithium
@@ -163,7 +166,8 @@ blocks:
     title: "The urban-mining gap"
     aria_label: "Recycling vs demand growth"
     section_class: story-section--econ
-    figure_number: "Figure 8.3"
+    figure_number: "Figure 9.3"
+    figure_size: text
     caption: |
       Left panel: end-of-life recycling input rate per material, %
       share of annual supply that comes from recovered secondary
@@ -186,19 +190,17 @@ blocks:
       The countries that *aren't* China are not lining up in one row.
       Three modes are visible in the trade record:
 
-      - **Playing both sides.** Australia signed the 2025 US-Australia
-        Critical Minerals framework (a $3.5 B commitment) while
-        continuing to ship lithium spodumene and iron ore to China,
-        its largest customer. Chile holds joint lithium operations
-        with Chinese capital (SQM–Tianqi) and MoUs with the EU and US.
-      - **Caught in the middle.** The EU-27+ and India both buy heavily
+      - **Playing both sides.** Australia and Chile keep selling to
+        China while signing Western offset deals on the side (the
+        2025 US-Australia framework detailed in Section 8 is the
+        cleanest example).
+      - **Caught in the middle.** The EU-27+ and India buy heavily
         from China while signing offset deals elsewhere — EU with
-        Canada, Ukraine and Chile under the Critical Raw Materials Act;
-        India with Australia and African producers. Neither has the
-        refining capacity to actually break free.
+        Canada, Ukraine and Chile under the Critical Raw Materials
+        Act; India with Australia and African producers. Neither has
+        the refining capacity to break free.
       - **No good options.** The DRC sells cobalt almost exclusively
-        into the Chinese refining channel because nothing else exists
-        at scale. Indonesia banned raw-nickel exports in 2014 to force
-        smelter investment, then accepted Chinese capital to build
-        that smelter capacity — a forced re-routing through China,
-        not away from it.
+        into the Chinese channel because nothing else exists at scale.
+        Indonesia banned raw-nickel exports in 2014 to force smelter
+        investment, then accepted Chinese capital to build it — a
+        forced re-routing through China, not away from it.

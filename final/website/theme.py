@@ -105,26 +105,29 @@ LAYOUT = dict(
 
 # ── Plotly Layout (newspaper / paper aesthetic) ─────────────
 # Used as the default site-wide theme. Paper-warm background, ink text,
-# molten-orange thin rules, Playfair Display titles, Lato chrome.
+# Prussian-blue thin rules, Playfair Display titles, Lato chrome.
+# Sizes are calibrated for the site's 70vw default figure width
+# (~900px iframe). Charts displayed at full bleed still look fine; charts
+# squeezed below ~600px will start to crowd.
 LAYOUT_NEWSPAPER = dict(
     font=dict(
         family=FONT_FAMILY,
         color=PAPER_INK,
-        size=17,
+        size=14,
     ),
     title=dict(
-        font=dict(family=FONT_SERIF, size=40, color=PAPER_INK),
+        font=dict(family=FONT_SERIF, size=28, color=PAPER_INK),
         x=0.0,
         xanchor="left",
         y=0.97,
         yanchor="top",
-        pad=dict(l=4, t=12, b=14),
+        pad=dict(l=4, t=10, b=10),
     ),
     paper_bgcolor=PAPER_WARM,
     plot_bgcolor=PAPER_WARM,
-    margin=dict(l=80, r=40, t=140, b=130),
+    margin=dict(l=70, r=40, t=110, b=90),
     legend=dict(
-        font=dict(family=FONT_FAMILY, size=18, color=PAPER_INK),
+        font=dict(family=FONT_FAMILY, size=13, color=PAPER_INK),
         bgcolor="rgba(0,0,0,0)",
         borderwidth=0,
         orientation="h",
@@ -139,20 +142,20 @@ LAYOUT_NEWSPAPER = dict(
         zerolinecolor=PAPER_RULE,
         linecolor=PAPER_RULE,
         tickcolor=PAPER_RULE,
-        tickfont=dict(family=FONT_FAMILY, size=17, color=PAPER_INK),
-        title=dict(font=dict(family=FONT_FAMILY, size=17, color=PAPER_INK)),
+        tickfont=dict(family=FONT_FAMILY, size=13, color=PAPER_INK),
+        title=dict(font=dict(family=FONT_FAMILY, size=13, color=PAPER_INK)),
     ),
     yaxis=dict(
         gridcolor=PAPER_RULE_S,
         zerolinecolor=PAPER_RULE,
         linecolor=PAPER_RULE,
         tickcolor=PAPER_RULE,
-        tickfont=dict(family=FONT_FAMILY, size=17, color=PAPER_INK),
-        title=dict(font=dict(family=FONT_FAMILY, size=17, color=PAPER_INK)),
+        tickfont=dict(family=FONT_FAMILY, size=13, color=PAPER_INK),
+        title=dict(font=dict(family=FONT_FAMILY, size=13, color=PAPER_INK)),
     ),
     hoverlabel=dict(
         bgcolor=PAPER_INK,
-        font=dict(family=FONT_FAMILY, size=15, color=PAPER_WARM),
+        font=dict(family=FONT_FAMILY, size=13, color=PAPER_WARM),
         bordercolor=MOLTEN_ORANGE,
     ),
     colorway=COLORS,
@@ -185,7 +188,20 @@ def write_chart(fig, path, *, static=False, legend_pos="top", legend_y=None):
     - Re-applies Lato to all ticks and Playfair to subplot titles.
     - `static=True` disables ALL interactions (used for Sankey).
     """
+    # Snapshot any chart-specific margin BEFORE apply_theme — otherwise
+    # LAYOUT_NEWSPAPER's default margin clobbers what the builder set.
+    user_margin = None
+    try:
+        m = fig.layout.margin
+        if m and (m.l is not None or m.r is not None or m.t is not None or m.b is not None):
+            user_margin = dict(l=m.l, r=m.r, t=m.t, b=m.b)
+    except Exception:
+        pass
+
     apply_theme(fig)
+
+    if user_margin is not None:
+        fig.update_layout(margin={k: v for k, v in user_margin.items() if v is not None})
 
     if legend_pos == "top":
         ly = 1.06 if legend_y is None else legend_y
@@ -208,6 +224,14 @@ def write_chart(fig, path, *, static=False, legend_pos="top", legend_y=None):
             bgcolor="rgba(0,0,0,0)", borderwidth=0,
             title=dict(text=""),
         ))
+        # apply_theme's LAYOUT_NEWSPAPER stamps r=40 onto every chart,
+        # which leaves the plot off-axis from a paper-centred legend.
+        # Re-symmetrize after the fact.
+        try:
+            ml = int(fig.layout.margin.l or 80)
+            fig.update_layout(margin=dict(r=ml))
+        except Exception:
+            pass
     elif legend_pos == "bottom":
         ly = -0.22 if legend_y is None else legend_y
         fig.update_layout(legend=dict(
@@ -224,12 +248,12 @@ def write_chart(fig, path, *, static=False, legend_pos="top", legend_y=None):
     # area (not the iframe edge). Plotly's title.x is paper-fractional;
     # we pad it by the left margin in pixels.
     try:
-        left_margin_px = int(fig.layout.margin.l or 80)
+        left_margin_px = int(fig.layout.margin.l or 70)
     except Exception:
-        left_margin_px = 80
+        left_margin_px = 70
     fig.update_layout(title=dict(
         x=0.0, xanchor="left",
-        pad=dict(l=left_margin_px, t=12, b=14),
+        pad=dict(l=left_margin_px, t=10, b=10),
     ))
 
     # Enforce axis fonts on every axis (including subplots)
@@ -275,11 +299,27 @@ def write_chart(fig, path, *, static=False, legend_pos="top", legend_y=None):
     # Suppress scrollbars on the embedded body and force the plot to fill
     # the iframe — site CSS handles the outer aspect ratio.
     html = Path(path).read_text(encoding="utf-8")
-    inject = (
+    inject_css = (
         "<style>html,body{margin:0;padding:0;overflow:hidden;height:100%;}"
         ".plotly-graph-div{width:100% !important;height:100% !important;}</style>"
     )
-    html = html.replace("</head>", inject + "</head>", 1)
+    # ResizeObserver — Plotly's autosize only fires on window.resize, which
+    # doesn't trigger when the iframe is sized by CSS aspect-ratio after
+    # initial render. Without this, charts render at the iframe's first
+    # observed pixel width and never grow — visible as plots squeezed into
+    # the left half of the iframe even though the iframe itself spans full
+    # width.
+    inject_js = (
+        "<script>window.addEventListener('load',function(){"
+        "var d=document.querySelector('.plotly-graph-div');"
+        "if(!d||!window.Plotly)return;"
+        "var resize=function(){Plotly.Plots.resize(d);};"
+        "resize();"
+        "if(window.ResizeObserver){new ResizeObserver(resize).observe(document.body);}"
+        "window.addEventListener('resize',resize);"
+        "});</script>"
+    )
+    html = html.replace("</head>", inject_css + inject_js + "</head>", 1)
     Path(path).write_text(html, encoding="utf-8")
     return path
 

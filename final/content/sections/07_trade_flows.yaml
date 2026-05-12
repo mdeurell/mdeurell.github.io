@@ -10,11 +10,11 @@ blocks:
   - type: prose
     id: trade-flows
     class: longform--econ
-    eyebrow: "Section 6 &nbsp;·&nbsp; How the materials actually move"
+    eyebrow: "Section 7 &nbsp;·&nbsp; How the materials actually move"
     heading: "Where China gets its rock — and where the West can fight back"
     dropcap: true
     text: |
-      Section 6 made the chokepoint visible. The next question is
+      Section 5 made the chokepoint visible. The next question is
       *who feeds it*. China refines, but it does not mine most of what
       it refines — copper concentrate, cobalt mattes, lithium carbonate,
       rare-earth ores, graphite flake, platinum concentrate all arrive
@@ -74,7 +74,7 @@ blocks:
     aria_label: "Upstream supplier map"
     section_class: story-section--econ
     frame_class: map-frame
-    figure_number: "Figure 6.1"
+    figure_number: "Figure 7.1"
     caption: |
       Top-ten upstream supplier countries to China across seven focal
       materials, 2015–2023 cumulative import value, China as reporter.
@@ -121,7 +121,7 @@ blocks:
     aria_label: "Multi-form HS trade view"
     section_class: story-section--econ
     frame_class: tall-frame
-    figure_number: "Figure 6.2"
+    figure_number: "Figure 7.2"
     caption: |
       Annual import value into China, decomposed by HS-coded form per
       material, 2000–2024. Each band in a panel is one HS code; the
@@ -173,7 +173,7 @@ blocks:
     toggles:
       - { label: "Refined out", flow: "exports", src: "visualizations/bifurcation/china_flow_exports.html", active: true }
       - { label: "Raw in",      flow: "imports", src: "visualizations/bifurcation/china_flow_imports.html", active: false }
-    figure_number: "Figure 6.3"
+    figure_number: "Figure 7.3"
     caption: |
       Animated bilateral trade flows with China as reporter,
       2000–2024. Each arc connects China to one of its top-fifteen

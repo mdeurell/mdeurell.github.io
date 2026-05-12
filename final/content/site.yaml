@@ -20,30 +20,34 @@ hero:
   byline: DTU 02806 &nbsp;·&nbsp; Social Data Analysis &amp; Visualization
 
 nav:
-  - { href: "#stakes",       label: "Why it matters" }
-  - { href: "#deposits",     label: "Where they are" }
-  - { href: "#case-1",       label: "Value chain" }
-  - { href: "#bifurcation",  label: "Trade split" }
-  - { href: "#conclusion",   label: "Conclusion" }
+  - { href: "#stakes",         label: "Why it matters" }
+  - { href: "#deposits",       label: "Where they are" }
+  - { href: "#case-1",         label: "Value chain" }
+  - { href: "#supply-chain",   label: "Supply chain" }
+  - { href: "#bifurcation",    label: "Trade split" }
+  - { href: "#conclusion",     label: "Conclusion" }
 
 footer:
   title: Critical Earth
   body: Built from processed master datasets and standalone exported visualizations only.
 
 # Sections are rendered in order. Each file lives in content/sections/.
+# Numbering convention (rendered in eyebrows):
+#   0 prologue · 1 high-tech · 2 portfolio · 3 deposits · 4 locks · 5 supply chain
+#   PART II
+#   6 prices · 7 trade · 8 dependencies · 9 bifurcation · 10 conclusion
 sections:
   - 00_prologue.yaml
   - 01_high_tech.yaml
   - 01_portfolio.yaml
   - 02_deposits.yaml
-  - 03_new_section.yaml
-  # - 003_attractive.yaml   # superseded by 03_new_section.yaml
-  # - 003_processing.yaml   # superseded by 03_new_section.yaml
-  - 05_chapter_mark.yaml
-  - 05_economics.yaml
-  - 06_supply_chain.yaml
-  - 07_trade_flows.yaml
-  - 08_dependencies.yaml
-  - 09_bifurcation_blocs.yaml
-  - 07_new_conclusion.yaml
-  # - 10_conclusion.yaml
+  - 03_new_section.yaml          # Sec 4 — locks
+  - 06_supply_chain.yaml         # Sec 5 — supply chain (moved BEFORE Part II)
+  - 05_chapter_mark.yaml         # Part II divider
+  - 05_economics.yaml            # Sec 6 — prices & volumes
+  - 07_trade_flows.yaml          # Sec 7
+  - 08_dependencies.yaml         # Sec 8
+  - 09_bifurcation_blocs.yaml    # Sec 9
+  - 10_conclusion.yaml           # Sec 10 — replaces 07_new_conclusion
+# Superseded section files have been moved to content/sections/archive/.
+# See archive/README.md for what's there and why.
